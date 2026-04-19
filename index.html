@@ -1623,5 +1623,405 @@
   });
 </script>
 
+<!-- ── WHAT SHOULD YOU USE ── -->
+<section class="recommend-section">
+  <div class="recommend-grid">
+
+    <!-- Left Side -->
+    <div class="recommend-left">
+      <h2 class="recommend-headline">What Should<br>You <span class="rec-highlight">Use?</span></h2>
+      <p class="recommend-subtext">Select your skin type and problem to get Dr. Meera's recommended product types for your daily routine.</p>
+
+      <div class="filter-group">
+        <div class="filter-label">Skin Type</div>
+        <div class="pill-row" id="skinPills">
+          <button class="pill active" data-value="oily">Oily</button>
+          <button class="pill" data-value="dry">Dry</button>
+          <button class="pill" data-value="combination">Combination</button>
+          <button class="pill" data-value="sensitive">Sensitive</button>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <div class="filter-label">Main Concern</div>
+        <div class="pill-row" id="concernPills">
+          <button class="pill active" data-value="acne">Acne</button>
+          <button class="pill" data-value="darkspots">Dark Spots</button>
+          <button class="pill" data-value="dryness">Dryness</button>
+          <button class="pill" data-value="antiaging">Anti-Aging</button>
+        </div>
+      </div>
+
+      <button class="rec-cta" id="getRecBtn">Get Recommendations →</button>
+    </div>
+
+    <!-- Right Side: Product Cards -->
+    <div class="recommend-right" id="recResults">
+      <div class="rec-product">
+        <div class="rec-icon">🧴</div>
+        <div class="rec-info">
+          <h4>Foaming Salicylic Cleanser</h4>
+          <p>2% BHA. Unclogs pores, controls oil, reduces acne-causing bacteria.</p>
+        </div>
+      </div>
+      <div class="rec-product">
+        <div class="rec-icon">💧</div>
+        <div class="rec-info">
+          <h4>Niacinamide 10% Toner</h4>
+          <p>Reduces pores and sebum. Calms inflammation and redness.</p>
+        </div>
+      </div>
+      <div class="rec-product">
+        <div class="rec-icon">☀️</div>
+        <div class="rec-info">
+          <h4>Matte Zinc SPF 50</h4>
+          <p>Zinc oxide sunscreen — also has mild anti-acne properties.</p>
+        </div>
+      </div>
+      <a href="#" class="rec-prescription-cta">Get a Personalised Prescription →</a>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* ── RECOMMEND SECTION ── */
+  .recommend-section {
+    background: #fafaf8;
+    padding: 80px 64px;
+  }
+
+  .recommend-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    max-width: 1280px;
+    margin: 0 auto;
+    align-items: start;
+  }
+
+  .recommend-headline {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: clamp(36px, 4vw, 56px);
+    line-height: 1.1;
+    color: var(--dark);
+    margin-bottom: 16px;
+  }
+
+  .rec-highlight {
+    position: relative;
+    display: inline-block;
+  }
+
+  .rec-highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: -4px;
+    right: -4px;
+    height: 14px;
+    background: #ffe066;
+    z-index: -1;
+    border-radius: 2px;
+  }
+
+  .recommend-subtext {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--gray-600);
+    max-width: 440px;
+    margin-bottom: 32px;
+  }
+
+  /* Filter Groups */
+  .filter-group {
+    margin-bottom: 24px;
+  }
+
+  .filter-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: var(--gray-400);
+    margin-bottom: 12px;
+  }
+
+  .pill-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .pill {
+    padding: 10px 22px;
+    border-radius: 100px;
+    border: 1.5px solid #ddd;
+    background: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gray-600);
+    cursor: pointer;
+    transition: all 0.25s;
+  }
+
+  .pill:hover {
+    border-color: #0d7377;
+    color: #0d7377;
+  }
+
+  .pill.active {
+    background: #0d7377;
+    border-color: #0d7377;
+    color: var(--white);
+    box-shadow: 0 3px 12px rgba(13, 115, 119, 0.25);
+  }
+
+  .rec-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+    padding: 14px 32px;
+    border-radius: 12px;
+    border: none;
+    background: var(--pink-cta);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s;
+    box-shadow: 0 4px 16px rgba(232, 76, 106, 0.3);
+  }
+
+  .rec-cta:hover {
+    background: var(--pink-cta-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(232, 76, 106, 0.4);
+  }
+
+  /* ── Right: Product Results ── */
+  .recommend-right {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .rec-product {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 24px;
+    background: var(--white);
+    border-radius: 16px;
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    transition: all 0.25s;
+  }
+
+  .rec-product:hover {
+    box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+  }
+
+  .rec-icon {
+    font-size: 28px;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f5f5f2;
+    border-radius: 12px;
+    flex-shrink: 0;
+  }
+
+  .rec-info h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 4px;
+  }
+
+  .rec-info p {
+    font-size: 14px;
+    color: var(--gray-600);
+    line-height: 1.5;
+  }
+
+  .rec-prescription-cta {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 18px;
+    background: linear-gradient(135deg, #0d7377, #0fa3a8);
+    color: var(--white);
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.25s;
+    box-shadow: 0 4px 16px rgba(13, 115, 119, 0.3);
+    margin-top: 8px;
+  }
+
+  .rec-prescription-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(13, 115, 119, 0.4);
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .recommend-section { padding: 60px 32px; }
+    .recommend-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .recommend-section { padding: 40px 20px; }
+    .rec-product { padding: 18px; gap: 14px; }
+  }
+</style>
+
+<script>
+  // Recommendation data: [skinType][concern]
+  const recData = {
+    oily: {
+      acne: [
+        { icon: "🧴", name: "Foaming Salicylic Cleanser", desc: "2% BHA. Unclogs pores, controls oil, reduces acne-causing bacteria." },
+        { icon: "💧", name: "Niacinamide 10% Toner", desc: "Reduces pores and sebum. Calms inflammation and redness." },
+        { icon: "☀️", name: "Matte Zinc SPF 50", desc: "Zinc oxide sunscreen — also has mild anti-acne properties." }
+      ],
+      darkspots: [
+        { icon: "🍊", name: "Vitamin C 15% Serum", desc: "L-ascorbic acid. Fades post-acne marks & brightens skin." },
+        { icon: "🧪", name: "Alpha Arbutin Essence", desc: "Targets melanin production. Gentle, no irritation." },
+        { icon: "☀️", name: "Broad Spectrum SPF 50", desc: "Non-negotiable. UV exposure worsens dark spots." }
+      ],
+      dryness: [
+        { icon: "💦", name: "Hyaluronic Acid Serum", desc: "Draws moisture into oily-dehydrated skin. Lightweight." },
+        { icon: "🧴", name: "Oil-Free Gel Moisturiser", desc: "Hydrates without adding shine. Water-based formula." },
+        { icon: "🌊", name: "Hydrating Mist", desc: "Quick refresh through the day. No clogging." }
+      ],
+      antiaging: [
+        { icon: "✨", name: "Retinol 0.5% Serum", desc: "Boosts collagen. Start slow — every other night." },
+        { icon: "🧬", name: "Peptide Gel Cream", desc: "Firms skin without heavy textures. Lightweight." },
+        { icon: "☀️", name: "SPF 50 with Antioxidants", desc: "UV protection + free radical defence. Daily must." }
+      ]
+    },
+    dry: {
+      acne: [
+        { icon: "🥛", name: "Gentle Cream Cleanser", desc: "Sulphate-free. Won't strip moisture while treating acne." },
+        { icon: "🧪", name: "Azelaic Acid 15%", desc: "Anti-acne + anti-redness. Won't dry out skin." },
+        { icon: "🧈", name: "Ceramide Moisturiser", desc: "Repairs barrier while keeping breakouts under control." }
+      ],
+      darkspots: [
+        { icon: "🍊", name: "Vitamin C + E Serum", desc: "Antioxidant combo. Brightens and protects dry skin." },
+        { icon: "🌿", name: "Liquorice Extract Cream", desc: "Natural melanin inhibitor. Hydrating base formula." },
+        { icon: "☀️", name: "Moisturising SPF 50", desc: "Cream-based. Double duty: hydration + protection." }
+      ],
+      dryness: [
+        { icon: "💧", name: "Hyaluronic Acid + B5 Serum", desc: "Multi-weight HA. Hydrates at every layer of skin." },
+        { icon: "🧈", name: "Rich Barrier Repair Cream", desc: "Ceramides + cholesterol + fatty acids. Gold standard." },
+        { icon: "🫧", name: "Facial Oil (Squalane)", desc: "Seals in everything. Non-comedogenic, skin-identical." }
+      ],
+      antiaging: [
+        { icon: "✨", name: "Retinol in Squalane", desc: "Retinol buffered in oil. Anti-aging without dryness." },
+        { icon: "🧬", name: "Peptide Rich Night Cream", desc: "Collagen-boosting. Deeply nourishing overnight repair." },
+        { icon: "🧴", name: "Eye Cream with Retinol", desc: "Fine lines around eyes. Gentle, fragrance-free." }
+      ]
+    },
+    combination: {
+      acne: [
+        { icon: "🧴", name: "Gentle Gel Cleanser", desc: "Mild foam for T-zone. Won't over-dry cheeks." },
+        { icon: "💧", name: "BHA + Niacinamide Serum", desc: "Targets oily-zone breakouts. Pore-refining." },
+        { icon: "🌿", name: "Gel-Cream Moisturiser", desc: "Lightweight hybrid. Balances both skin zones." }
+      ],
+      darkspots: [
+        { icon: "🍊", name: "Vitamin C 20% Serum", desc: "High potency brightener. Apply morning only." },
+        { icon: "🧪", name: "Tranexamic Acid Serum", desc: "Newer, effective for stubborn melasma patches." },
+        { icon: "☀️", name: "Hybrid SPF 50", desc: "Chemical + physical filter blend. Lightweight finish." }
+      ],
+      dryness: [
+        { icon: "💦", name: "Hydrating Essence Toner", desc: "Multi-layer application. Plumps dry patches." },
+        { icon: "🧈", name: "Balanced Day Cream", desc: "Nourishes cheeks, doesn't overload T-zone." },
+        { icon: "🌊", name: "Overnight Hydra Mask", desc: "Weekly treatment. Deep moisture while you sleep." }
+      ],
+      antiaging: [
+        { icon: "✨", name: "Retinol 0.3% Serum", desc: "Good starting point. Build tolerance gradually." },
+        { icon: "🧬", name: "Vitamin C + Peptide AM", desc: "Morning combo — brightens + firms simultaneously." },
+        { icon: "☀️", name: "Anti-Aging SPF 50", desc: "Prevents photodamage, the #1 cause of aging." }
+      ]
+    },
+    sensitive: {
+      acne: [
+        { icon: "🌸", name: "Micellar Cleansing Water", desc: "No-rinse gentle option. Zero irritation." },
+        { icon: "🧪", name: "Azelaic Acid 10%", desc: "Lower concentration. Anti-acne without sensitising." },
+        { icon: "☀️", name: "Mineral SPF 50", desc: "Physical sunscreen only. No chemical filters." }
+      ],
+      darkspots: [
+        { icon: "🌿", name: "Bakuchiol + Vitamin C", desc: "Gentle brightening. Plant-based retinol alternative." },
+        { icon: "🧴", name: "Centella Recovery Cream", desc: "Calms while treating. No fragrance, no dyes." },
+        { icon: "☀️", name: "Tinted Mineral SPF", desc: "Protection + coverage. Covers spots while healing." }
+      ],
+      dryness: [
+        { icon: "💧", name: "Ceramide Hydrating Toner", desc: "Barrier repair at the toner step. Fragrance-free." },
+        { icon: "🧈", name: "Squalane + Centella Balm", desc: "Ultra-calming occlusive. Heals dry, irritated patches." },
+        { icon: "🫧", name: "Rosehip Facial Oil", desc: "Natural, anti-inflammatory. Seals moisture gently." }
+      ],
+      antiaging: [
+        { icon: "🌸", name: "Bakuchiol Serum", desc: "Retinol alternative. Zero irritation, proven results." },
+        { icon: "🧬", name: "Peptide Calming Cream", desc: "Firms skin with peptides. No actives that sting." },
+        { icon: "☀️", name: "Mineral SPF with Niacinamide", desc: "Gentle protection + barrier support daily." }
+      ]
+    }
+  };
+
+  // Pill click logic
+  function setupPills(containerId) {
+    const pills = document.querySelectorAll(`#${containerId} .pill`);
+    pills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        pills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+      });
+    });
+  }
+  setupPills('skinPills');
+  setupPills('concernPills');
+
+  // Get Recommendations button
+  document.getElementById('getRecBtn').addEventListener('click', () => {
+    const skin = document.querySelector('#skinPills .pill.active').dataset.value;
+    const concern = document.querySelector('#concernPills .pill.active').dataset.value;
+    const products = recData[skin][concern];
+
+    const resultsEl = document.getElementById('recResults');
+    resultsEl.style.opacity = '0';
+    resultsEl.style.transform = 'translateY(10px)';
+
+    setTimeout(() => {
+      resultsEl.innerHTML = products.map(p => `
+        <div class="rec-product">
+          <div class="rec-icon">${p.icon}</div>
+          <div class="rec-info">
+            <h4>${p.name}</h4>
+            <p>${p.desc}</p>
+          </div>
+        </div>
+      `).join('') + `<a href="#" class="rec-prescription-cta">Get a Personalised Prescription →</a>`;
+
+      resultsEl.style.opacity = '1';
+      resultsEl.style.transform = 'translateY(0)';
+    }, 250);
+  });
+</script>
+
 </body>
 </html>

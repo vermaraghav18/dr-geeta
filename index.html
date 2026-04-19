@@ -1176,5 +1176,452 @@
   document.getElementById('detailPanel').style.transition = 'opacity 0.3s ease, transform 0.3s ease';
 </script>
 
+<!-- ── DAILY SKIN ROUTINE ── -->
+<section class="routine-section">
+  <div class="routine-grid">
+
+    <!-- Left Side -->
+    <div class="routine-left">
+      <div class="routine-badge">☀ Daily Guide</div>
+      <h2 class="routine-headline">Your Daily<br><span class="routine-highlight">Skin Routine</span></h2>
+      <p class="routine-subtext">Dr. Meera-approved morning and night routines tailored to your skin type.</p>
+
+      <div class="skin-type-list">
+        <button class="skin-type-item" data-skin="0">
+          <span class="skin-icon">💧</span>
+          <span class="skin-label">Oily Skin</span>
+          <span class="skin-arrow">→</span>
+        </button>
+        <button class="skin-type-item active" data-skin="1">
+          <span class="skin-icon">🏜</span>
+          <span class="skin-label">Dry Skin</span>
+          <span class="skin-arrow">→</span>
+        </button>
+        <button class="skin-type-item" data-skin="2">
+          <span class="skin-icon">⚖</span>
+          <span class="skin-label">Combination Skin</span>
+          <span class="skin-arrow">→</span>
+        </button>
+        <button class="skin-type-item" data-skin="3">
+          <span class="skin-icon">🌸</span>
+          <span class="skin-label">Sensitive Skin</span>
+          <span class="skin-arrow">→</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Right Side: Routine Steps -->
+    <div class="routine-right" id="routineRight">
+
+      <!-- Morning Routine -->
+      <div class="routine-block">
+        <div class="routine-block-tag morning">☀ Morning Routine</div>
+        <div class="routine-steps" id="morningSteps">
+          <div class="routine-step">
+            <div class="step-num">01</div>
+            <div class="step-info">
+              <h4>Cream Cleanser</h4>
+              <p>Gentle, hydrating. Absolutely no sulphates.</p>
+            </div>
+          </div>
+          <div class="routine-step">
+            <div class="step-num">02</div>
+            <div class="step-info">
+              <h4>Hydrating Toner</h4>
+              <p>Layer 2–3 times on damp skin for deep hydration.</p>
+            </div>
+          </div>
+          <div class="routine-step">
+            <div class="step-num">03</div>
+            <div class="step-info">
+              <h4>Hyaluronic Acid Serum</h4>
+              <p>Apply on damp skin — absorbs much better.</p>
+            </div>
+          </div>
+          <div class="routine-step">
+            <div class="step-num">04</div>
+            <div class="step-info">
+              <h4>Rich Moisturising Cream</h4>
+              <p>Ceramides + shea butter. Lock everything in.</p>
+            </div>
+          </div>
+          <div class="routine-step">
+            <div class="step-num">05</div>
+            <div class="step-info">
+              <h4>Moisturising SPF 50</h4>
+              <p>Cream-based. Adds another hydration layer on top.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Night Routine -->
+      <div class="routine-block">
+        <div class="routine-block-tag night">🌙 Night Routine</div>
+        <div class="routine-steps" id="nightSteps">
+          <div class="routine-step">
+            <div class="step-num">01</div>
+            <div class="step-info">
+              <h4>Oil Cleanser</h4>
+              <p>Removes sunscreen & makeup gently. Double cleanse.</p>
+            </div>
+          </div>
+          <div class="routine-step">
+            <div class="step-num">02</div>
+            <div class="step-info">
+              <h4>Cream Cleanser</h4>
+              <p>Second cleanse — same gentle, sulphate-free formula.</p>
+            </div>
+          </div>
+          <div class="routine-step">
+            <div class="step-num">03</div>
+            <div class="step-info">
+              <h4>Hydrating Toner</h4>
+              <p>Prep skin to absorb night treatments better.</p>
+            </div>
+          </div>
+          <div class="routine-step">
+            <div class="step-num">04</div>
+            <div class="step-info">
+              <h4>Retinol Serum</h4>
+              <p>Start low (0.25%). Build up slowly over weeks.</p>
+            </div>
+          </div>
+          <div class="routine-step">
+            <div class="step-num">05</div>
+            <div class="step-info">
+              <h4>Night Repair Cream</h4>
+              <p>Rich barrier repair. Peptides + ceramides ideal.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ── ROUTINE SECTION ── */
+  .routine-section {
+    background: #0f1117;
+    padding: 80px 64px;
+    overflow: hidden;
+  }
+
+  .routine-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    max-width: 1280px;
+    margin: 0 auto;
+    align-items: start;
+  }
+
+  .routine-badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: #a8e6cf;
+    background: rgba(168, 230, 207, 0.1);
+    padding: 6px 16px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+  }
+
+  .routine-headline {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: clamp(36px, 4vw, 56px);
+    line-height: 1.1;
+    color: #ffffff;
+    margin-bottom: 16px;
+  }
+
+  .routine-highlight {
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(135deg, #a8e6cf, #88d8a8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .routine-subtext {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #8a8d98;
+    max-width: 420px;
+    margin-bottom: 36px;
+  }
+
+  /* Skin Type List */
+  .skin-type-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .skin-type-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    background: rgba(255,255,255,0.04);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #c8c9cf;
+    text-align: left;
+    width: 100%;
+  }
+
+  .skin-type-item:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.15);
+    color: #ffffff;
+  }
+
+  .skin-type-item.active {
+    background: var(--pink-cta);
+    border-color: var(--pink-cta);
+    color: var(--white);
+    box-shadow: 0 6px 24px rgba(232, 76, 106, 0.35);
+  }
+
+  .skin-icon {
+    font-size: 20px;
+    width: 36px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .skin-label { flex: 1; }
+
+  .skin-arrow {
+    font-size: 18px;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .skin-type-item.active .skin-arrow,
+  .skin-type-item:hover .skin-arrow {
+    opacity: 1;
+  }
+
+  /* ── Routine Right ── */
+  .routine-right {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .routine-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .routine-block-tag {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    margin-bottom: 20px;
+    padding-left: 4px;
+  }
+
+  .routine-block-tag.morning { color: #f5a623; }
+  .routine-block-tag.night { color: #74b9ff; }
+
+  .routine-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .routine-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 18px 20px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: all 0.25s;
+  }
+
+  .routine-step:hover {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(255,255,255,0.1);
+  }
+
+  .step-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: rgba(255,255,255,0.12);
+    line-height: 1;
+    min-width: 40px;
+    padding-top: 2px;
+  }
+
+  .step-info h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #e8e8ec;
+    margin-bottom: 4px;
+  }
+
+  .step-info p {
+    font-size: 14px;
+    color: #6b6e7a;
+    line-height: 1.5;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .routine-section { padding: 60px 32px; }
+    .routine-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .routine-section { padding: 40px 20px; }
+    .routine-step { gap: 14px; padding: 14px 16px; }
+    .step-num { font-size: 22px; min-width: 30px; }
+  }
+</style>
+
+<script>
+  // Routine data per skin type
+  const routineData = [
+    { // Oily Skin
+      morning: [
+        { name: "Gel Cleanser", desc: "Foaming, oil-free. Removes excess sebum." },
+        { name: "BHA Toner (Salicylic Acid)", desc: "Unclogs pores. Use 2% concentration." },
+        { name: "Niacinamide Serum", desc: "Controls oil + minimises pore appearance." },
+        { name: "Lightweight Gel Moisturiser", desc: "Oil-free, non-comedogenic. No heavy creams." },
+        { name: "Mattifying SPF 50", desc: "Gel or fluid formula. No white cast." }
+      ],
+      night: [
+        { name: "Micellar Water", desc: "First cleanse — removes sunscreen & grime." },
+        { name: "Gel Cleanser", desc: "Second cleanse — deep clean without stripping." },
+        { name: "BHA Exfoliant", desc: "2–3 nights/week. Don't overdo it." },
+        { name: "Retinol Serum", desc: "Alternate nights with BHA. Never combine." },
+        { name: "Oil-Free Night Gel", desc: "Hydrates without clogging. Hyaluronic acid base." }
+      ]
+    },
+    { // Dry Skin
+      morning: [
+        { name: "Cream Cleanser", desc: "Gentle, hydrating. Absolutely no sulphates." },
+        { name: "Hydrating Toner", desc: "Layer 2–3 times on damp skin for deep hydration." },
+        { name: "Hyaluronic Acid Serum", desc: "Apply on damp skin — absorbs much better." },
+        { name: "Rich Moisturising Cream", desc: "Ceramides + shea butter. Lock everything in." },
+        { name: "Moisturising SPF 50", desc: "Cream-based. Adds another hydration layer on top." }
+      ],
+      night: [
+        { name: "Oil Cleanser", desc: "Removes sunscreen & makeup gently. Double cleanse." },
+        { name: "Cream Cleanser", desc: "Second cleanse — same gentle, sulphate-free formula." },
+        { name: "Hydrating Toner", desc: "Prep skin to absorb night treatments better." },
+        { name: "Retinol Serum", desc: "Start low (0.25%). Build up slowly over weeks." },
+        { name: "Night Repair Cream", desc: "Rich barrier repair. Peptides + ceramides ideal." }
+      ]
+    },
+    { // Combination Skin
+      morning: [
+        { name: "Gentle Gel Cleanser", desc: "Mild foam — cleans T-zone without drying cheeks." },
+        { name: "Balancing Toner", desc: "Hydrating but not heavy. Green tea or centella." },
+        { name: "Vitamin C Serum", desc: "Brightens + protects. Use under SPF always." },
+        { name: "Light Lotion Moisturiser", desc: "Gel-cream hybrid. Balances both zones." },
+        { name: "Hybrid SPF 50", desc: "Lightweight, dewy finish. Not too matte or greasy." }
+      ],
+      night: [
+        { name: "Micellar Water", desc: "Gentle first cleanse for the full face." },
+        { name: "Gel Cleanser", desc: "Focus on T-zone. Be gentle on cheeks." },
+        { name: "AHA/BHA Toner", desc: "2 nights/week. Targets texture & pores." },
+        { name: "Niacinamide Serum", desc: "Balances sebum + strengthens barrier." },
+        { name: "Moisturising Night Cream", desc: "Medium weight. Apply extra on dry patches." }
+      ]
+    },
+    { // Sensitive Skin
+      morning: [
+        { name: "Micellar Water Rinse", desc: "No rubbing. Pat gently — minimal irritation." },
+        { name: "Centella Toner", desc: "Calming, anti-inflammatory. No fragrance ever." },
+        { name: "Azelaic Acid Serum", desc: "Gentle active. Reduces redness + evens tone." },
+        { name: "Barrier Repair Cream", desc: "Ceramides + squalane. Soothe & protect." },
+        { name: "Mineral SPF 50", desc: "Zinc oxide based. Physical blocker, less irritation." }
+      ],
+      night: [
+        { name: "Cream Cleanser", desc: "Fragrance-free, pH balanced. No foaming agents." },
+        { name: "Calming Toner", desc: "Aloe + chamomile. Skip actives on flare days." },
+        { name: "Bakuchiol Serum", desc: "Plant-based retinol alternative. Much gentler." },
+        { name: "Centella Night Balm", desc: "Thick, occlusive. Heals micro-damage overnight." },
+        { name: "Facial Oil (Optional)", desc: "Rosehip or jojoba. Seal everything in." }
+      ]
+    }
+  ];
+
+  const skinItems = document.querySelectorAll('.skin-type-item');
+
+  function renderRoutine(idx) {
+    const data = routineData[idx];
+    const morningEl = document.getElementById('morningSteps');
+    const nightEl = document.getElementById('nightSteps');
+
+    // Fade out
+    morningEl.style.opacity = '0';
+    morningEl.style.transform = 'translateY(8px)';
+    nightEl.style.opacity = '0';
+    nightEl.style.transform = 'translateY(8px)';
+
+    setTimeout(() => {
+      morningEl.innerHTML = data.morning.map((s, i) => `
+        <div class="routine-step">
+          <div class="step-num">${String(i + 1).padStart(2, '0')}</div>
+          <div class="step-info">
+            <h4>${s.name}</h4>
+            <p>${s.desc}</p>
+          </div>
+        </div>
+      `).join('');
+
+      nightEl.innerHTML = data.night.map((s, i) => `
+        <div class="routine-step">
+          <div class="step-num">${String(i + 1).padStart(2, '0')}</div>
+          <div class="step-info">
+            <h4>${s.name}</h4>
+            <p>${s.desc}</p>
+          </div>
+        </div>
+      `).join('');
+
+      // Fade in
+      morningEl.style.opacity = '1';
+      morningEl.style.transform = 'translateY(0)';
+      nightEl.style.opacity = '1';
+      nightEl.style.transform = 'translateY(0)';
+    }, 250);
+  }
+
+  skinItems.forEach(item => {
+    item.addEventListener('click', () => {
+      skinItems.forEach(i => i.classList.remove('active'));
+      item.classList.add('active');
+      renderRoutine(parseInt(item.dataset.skin));
+    });
+  });
+</script>
+
 </body>
 </html>

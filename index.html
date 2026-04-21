@@ -118,10 +118,11 @@
   grid-template-columns: 1fr 1fr;
   min-height: 460px;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   perspective: 1200px;
   background: radial-gradient(circle at 75% 40%, rgba(232,76,106,0.08), transparent 40%),
               linear-gradient(135deg, #ffffff 0%, #f9f9f7 50%, #f5f0ed 100%);
+  z-index: 2;
 }
   .hero-left {
     display: flex;
@@ -233,7 +234,7 @@
   }
 
   /* ── DOCTOR IMAGE ── */
-  .doctor-img-wrap {
+.doctor-img-wrap {
   position: absolute;
   top: -30px;
   right: 20px;
@@ -242,7 +243,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  z-index: 20;
+  z-index: 30;
   pointer-events: none;
 }
 
@@ -299,13 +300,14 @@
   }
 
   /* ── STATS BAND ── */
-  .stats-band {
-    width: 100%;
-    background: linear-gradient(90deg, #e84c6a, #fe76b8);
-    padding: 18px 60px;
-    position: relative;
-    z-index: 1;
-  }
+ .stats-band {
+  width: 100%;
+  background: linear-gradient(90deg, #e84c6a, #fe76b8);
+  padding: 18px 60px;
+  position: relative;
+  z-index: 1;
+  margin-top: -18px;
+}
 
   .stats-container {
     display: flex;

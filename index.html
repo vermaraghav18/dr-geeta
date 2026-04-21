@@ -242,7 +242,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  z-index: 2;
+  z-index: 20;
   pointer-events: none;
 }
 
@@ -303,6 +303,8 @@
     width: 100%;
     background: linear-gradient(90deg, #e84c6a, #fe76b8);
     padding: 18px 60px;
+    position: relative;
+    z-index: 1;
   }
 
   .stats-container {
@@ -612,11 +614,7 @@
 
 <style>
 /* ── STATS BAND ── */
-.stats-band {
-  width: 100%;
-  background: linear-gradient(90deg, #e84c6a, #fe76b8);
-  padding: 18px 60px;
-}
+
 
 .stats-container {
   display: flex;

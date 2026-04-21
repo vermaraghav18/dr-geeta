@@ -113,17 +113,18 @@
   }
 
   /* ── HERO ── */
-.hero {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 520px;
-  position: relative;
-  overflow: visible;
-  perspective: 1200px;
-  background: radial-gradient(circle at 75% 40%, rgba(232,76,106,0.08), transparent 40%),
-              linear-gradient(135deg, #ffffff 0%, #f9f9f7 50%, #f5f0ed 100%);
-  z-index: 2;
-}
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 500px;
+    position: relative;
+    overflow: visible;
+    perspective: 1200px;
+    background: radial-gradient(circle at 75% 40%, rgba(232,76,106,0.08), transparent 40%),
+                linear-gradient(135deg, #ffffff 0%, #f9f9f7 50%, #f5f0ed 100%);
+    z-index: 2;
+  }
+
   .hero-left {
     display: flex;
     flex-direction: column;
@@ -213,16 +214,16 @@
   }
 
   /* ── HERO RIGHT ── */
-.hero-right {
-  position: relative;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  overflow: visible;
-  will-change: transform, opacity;
-  padding: 0;
-  min-height: 460px;
-}
+  .hero-right {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    overflow: visible;
+    will-change: transform, opacity;
+    padding: 0;
+    min-height: 430px;
+  }
 
   .hero-motion-layer {
     width: 100%;
@@ -234,32 +235,32 @@
   }
 
   /* ── DOCTOR IMAGE ── */
-.doctor-img-wrap {
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  width: 100%;
-  max-width: 680px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  z-index: 30;
-  pointer-events: none;
-}
+  .doctor-img-wrap {
+    position: absolute;
+    top: -50px;
+    right: 10px;
+    width: 100%;
+    max-width: 760px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    z-index: 30;
+    pointer-events: none;
+  }
 
-.doctor-photo {
-  position: relative;
-  z-index: 1;
-  width: auto;
-  max-width: 100%;
-  height: 1200px;
-  object-fit: contain;
-  object-position: top center;
-  display: block;
-  border-radius: 0;
-  transform: none;
-  filter: drop-shadow(0 24px 48px rgba(192, 57, 43, 0.18));
-}
+  .doctor-photo {
+    position: relative;
+    z-index: 1;
+    width: auto;
+    max-width: 100%;
+    height: 1320px;
+    object-fit: contain;
+    object-position: top center;
+    display: block;
+    border-radius: 0;
+    transform: none;
+    filter: drop-shadow(0 24px 48px rgba(192, 57, 43, 0.18));
+  }
 
   .doctor-img-wrap::before,
   .doctor-img-wrap::after {
@@ -300,14 +301,14 @@
   }
 
   /* ── STATS BAND ── */
-.stats-band {
-  width: 100%;
-  background: linear-gradient(90deg, #e84c6a, #fe76b8);
-  padding: 18px 60px;
-  position: relative;
-  z-index: 1;
-  margin-top: 0;
-}
+  .stats-band {
+    width: 100%;
+    background: linear-gradient(90deg, #e84c6a, #fe76b8);
+    padding: 18px 60px;
+    position: relative;
+    z-index: 1;
+    margin-top: 0;
+  }
 
   .stats-container {
     display: flex;
@@ -405,13 +406,13 @@
 
     .doctor-img-wrap {
       right: 50%;
-      top: 0;
-      max-width: 500px;
+      top: -20px;
+      max-width: 560px;
       transform: translateX(50%);
     }
 
     .doctor-photo {
-      height: 540px;
+      height: 760px;
     }
 
     .navbar {
@@ -460,13 +461,13 @@
 
     .doctor-img-wrap {
       right: 50%;
-      top: 0;
-      max-width: 300px;
+      top: -10px;
+      max-width: 340px;
       transform: translateX(50%);
     }
 
     .doctor-photo {
-      height: 340px;
+      height: 430px;
     }
 
     .bubble-1 { right: 1%; }

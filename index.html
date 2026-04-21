@@ -336,15 +336,7 @@
     50%       { transform: translateY(-12px); }
   }
 
-  /* Floating Cards */
-.float-card {
-  position: absolute;
-  background: var(--white);
-  border-radius: 14px;
-  box-shadow: none;
-  padding: 14px 20px;
-  z-index: 10;
-}
+ 
 
   .card-top-derma  { top: 50%; right:80%; }
   .card-treatments { top: 44%; right: 0%; }
@@ -457,22 +449,7 @@
       <!-- Ingredient Bubbles -->
      
 
-      <!-- Floating: Top Dermatologist -->
-      <div class="float-card card-top-derma">
-        <div class="trophy">🏆</div>
-        <div class="label">Top Dermatologist</div>
-        <div class="value">City's #1 Rated</div>
-      </div>
-
-      <!-- Floating: Treatments -->
-      <div class="float-card card-treatments">
-        <div class="label">Treatments</div>
-        <div class="tags">
-          <span>PRP</span>
-          <span>Laser</span>
-          <span>Peels</span>
-        </div>
-      </div>
+      
 
       <!-- Floating: Next Slot -->
     
@@ -480,6 +457,27 @@
     </div>
   </div>
 </section>
+
+
+<!-- ── STATS BAND ── -->
+<div class="stats-band">
+  <div class="stats-container">
+    <div class="stat-item">
+      <div class="stat-value">2000+</div>
+      <div class="stat-label">Patients</div>
+    </div>
+
+    <div class="stat-item">
+      <div class="stat-value">24/7</div>
+      <div class="stat-label">Consultation</div>
+    </div>
+
+    <div class="stat-item">
+      <div class="stat-value">Certified</div>
+      <div class="stat-label">Expert Care</div>
+    </div>
+  </div>
+</div>
 
 <!-- ── TREATMENT MARQUEE ── -->
 <div class="marquee-strip">
@@ -515,7 +513,43 @@
   </div>
 </div>
 
+
+
 <style>
+/* ── STATS BAND ── */
+.stats-band {
+  width: 100%;
+  background: linear-gradient(90deg, #e84c6a, #fe76b8);
+  padding: 18px 60px;
+}
+
+.stats-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* LEFT aligned */
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.stat-value {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.stat-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.85);
+}
 
   .highlight-angled {
   position: relative;

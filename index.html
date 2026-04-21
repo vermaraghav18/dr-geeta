@@ -113,17 +113,16 @@
   }
 
   /* ── HERO ── */
-  .hero {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 680px;
-    position: relative;
-    overflow: hidden;
-    perspective: 1200px;
-    background: radial-gradient(circle at 75% 40%, rgba(232,76,106,0.08), transparent 40%),
-                linear-gradient(135deg, #ffffff 0%, #f9f9f7 50%, #f5f0ed 100%);
-  }
-
+ .hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 560px;
+  position: relative;
+  overflow: hidden;
+  perspective: 1200px;
+  background: radial-gradient(circle at 75% 40%, rgba(232,76,106,0.08), transparent 40%),
+              linear-gradient(135deg, #ffffff 0%, #f9f9f7 50%, #f5f0ed 100%);
+}
   .hero-left {
     display: flex;
     flex-direction: column;
@@ -213,16 +212,16 @@
   }
 
   /* ── HERO RIGHT ── */
-  .hero-right {
-    position: relative;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    overflow: visible;
-    will-change: transform, opacity;
-    padding: 0;
-    min-height: 680px;
-  }
+.hero-right {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  overflow: visible;
+  will-change: transform, opacity;
+  padding: 0;
+  min-height: 560px;
+}
 
   .hero-motion-layer {
     width: 100%;
@@ -235,17 +234,17 @@
 
   /* ── DOCTOR IMAGE ── */
   .doctor-img-wrap {
-    position: absolute;
-    top: -80px;
-    right: 20px;
-    width: 100%;
-    max-width: 620px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    z-index: 2;
-    pointer-events: none;
-  }
+  position: absolute;
+  top: -40px;
+  right: 20px;
+  width: 100%;
+  max-width: 620px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 2;
+  pointer-events: none;
+}
 
   .doctor-photo {
     position: relative;

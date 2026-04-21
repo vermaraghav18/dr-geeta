@@ -337,17 +337,22 @@
   backface-visibility: hidden;
 }
 
+.hero-motion-layer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
   @keyframes float-gentle {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-6px); }
   }
-
-  .card-top-derma {
-    top: 18%;
-    right: 24px;
-    text-align: center;
-    animation-delay: 0s;
-  }
+.card-top-derma {
+  top: 18%;
+  right: 24px;
+  text-align: center;
+  animation: float-gentle 4s ease-in-out infinite;
+}
 
   .card-top-derma .trophy {
     font-size: 24px;
@@ -368,11 +373,12 @@
     color: var(--dark);
   }
 
-  .card-treatments {
-    top: 42%;
-    right: 20px;
-    animation-delay: 1.5s;
-  }
+.card-treatments {
+  top: 42%;
+  right: 20px;
+  animation: float-gentle 4s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
 
   .card-treatments .label {
     font-size: 10px;
@@ -401,14 +407,15 @@
     content: '';
   }
 
-  .card-next-slot {
-    bottom: 12%;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    animation-delay: 0.8s;
-    background: var(--white);
-  }
+.card-next-slot {
+  bottom: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  animation: float-gentle 4s ease-in-out infinite;
+  animation-delay: 0.8s;
+  background: var(--white);
+}
 
   .card-next-slot .label {
     font-size: 10px;
@@ -430,11 +437,6 @@
   }
 
   
-
-  .float-card {
-    opacity: 0;
-    animation: card-in 0.6s ease forwards, float-gentle 4s ease-in-out infinite;
-  }
 
  
   /* ── RESPONSIVE ── */
@@ -1165,6 +1167,10 @@
   // Add transition to panel
   document.getElementById('detailPanel').style.transition = 'opacity 0.3s ease, transform 0.3s ease';
 </script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
 <script>
   gsap.registerPlugin(ScrollTrigger);
@@ -3375,7 +3381,3 @@
     .footer-disclaimer { text-align: center; }
   }
 </style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-</body>
-</html>

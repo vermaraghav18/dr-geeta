@@ -531,20 +531,19 @@
     <div class="doctor-photo-wrapper">
 
   <!-- FACE SVG -->
-  <div class="face-container">
+  <!-- FACE SVG — paste this inside .doctor-photo-wrapper, replacing the old .face-container div -->
+<div class="face-container" style="position:relative; width:100%; height:100%; display:flex; align-items:center; justify-content:center; min-height:460px;">
 
-    <svg viewBox="0 0 300 400" class="face-svg">
+  <svg viewBox="0 0 680 520" style="width:100%; max-width:500px; height:auto;" xmlns="http://www.w3.org/2000/svg">
+    <!-- [paste the entire SVG inner content from the preview above] -->
+  </svg>
 
-    <path d="M120 60 Q160 40 190 70 Q220 100 210 150 Q200 200 180 240 Q160 280 130 300 Q110 310 100 290 Q90 260 95 220 Q100 180 105 140 Q110 100 120 60" stroke="#c97b7b" stroke-width="2.2" fill="none"/>
+  <!-- Ingredient bubbles -->
+  <div class="bubble bubble-1">Hyaluronic</div>
+  <div class="bubble bubble-2">Niacinamide</div>
+  <div class="bubble bubble-3">Retinol</div>
 
-    <path d="M180 140 Q190 150 175 165" stroke="#c97b7b" stroke-width="1.5" fill="none"/>
-
-    <path d="M165 190 Q180 195 165 205" stroke="#c97b7b" stroke-width="1.5" fill="none"/>
-
-    <path d="M150 130 Q160 125 170 130" stroke="#c97b7b" stroke-width="1.5" fill="none"/>
-
-    <circle class="acne" cx="155" cy="160" r="4"/> <circle class="acne" cx="165" cy="175" r="3"/> <circle class="acne" cx="150" cy="185" r="4"/> <circle class="acne" cx="160" cy="200" r="3"/> </svg>
-
+</div>
     <!-- GLOW LINE (before/after split) -->
     <div class="face-glow-line"></div>
 

@@ -192,7 +192,8 @@
   .hero-headline {
     font-family: 'Playfair Display', serif;
     font-weight: 900;
-    font-size: clamp(42px, 6vw, 88px);
+    line-height: 1.1;
+    font-size: clamp(38px, 5vw, 70px);
     line-height: 1.05;
     color: var(--dark);
     margin-bottom: 28px;
@@ -304,19 +305,9 @@
   }
 
   /* Subtle outer glow ring */
-  .doctor-img-wrap::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 96%;
-    height: 94%;
-    border-radius: 50% 50% 0 0 / 40% 40% 0 0;
-    background: transparent;
-    border: 2px solid rgba(192, 57, 43, 0.12);
-    z-index: 0;
-  }
+ .doctor-img-wrap::after {
+  display: none;
+}
 
   .doctor-photo {
     transform: translateY(-40px);
@@ -429,11 +420,11 @@
       </div>
     </div>
 
-    <h2 class="hero-headline">
-      Clear <span class="accent-skin">Skin.</span><br>
-      Healthy <span class="accent-hair">Hair.</span><br>
-      Expert Care.
-    </h2>
+   <h2 class="hero-headline">
+  Clear <span class="accent-skin">Skin</span><br>
+  Healthy <span class="accent-hair">Hair</span><br>
+  Expert Care
+</h2>
 
     <p class="hero-subtext">
       Advanced dermatology by Dr. Meera Sharma — treating root causes, not just symptoms. Acne, hair fall, pigmentation & more.

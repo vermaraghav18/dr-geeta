@@ -290,14 +290,31 @@
 
   /* ── DOCTOR IMAGE CONTAINER ── */
   .doctor-img-wrap {
-    position: relative;
-    width: 100%;
-    max-width: 500px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    z-index: 2;
-  }
+  position: absolute;
+  bottom: -6px;
+  right: 20px;
+  width: 100%;
+  max-width: 640px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.doctor-photo {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-height: none;
+  height: 780px;
+  object-fit: contain;
+  object-position: bottom center;
+  display: block;
+  border-radius: 0;
+  transform: none;
+  filter: drop-shadow(0 24px 48px rgba(192, 57, 43, 0.18));
+}
 
   /* Decorative background shape behind doctor */
   .doctor-img-wrap::before {
@@ -309,19 +326,7 @@
   display: none;
 }
 
-  .doctor-photo {
-    transform: translateY(-40px);
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    max-height: calc(100vh - 80px);
-    object-fit: contain;
-    object-position: bottom center;
-    display: block;
-    border-radius: 20px;
-    filter: drop-shadow(0 24px 48px rgba(192, 57, 43, 0.18));
-  }
-
+ 
   /* Ingredient Bubbles */
   .bubble {
    display: none;
@@ -364,7 +369,10 @@
   @media (max-width: 1024px) {
     .hero { grid-template-columns: 1fr; min-height: auto; }
     .hero-left { padding: 48px 32px; order: 1; max-width: 100%; }
-    .hero-right { order: 2; min-height: 520px; }
+ .hero-right {
+  order: 2;
+  min-height: 620px;
+}
     .navbar { padding: 14px 24px; }
     .nav-links { display: none; }
   }
@@ -377,7 +385,20 @@
     .hero-subtext { font-size: 15px; }
     .cta-row { flex-direction: column; align-items: stretch; }
     .cta-book, .cta-whatsapp { justify-content: center; }
-    .hero-right { min-height: 420px; }
+  .hero-right {
+  min-height: 500px;
+}
+
+.doctor-img-wrap {
+  right: 50%;
+  bottom: 0;
+  max-width: 420px;
+  transform: translateX(50%);
+}
+
+.doctor-photo {
+  height: 500px;
+}
     .card-top-derma { top: 8%; right: 8px; }
     .card-treatments { top: 38%; right: 4px; }
     .bubble-1 { right: 1%; }

@@ -113,24 +113,26 @@
   }
 
   /* ── HERO ── */
-  .hero {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #ffffff 0%, #f9f9f7 50%, #f5f0ed 100%);
-    position: relative;
-    overflow: hidden;
-  }
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ffffff 0%, #f9f9f7 50%, #f5f0ed 100%);
+  position: relative;
+  overflow: hidden;
+  perspective: 1200px;
+}
 
   /* Left Content */
-  .hero-left {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 60px 48px 60px 64px;
-    position: relative;
-    z-index: 2;
-  }
+ .hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 48px 60px 64px;
+  position: relative;
+  z-index: 2;
+  will-change: transform, opacity;
+}
 
   .trust-row {
     display: flex;
@@ -274,12 +276,13 @@
 
   /* ── Right / Photo Side ── */
   .hero-right {
-    position: relative;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    overflow: hidden;
-  }
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+  will-change: transform, opacity;
+}
 
   .doctor-photo-wrapper {
     position: relative;
@@ -290,26 +293,30 @@
     justify-content: center;
   }
 
-  .doctor-photo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
-  }
+.doctor-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  will-change: transform, opacity;
+  transition: transform 0.4s ease;
+}
 
   /* Placeholder when no photo */
-  .photo-placeholder {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(180deg, rgba(200,180,170,0.3) 0%, rgba(180,160,150,0.5) 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 12px;
-    color: var(--gray-400);
-    font-size: 14px;
-  }
+.photo-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(200,180,170,0.3) 0%, rgba(180,160,150,0.5) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  color: var(--gray-400);
+  font-size: 14px;
+  will-change: transform, opacity;
+  transition: transform 0.4s ease;
+}
 
   .photo-placeholder svg {
     width: 80px;
@@ -318,15 +325,17 @@
   }
 
   /* Floating Cards */
-  .float-card {
-    position: absolute;
-    background: var(--white);
-    border-radius: 14px;
-    box-shadow: var(--shadow-card);
-    padding: 14px 20px;
-    z-index: 10;
-    animation: float-gentle 4s ease-in-out infinite;
-  }
+.float-card {
+  position: absolute;
+  background: var(--white);
+  border-radius: 14px;
+  box-shadow: var(--shadow-card);
+  padding: 14px 20px;
+  z-index: 10;
+  will-change: transform, opacity;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
 
   @keyframes float-gentle {
     0%, 100% { transform: translateY(0); }
@@ -420,36 +429,14 @@
     color: var(--green-dot);
   }
 
-  /* ── ANIMATIONS ── */
-  .hero-left > * {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fade-up 0.7s ease forwards;
-  }
-
-  .hero-left > *:nth-child(1) { animation-delay: 0.1s; }
-  .hero-left > *:nth-child(2) { animation-delay: 0.25s; }
-  .hero-left > *:nth-child(3) { animation-delay: 0.4s; }
-  .hero-left > *:nth-child(4) { animation-delay: 0.55s; }
-
-  @keyframes fade-up {
-    to { opacity: 1; transform: translateY(0); }
-  }
+  
 
   .float-card {
     opacity: 0;
     animation: card-in 0.6s ease forwards, float-gentle 4s ease-in-out infinite;
   }
 
-  .card-top-derma { animation-delay: 0.7s, 0s; }
-  .card-treatments { animation-delay: 0.9s, 1.5s; }
-  .card-next-slot { animation-delay: 1.1s, 0.8s; }
-
-  @keyframes card-in {
-    from { opacity: 0; transform: translateY(16px) scale(0.95); }
-    to { opacity: 1; transform: translateY(0) scale(1); }
-  }
-
+ 
   /* ── RESPONSIVE ── */
   @media (max-width: 1024px) {
     .hero {
@@ -542,8 +529,10 @@
     </div>
   </div>
 
-  <!-- Right / Photo -->
-  <div class="hero-right">
+ <!-- Right / Photo -->
+<div class="hero-right">
+  <div class="hero-motion-layer">
+
     <div class="doctor-photo-wrapper">
       <!-- Replace this placeholder with actual doctor photo -->
       <div class="photo-placeholder">
@@ -574,8 +563,9 @@
       <div class="label">Next Slot</div>
       <div class="value">Today 5 PM <span class="check">✓</span></div>
     </div>
-  </div>
 
+  </div>
+</div>
 </section>
 
 <!-- ── TREATMENT MARQUEE ── -->
@@ -1174,6 +1164,189 @@
 
   // Add transition to panel
   document.getElementById('detailPanel').style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+</script>
+
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  window.addEventListener("load", () => {
+    const hero = document.querySelector(".hero");
+    const heroLeft = document.querySelector(".hero-left");
+    const heroRight = document.querySelector(".hero-right");
+    const heroMotionLayer = document.querySelector(".hero-motion-layer");
+    const doctorVisual = document.querySelector(".doctor-photo, .photo-placeholder");
+    const floatCards = document.querySelectorAll(".float-card");
+
+    if (!hero || !heroLeft || !heroRight || !heroMotionLayer) return;
+
+    gsap.set([".trust-row", ".hero-headline", ".hero-subtext", ".cta-row"], {
+      opacity: 1,
+      y: 0
+    });
+
+    gsap.set(floatCards, {
+      opacity: 1,
+      x: 0,
+      y: 0,
+      scale: 1
+    });
+
+    const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+    heroTl
+      .from(heroLeft, {
+        opacity: 0,
+        y: 40,
+        duration: 1
+      })
+      .from(heroRight, {
+        opacity: 0,
+        x: 50,
+        scale: 0.96,
+        duration: 1
+      }, "-=0.7")
+      .from(".trust-row", {
+        opacity: 0,
+        y: 18,
+        duration: 0.6
+      }, "-=0.8")
+      .from(".hero-headline", {
+        opacity: 0,
+        y: 24,
+        duration: 0.8
+      }, "-=0.6")
+      .from(".hero-subtext", {
+        opacity: 0,
+        y: 18,
+        duration: 0.7
+      }, "-=0.5")
+      .from(".cta-row", {
+        opacity: 0,
+        y: 18,
+        duration: 0.7
+      }, "-=0.5")
+      .from(".card-top-derma", {
+        opacity: 0,
+        y: 20,
+        scale: 0.92,
+        duration: 0.55
+      }, "-=0.45")
+      .from(".card-treatments", {
+        opacity: 0,
+        y: 20,
+        scale: 0.92,
+        duration: 0.55
+      }, "-=0.35")
+      .from(".card-next-slot", {
+        opacity: 0,
+        y: 20,
+        scale: 0.92,
+        duration: 0.55
+      }, "-=0.3");
+
+    gsap.to(heroLeft, {
+      y: -70,
+      ease: "none",
+      scrollTrigger: {
+        trigger: hero,
+        start: "top top",
+        end: "bottom top",
+        scrub: 1
+      }
+    });
+
+    if (doctorVisual) {
+      gsap.to(doctorVisual, {
+        scale: 1.08,
+        y: -20,
+        ease: "none",
+        scrollTrigger: {
+          trigger: hero,
+          start: "top top",
+          end: "bottom top",
+          scrub: 1.2
+        }
+      });
+    }
+
+    gsap.to(".card-top-derma", {
+      y: -35,
+      ease: "none",
+      scrollTrigger: {
+        trigger: hero,
+        start: "top top",
+        end: "bottom top",
+        scrub: 1
+      }
+    });
+
+    gsap.to(".card-treatments", {
+      y: -20,
+      ease: "none",
+      scrollTrigger: {
+        trigger: hero,
+        start: "top top",
+        end: "bottom top",
+        scrub: 1
+      }
+    });
+
+    gsap.to(".card-next-slot", {
+      y: -28,
+      ease: "none",
+      scrollTrigger: {
+        trigger: hero,
+        start: "top top",
+        end: "bottom top",
+        scrub: 1
+      }
+    });
+
+    if (window.innerWidth > 991) {
+      hero.addEventListener("mousemove", (e) => {
+        const rect = hero.getBoundingClientRect();
+        const relX = (e.clientX - rect.left) / rect.width - 0.5;
+        const relY = (e.clientY - rect.top) / rect.height - 0.5;
+
+        gsap.to(heroMotionLayer, {
+          rotateY: relX * 4,
+          rotateX: relY * -4,
+          transformPerspective: 1200,
+          transformOrigin: "center center",
+          duration: 0.8,
+          ease: "power2.out"
+        });
+
+        floatCards.forEach((card, index) => {
+          const depth = (index + 1) * 8;
+          gsap.to(card, {
+            x: relX * depth,
+            y: relY * depth,
+            duration: 0.8,
+            ease: "power2.out"
+          });
+        });
+      });
+
+      hero.addEventListener("mouseleave", () => {
+        gsap.to(heroMotionLayer, {
+          rotateX: 0,
+          rotateY: 0,
+          duration: 0.9,
+          ease: "power3.out"
+        });
+
+        floatCards.forEach((card) => {
+          gsap.to(card, {
+            x: 0,
+            y: 0,
+            duration: 0.9,
+            ease: "power3.out"
+          });
+        });
+      });
+    }
+  });
 </script>
 
 <!-- ── DAILY SKIN ROUTINE ── -->
@@ -3202,6 +3375,7 @@
     .footer-disclaimer { text-align: center; }
   }
 </style>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 </body>
 </html>

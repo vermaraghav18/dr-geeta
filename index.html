@@ -300,16 +300,7 @@
 
   /* Decorative background shape behind doctor */
   .doctor-img-wrap::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 88%;
-    height: 90%;
-    background: linear-gradient(160deg, var(--blush) 0%, var(--blush-deep) 100%);
-    border-radius: 50% 50% 0 0 / 40% 40% 0 0;
-    z-index: 0;
+    display: none;
   }
 
   /* Subtle outer glow ring */
@@ -341,17 +332,7 @@
 
   /* Ingredient Bubbles */
   .bubble {
-    position: absolute;
-    padding: 10px 16px;
-    border-radius: 50px;
-    font-size: 12px;
-    font-weight: 600;
-    color: #fff;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 0 20px rgba(255,255,255,0.2);
-    animation: float 6s infinite ease-in-out;
-    pointer-events: none;
-    z-index: 10;
+   display: none;
   }
 
   .bubble-1 { top: 18%; right: 4%; background: rgba(192,57,43,0.75); animation-delay: 0s; }
@@ -481,9 +462,7 @@
       </div>
 
       <!-- Ingredient Bubbles -->
-      <div class="bubble bubble-1">Hyaluronic</div>
-      <div class="bubble bubble-2">Niacinamide</div>
-      <div class="bubble bubble-3">Retinol</div>
+     
 
       <!-- Floating: Top Dermatologist -->
       <div class="float-card card-top-derma">

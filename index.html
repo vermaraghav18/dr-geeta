@@ -113,26 +113,26 @@
   }
 
   /* ── HERO ── */
-.hero {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 100vh;
-  position: relative;
-  overflow: hidden;
-  perspective: 1200px;
-  background: radial-gradient(circle at 75% 40%, rgba(232,76,106,0.08), transparent 40%),
-              linear-gradient(135deg, #ffffff 0%, #f9f9f7 50%, #f5f0ed 100%);
-}
-  /* Left Content */
-.hero-left {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 60px 48px 60px 80px;
-  position: relative;
-  z-index: 2;
-  max-width: 600px;
-}
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    perspective: 1200px;
+    background: radial-gradient(circle at 75% 40%, rgba(232,76,106,0.08), transparent 40%),
+                linear-gradient(135deg, #ffffff 0%, #f9f9f7 50%, #f5f0ed 100%);
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 48px 60px 80px;
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+  }
 
   .trust-row {
     display: flex;
@@ -189,22 +189,17 @@
     font-weight: 400;
   }
 
-.hero-headline {
-  font-family: 'Playfair Display', serif;
-  font-weight: 900;
-  font-size: clamp(52px, 6vw, 88px);
-  line-height: 1.05;
-  color: var(--dark);
-  margin-bottom: 28px;
-}
-
-  .hero-headline .accent-skin {
-    color: var(--red-accent);
+  .hero-headline {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: clamp(52px, 6vw, 88px);
+    line-height: 1.05;
+    color: var(--dark);
+    margin-bottom: 28px;
   }
 
-  .hero-headline .accent-hair {
-    color: var(--teal-accent);
-  }
+  .hero-headline .accent-skin { color: var(--red-accent); }
+  .hero-headline .accent-hair { color: var(--teal-accent); }
 
   .hero-subtext {
     font-size: 17px;
@@ -214,7 +209,6 @@
     margin-bottom: 40px;
   }
 
-  /* CTAs */
   .cta-row {
     display: flex;
     align-items: center;
@@ -223,21 +217,21 @@
   }
 
   .cta-book {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--pink-cta);
-  color: var(--white);
-  padding: 16px 32px;
-  border-radius: 12px;
-  font-size: 16px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.25s;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 10px 30px rgba(232, 76, 106, 0.35);
-}
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--pink-cta);
+    color: var(--white);
+    padding: 16px 32px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.25s;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(232, 76, 106, 0.35);
+  }
 
   .cta-book:hover {
     background: var(--pink-cta-hover);
@@ -274,142 +268,83 @@
   }
 
   /* ── Right / Photo Side ── */
-.hero-right {
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  overflow: hidden;
-  will-change: transform, opacity;
-  padding-bottom: 40px;
-}
+  .hero-right {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    will-change: transform, opacity;
+    padding: 40px 20px;
+  }
 
- .doctor-photo-wrapper {
-  position: relative;
-  width: 90%;
-  height: 90%;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-}
+  .hero-motion-layer {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-.doctor-photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  will-change: transform, opacity;
-  transition: transform 0.4s ease;
-}
+  /* ── FACE ANIMATION CONTAINER ── */
+  .face-anim-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-  /* Placeholder when no photo */
-.photo-placeholder {
-  width: 100%;
-  height: 100%;
-  border-radius: 24px;
-  background: linear-gradient(180deg, rgba(200,180,170,0.2) 0%, rgba(180,160,150,0.4) 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 12px;
-  color: var(--gray-400);
-  font-size: 14px;
-  will-change: transform, opacity;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-}
+  .face-anim-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 20px 60px rgba(192,57,43,0.15));
+  }
 
-  .photo-placeholder svg {
-    width: 80px;
-    height: 80px;
-    opacity: 0.3;
+  /* Ingredient Bubbles */
+  .bubble {
+    position: absolute;
+    padding: 10px 16px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(255,255,255,0.2);
+    animation: float 6s infinite ease-in-out;
+    pointer-events: none;
+  }
+
+  .bubble-1 { top: 18%; right: 4%; background: rgba(192,57,43,0.75); animation-delay: 0s; }
+  .bubble-2 { top: 48%; right: 1%; background: rgba(13,115,119,0.75); animation-delay: 1s; }
+  .bubble-3 { bottom: 14%; right: 8%; background: rgba(180,100,255,0.65); animation-delay: 2s; }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-12px); }
   }
 
   /* Floating Cards */
-.float-card {
-  position: absolute;
-  background: var(--white);
-  border-radius: 14px;
-  box-shadow: var(--shadow-card);
-  padding: 14px 20px;
-  z-index: 10;
-  will-change: transform, opacity;
-  transform-style: preserve-3d;
-  backface-visibility: hidden;
-}
-
-.hero-motion-layer {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-
-  @keyframes float-gentle {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
-  }
-.card-top-derma {
-  top: 12%;
-  right: 40px;
-}
-
-  .card-top-derma .trophy {
-    font-size: 24px;
-    margin-bottom: 4px;
+  .float-card {
+    position: absolute;
+    background: var(--white);
+    border-radius: 14px;
+    box-shadow: var(--shadow-card);
+    padding: 14px 20px;
+    z-index: 10;
+    will-change: transform, opacity;
   }
 
-  .card-top-derma .label {
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: var(--gray-400);
-    font-weight: 600;
-  }
+  .card-top-derma  { top: 10%; right: 2%; }
+  .card-treatments { top: 44%; right: 0%; }
+  .card-next-slot  { bottom: 6%; left: 50%; transform: translateX(-50%); }
 
-  .card-top-derma .value {
-    font-size: 16px;
-    font-weight: 800;
-    color: var(--dark);
-  }
-
-.card-treatments {
-  top: 45%;
-  right: 30px;
-}
-
-  .card-treatments .label {
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: var(--gray-400);
-    font-weight: 600;
-    margin-bottom: 4px;
-  }
-
-  .card-treatments .tags {
-    display: flex;
-    gap: 6px;
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--dark);
-  }
-
-  .card-treatments .tags span::after {
-    content: '·';
-    margin-left: 6px;
-    color: var(--gray-400);
-  }
-
-  .card-treatments .tags span:last-child::after {
-    content: '';
-  }
-
-.card-next-slot {
-  bottom: 8%;
-  left: 55%;
-  transform: translateX(-50%);
-}
-
+  .card-top-derma .trophy { font-size: 24px; margin-bottom: 4px; }
+  .card-top-derma .label,
+  .card-treatments .label,
   .card-next-slot .label {
     font-size: 10px;
     text-transform: uppercase;
@@ -418,78 +353,56 @@
     font-weight: 600;
     margin-bottom: 2px;
   }
+  .card-top-derma .value { font-size: 16px; font-weight: 800; color: var(--dark); }
+  .card-treatments .tags { display: flex; gap: 6px; font-size: 14px; font-weight: 700; color: var(--dark); }
+  .card-treatments .tags span::after { content: '·'; margin-left: 6px; color: var(--gray-400); }
+  .card-treatments .tags span:last-child::after { content: ''; }
+  .card-next-slot .value { font-size: 18px; font-weight: 700; color: var(--dark); }
+  .card-next-slot .check { color: var(--green-dot); }
 
-  .card-next-slot .value {
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--dark);
-  }
-
-  .card-next-slot .check {
-    color: var(--green-dot);
-  }
-
-  
-
- 
   /* ── RESPONSIVE ── */
   @media (max-width: 1024px) {
-    .hero {
-      grid-template-columns: 1fr;
-      min-height: auto;
-    }
-
-    .hero-left {
-      padding: 48px 32px;
-      order: 1;
-    }
-
-    .hero-right {
-      order: 2;
-      height: 500px;
-    }
-
-    .navbar {
-      padding: 14px 24px;
-    }
-
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 48px 32px; order: 1; max-width: 100%; }
+    .hero-right { order: 2; min-height: 520px; }
+    .navbar { padding: 14px 24px; }
     .nav-links { display: none; }
   }
 
   @media (max-width: 600px) {
-    .hero-left {
-      padding: 32px 20px;
-    }
-
-    .hero-headline {
-      font-size: 40px;
-    }
-
-    .hero-subtext {
-      font-size: 15px;
-    }
-
-    .cta-row {
-      flex-direction: column;
-      align-items: stretch;
-    }
-
-    .cta-book, .cta-whatsapp {
-      justify-content: center;
-    }
-
-    .hero-right {
-      height: 400px;
-    }
-
-    .card-top-derma { top: 10%; right: 12px; }
-    .card-treatments { top: 36%; right: 8px; }
+    .hero-left { padding: 32px 20px; }
+    .hero-headline { font-size: 40px; }
+    .hero-subtext { font-size: 15px; }
+    .cta-row { flex-direction: column; align-items: stretch; }
+    .cta-book, .cta-whatsapp { justify-content: center; }
+    .hero-right { min-height: 420px; }
+    .card-top-derma { top: 8%; right: 8px; }
+    .card-treatments { top: 38%; right: 4px; }
+    .bubble-1 { right: 1%; }
+    .bubble-2 { right: 0%; }
+    .bubble-3 { right: 2%; }
   }
 </style>
 </head>
 <body>
 
-
+<!-- ── NAVBAR ── -->
+<nav class="navbar">
+  <div class="nav-brand">
+    <div class="nav-logo">M</div>
+    <div class="nav-brand-text">
+      <h1>Dr. Meera Sharma</h1>
+      <span>Dermatologist & Hair Specialist</span>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#">Treatments</a></li>
+    <li><a href="#">Conditions</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Gallery</a></li>
+    <li><a href="#" class="nav-book-btn">Book Now</a></li>
+  </ul>
+</nav>
 
 <!-- ── HERO ── -->
 <section class="hero">
@@ -524,63 +437,455 @@
     </div>
   </div>
 
- <!-- Right / Photo -->
-<div class="hero-right">
-  <div class="hero-motion-layer">
+  <!-- Right / Animated Face -->
+  <div class="hero-right">
+    <div class="hero-motion-layer">
 
-    <div class="doctor-photo-wrapper">
+      <!-- ══════════════════════════════════════════ -->
+      <!-- ANIMATED FACE SVG — 3-Stage Animation     -->
+      <!-- Stage 1 (0–4s):  Acne & breakouts visible -->
+      <!-- Stage 2 (4–8s):  Hand applies cream       -->
+      <!-- Stage 3 (8–12s): Clear, glowing skin      -->
+      <!-- ══════════════════════════════════════════ -->
+      <div class="face-anim-wrap">
 
-  <!-- FACE SVG -->
-  <!-- FACE SVG — paste this inside .doctor-photo-wrapper, replacing the old .face-container div -->
-<div class="face-container" style="position:relative; width:100%; height:100%; display:flex; align-items:center; justify-content:center; min-height:460px;">
+        <svg class="face-anim-svg" viewBox="0 0 680 540" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="skinGrad" cx="50%" cy="40%" r="55%">
+              <stop offset="0%" stop-color="#FDDBC7"/>
+              <stop offset="100%" stop-color="#F4B896"/>
+            </radialGradient>
+            <radialGradient id="skinGlow" cx="50%" cy="40%" r="55%">
+              <stop offset="0%" stop-color="#FFF0E8"/>
+              <stop offset="100%" stop-color="#F9D4B6"/>
+            </radialGradient>
+            <radialGradient id="cheekBlush" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#F4A0A0" stop-opacity="0.45"/>
+              <stop offset="100%" stop-color="#F4A0A0" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="spotRed" cx="40%" cy="35%" r="55%">
+              <stop offset="0%" stop-color="#FF6B6B"/>
+              <stop offset="100%" stop-color="#C0392B"/>
+            </radialGradient>
+            <radialGradient id="spotPink" cx="40%" cy="35%" r="55%">
+              <stop offset="0%" stop-color="#FF9FAA"/>
+              <stop offset="100%" stop-color="#E84C6A"/>
+            </radialGradient>
+            <radialGradient id="creamGrad" cx="30%" cy="30%" r="65%">
+              <stop offset="0%" stop-color="#FFFFFF"/>
+              <stop offset="100%" stop-color="#E8F4F3"/>
+            </radialGradient>
+            <radialGradient id="glowAura" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#FFF9C4" stop-opacity="0.7"/>
+              <stop offset="100%" stop-color="#FFF9C4" stop-opacity="0"/>
+            </radialGradient>
+            <filter id="softBlur">
+              <feGaussianBlur stdDeviation="3"/>
+            </filter>
+            <filter id="spotBlur">
+              <feGaussianBlur stdDeviation="0.9"/>
+            </filter>
+          </defs>
 
-  <svg viewBox="0 0 680 520" style="width:100%; max-width:500px; height:auto;" xmlns="http://www.w3.org/2000/svg">
-    <!-- [paste the entire SVG inner content from the preview above] -->
-  </svg>
+          <style>
+            /* ── STAGE VISIBILITY ── */
+            #s1 { animation: vis1 12s ease-in-out infinite; }
+            #s2 { animation: vis2 12s ease-in-out infinite; }
+            #s3 { animation: vis3 12s ease-in-out infinite; }
 
-  <!-- Ingredient bubbles -->
-  <div class="bubble bubble-1">Hyaluronic</div>
-  <div class="bubble bubble-2">Niacinamide</div>
-  <div class="bubble bubble-3">Retinol</div>
+            @keyframes vis1 {
+              0%,28%  { opacity:1; }
+              36%,100%{ opacity:0; }
+            }
+            @keyframes vis2 {
+              0%,30%  { opacity:0; }
+              38%,62% { opacity:1; }
+              70%,100%{ opacity:0; }
+            }
+            @keyframes vis3 {
+              0%,65%  { opacity:0; }
+              73%,93% { opacity:1; }
+              100%    { opacity:0; }
+            }
 
-</div>
-    <!-- GLOW LINE (before/after split) -->
-    <div class="face-glow-line"></div>
+            /* ── ACNE SPOT PULSES ── */
+            .sp1 { animation: spP 2s ease-in-out infinite; }
+            .sp2 { animation: spP 2s ease-in-out 0.35s infinite; }
+            .sp3 { animation: spP 2s ease-in-out 0.7s infinite; }
+            .sp4 { animation: spP 2s ease-in-out 1.05s infinite; }
+            .sp5 { animation: spP 2s ease-in-out 0.5s infinite; }
+            .sp6 { animation: spP 2s ease-in-out 1.3s infinite; }
+            .sp7 { animation: spP 2s ease-in-out 0.15s infinite; }
+            .sp8 { animation: spP 2s ease-in-out 0.85s infinite; }
 
-    <!-- INGREDIENT BUBBLES -->
-    <div class="bubble bubble-1">Hyaluronic</div>
-    <div class="bubble bubble-2">Niacinamide</div>
-    <div class="bubble bubble-3">Retinol</div>
+            @keyframes spP {
+              0%,100%{ opacity:0.88; }
+              50%    { opacity:1; }
+            }
 
-  </div>
+            /* ── CREAM SMEARS ── */
+            .smear1 {
+              stroke-dasharray: 280;
+              stroke-dashoffset: 280;
+              animation: smr1 2s ease-out infinite;
+            }
+            .smear2 {
+              stroke-dasharray: 200;
+              stroke-dashoffset: 200;
+              animation: smr2 2s ease-out 0.45s infinite;
+            }
+            .smear3 {
+              stroke-dasharray: 140;
+              stroke-dashoffset: 140;
+              animation: smr3 2s ease-out 0.8s infinite;
+            }
+            @keyframes smr1 {
+              0%  { stroke-dashoffset:280; opacity:0; }
+              12% { opacity:0.9; }
+              75% { stroke-dashoffset:0; opacity:0.85; }
+              100%{ stroke-dashoffset:0; opacity:0.85; }
+            }
+            @keyframes smr2 {
+              0%  { stroke-dashoffset:200; opacity:0; }
+              12% { opacity:0.8; }
+              75% { stroke-dashoffset:0; opacity:0.75; }
+              100%{ stroke-dashoffset:0; opacity:0.75; }
+            }
+            @keyframes smr3 {
+              0%  { stroke-dashoffset:140; opacity:0; }
+              12% { opacity:0.7; }
+              75% { stroke-dashoffset:0; opacity:0.6; }
+              100%{ stroke-dashoffset:0; opacity:0.6; }
+            }
 
-</div>
+            /* ── HAND ENTER / EXIT ── */
+            .hand-g { animation: handMv 12s ease-in-out infinite; }
+            @keyframes handMv {
+              0%,30%  { transform:translate(90px,35px); opacity:0; }
+              40%,62% { transform:translate(0px,0px); opacity:1; }
+              70%,100%{ transform:translate(-90px,-40px); opacity:0; }
+            }
 
-    <!-- Floating: Top Dermatologist -->
-    <div class="float-card card-top-derma">
-      <div class="trophy">🏆</div>
-      <div class="label">Top Dermatologist</div>
-      <div class="value">City's #1 Rated</div>
-    </div>
+            /* ── GLOW PULSE (stage3) ── */
+            .glow-ring { animation: glR 2.2s ease-in-out infinite; }
+            @keyframes glR {
+              0%,100%{ opacity:0.35; }
+              50%    { opacity:0.75; }
+            }
 
-    <!-- Floating: Treatments -->
-    <div class="float-card card-treatments">
-      <div class="label">Treatments</div>
-      <div class="tags">
-        <span>PRP</span>
-        <span>Laser</span>
-        <span>Peels</span>
+            /* ── SPARKLES ── */
+            .sk1 { animation: spk 1.9s ease-in-out 0.1s infinite; }
+            .sk2 { animation: spk 1.9s ease-in-out 0.55s infinite; }
+            .sk3 { animation: spk 1.9s ease-in-out 1.0s infinite; }
+            .sk4 { animation: spk 1.9s ease-in-out 1.45s infinite; }
+            .sk5 { animation: spk 1.9s ease-in-out 0.75s infinite; }
+            @keyframes spk {
+              0%,100%{ opacity:0; transform:scale(0.3); }
+              50%    { opacity:1; transform:scale(1); }
+            }
+
+            /* ── LABEL + DOT CYCLE ── */
+            .lb1 { animation: lb1c 12s infinite; }
+            .lb2 { animation: lb2c 12s infinite; }
+            .lb3 { animation: lb3c 12s infinite; }
+            @keyframes lb1c { 0%,28%{opacity:1;} 36%,100%{opacity:0;} }
+            @keyframes lb2c { 0%,32%{opacity:0;} 38%,62%{opacity:1;} 70%,100%{opacity:0;} }
+            @keyframes lb3c { 0%,68%{opacity:0;} 74%,93%{opacity:1;} 100%{opacity:0;} }
+
+            .d1 { animation: da1 12s infinite; }
+            .d2 { animation: da2 12s infinite; }
+            .d3 { animation: da3 12s infinite; }
+            @keyframes da1 { 0%,30%{opacity:1;r:6;} 36%,100%{opacity:0.28;r:4;} }
+            @keyframes da2 { 0%,34%{opacity:0.28;r:4;} 38%,65%{opacity:1;r:6;} 70%,100%{opacity:0.28;r:4;} }
+            @keyframes da3 { 0%,69%{opacity:0.28;r:4;} 74%,94%{opacity:1;r:6;} 100%{opacity:0.28;r:4;} }
+          </style>
+
+          <!-- ── Soft bg glow ── -->
+          <ellipse cx="340" cy="245" rx="195" ry="225" fill="#FDF0EA" opacity="0.55"/>
+
+          <!-- ══════════════════════════ -->
+          <!-- STAGE 1 — ACNE VISIBLE   -->
+          <!-- ══════════════════════════ -->
+          <g id="s1">
+            <!-- neck + shoulders -->
+            <rect x="306" y="342" width="68" height="58" rx="20" fill="#F4B896"/>
+            <ellipse cx="265" cy="415" rx="74" ry="32" fill="#FDDBC7" opacity="0.45"/>
+            <ellipse cx="415" cy="415" rx="74" ry="32" fill="#FDDBC7" opacity="0.45"/>
+            <!-- hair back -->
+            <ellipse cx="340" cy="140" rx="118" ry="124" fill="#2C1810"/>
+            <!-- face -->
+            <ellipse cx="340" cy="230" rx="112" ry="138" fill="url(#skinGrad)"/>
+            <!-- ears -->
+            <ellipse cx="226" cy="234" rx="16" ry="22" fill="#EFA882"/>
+            <ellipse cx="454" cy="234" rx="16" ry="22" fill="#EFA882"/>
+            <!-- hair front -->
+            <path d="M228 162 Q260 84 340 80 Q420 84 452 162" fill="#2C1810"/>
+            <path d="M228 162 Q222 188 226 218 Q223 178 228 162Z" fill="#2C1810"/>
+            <path d="M452 162 Q458 188 454 218 Q457 178 452 162Z" fill="#2C1810"/>
+            <!-- eyebrows -->
+            <path d="M294 180 Q313 173 328 177" stroke="#2C1810" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+            <path d="M352 177 Q367 173 386 180" stroke="#2C1810" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+            <!-- eyes -->
+            <ellipse cx="312" cy="203" rx="18" ry="12" fill="white"/>
+            <ellipse cx="368" cy="203" rx="18" ry="12" fill="white"/>
+            <circle cx="314" cy="204" r="9" fill="#2C1810"/>
+            <circle cx="370" cy="204" r="9" fill="#2C1810"/>
+            <circle cx="317" cy="201" r="3.5" fill="#6B3A1F"/>
+            <circle cx="373" cy="201" r="3.5" fill="#6B3A1F"/>
+            <circle cx="320" cy="199" r="1.8" fill="white"/>
+            <circle cx="376" cy="199" r="1.8" fill="white"/>
+            <!-- nose -->
+            <path d="M336 215 Q332 236 326 245 Q334 252 354 245 Q348 236 344 215" stroke="#D4956A" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+            <!-- mouth (neutral) -->
+            <path d="M315 278 Q326 272 340 275 Q354 272 365 278" stroke="#C56B58" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+            <path d="M315 278 Q327 288 340 286 Q353 288 365 278" fill="#E88C7A" opacity="0.85"/>
+            <!-- cheek blush -->
+            <ellipse cx="286" cy="248" rx="36" ry="22" fill="url(#cheekBlush)"/>
+            <ellipse cx="394" cy="248" rx="36" ry="22" fill="url(#cheekBlush)"/>
+
+            <!-- ── ACNE SPOTS ── -->
+            <!-- forehead cluster -->
+            <circle class="sp1" cx="316" cy="156" r="7" fill="url(#spotRed)" filter="url(#spotBlur)"/>
+            <circle cx="316" cy="156" r="4.2" fill="#FF8888" opacity="0.85"/>
+            <circle cx="317" cy="155" r="1.5" fill="white" opacity="0.65"/>
+
+            <circle class="sp2" cx="356" cy="162" r="5.5" fill="url(#spotRed)" filter="url(#spotBlur)"/>
+            <circle cx="356" cy="162" r="3.2" fill="#FF8888" opacity="0.85"/>
+            <circle cx="357" cy="161" r="1.1" fill="white" opacity="0.6"/>
+
+            <circle class="sp3" cx="336" cy="148" r="5" fill="url(#spotPink)" filter="url(#spotBlur)"/>
+            <circle cx="336" cy="148" r="2.8" fill="#FFB0BA" opacity="0.8"/>
+
+            <!-- left cheek -->
+            <circle class="sp4" cx="288" cy="238" r="7.5" fill="url(#spotRed)" filter="url(#spotBlur)"/>
+            <circle cx="288" cy="238" r="4.5" fill="#FF8888" opacity="0.85"/>
+            <circle cx="289" cy="237" r="1.8" fill="white" opacity="0.65"/>
+
+            <circle class="sp5" cx="300" cy="262" r="5.5" fill="url(#spotPink)" filter="url(#spotBlur)"/>
+            <circle cx="300" cy="262" r="3.2" fill="#FFB0BA" opacity="0.8"/>
+
+            <circle class="sp7" cx="276" cy="258" r="4.2" fill="url(#spotRed)" filter="url(#spotBlur)"/>
+            <circle cx="276" cy="258" r="2.5" fill="#FF9090" opacity="0.8"/>
+
+            <!-- right cheek -->
+            <circle class="sp6" cx="382" cy="232" r="6" fill="url(#spotRed)" filter="url(#spotBlur)"/>
+            <circle cx="382" cy="232" r="3.6" fill="#FF8888" opacity="0.85"/>
+            <circle cx="383" cy="231" r="1.3" fill="white" opacity="0.6"/>
+
+            <circle class="sp8" cx="372" cy="256" r="4.5" fill="url(#spotPink)" filter="url(#spotBlur)"/>
+            <circle cx="372" cy="256" r="2.6" fill="#FFB0BA" opacity="0.8"/>
+
+            <!-- chin spot -->
+            <circle class="sp2" cx="346" cy="308" r="5.5" fill="url(#spotRed)" filter="url(#spotBlur)"/>
+            <circle cx="346" cy="308" r="3.2" fill="#FF8888" opacity="0.8"/>
+            <circle cx="347" cy="307" r="1.2" fill="white" opacity="0.55"/>
+
+            <!-- texture lines -->
+            <line x1="305" y1="225" x2="314" y2="234" stroke="#D4956A" stroke-width="0.7" opacity="0.38"/>
+            <line x1="364" y1="223" x2="373" y2="232" stroke="#D4956A" stroke-width="0.7" opacity="0.38"/>
+            <line x1="336" y1="262" x2="344" y2="270" stroke="#D4956A" stroke-width="0.7" opacity="0.38"/>
+          </g>
+
+          <!-- ══════════════════════════════ -->
+          <!-- STAGE 2 — APPLYING CREAM      -->
+          <!-- ══════════════════════════════ -->
+          <g id="s2" opacity="0">
+            <!-- base face (same as s1) -->
+            <rect x="306" y="342" width="68" height="58" rx="20" fill="#F4B896"/>
+            <ellipse cx="265" cy="415" rx="74" ry="32" fill="#FDDBC7" opacity="0.45"/>
+            <ellipse cx="415" cy="415" rx="74" ry="32" fill="#FDDBC7" opacity="0.45"/>
+            <ellipse cx="340" cy="140" rx="118" ry="124" fill="#2C1810"/>
+            <ellipse cx="340" cy="230" rx="112" ry="138" fill="url(#skinGrad)"/>
+            <ellipse cx="226" cy="234" rx="16" ry="22" fill="#EFA882"/>
+            <ellipse cx="454" cy="234" rx="16" ry="22" fill="#EFA882"/>
+            <path d="M228 162 Q260 84 340 80 Q420 84 452 162" fill="#2C1810"/>
+            <path d="M294 180 Q313 173 328 177" stroke="#2C1810" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+            <path d="M352 177 Q367 173 386 180" stroke="#2C1810" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+            <ellipse cx="312" cy="203" rx="18" ry="12" fill="white"/>
+            <ellipse cx="368" cy="203" rx="18" ry="12" fill="white"/>
+            <circle cx="314" cy="204" r="9" fill="#2C1810"/>
+            <circle cx="370" cy="204" r="9" fill="#2C1810"/>
+            <circle cx="317" cy="201" r="3.5" fill="#6B3A1F"/>
+            <circle cx="373" cy="201" r="3.5" fill="#6B3A1F"/>
+            <circle cx="320" cy="199" r="1.8" fill="white"/>
+            <circle cx="376" cy="199" r="1.8" fill="white"/>
+            <path d="M336 215 Q332 236 326 245 Q334 252 354 245 Q348 236 344 215" stroke="#D4956A" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+            <path d="M315 278 Q326 272 340 275 Q354 272 365 278" stroke="#C56B58" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+            <path d="M315 278 Q327 288 340 286 Q353 288 365 278" fill="#E88C7A" opacity="0.85"/>
+            <ellipse cx="286" cy="248" rx="36" ry="22" fill="url(#cheekBlush)"/>
+            <ellipse cx="394" cy="248" rx="36" ry="22" fill="url(#cheekBlush)"/>
+
+            <!-- fading spots (half opacity = mid-treatment) -->
+            <circle cx="316" cy="156" r="6.5" fill="#E89090" opacity="0.45"/>
+            <circle cx="288" cy="238" r="7" fill="#E89090" opacity="0.45"/>
+            <circle cx="382" cy="232" r="5.5" fill="#E89090" opacity="0.45"/>
+            <circle cx="346" cy="308" r="5" fill="#E89090" opacity="0.45"/>
+
+            <!-- cream smears animating across face -->
+            <path class="smear1" d="M262 182 Q304 165 360 172 Q394 178 408 205" stroke="white" stroke-width="16" stroke-linecap="round" fill="none"/>
+            <path class="smear2" d="M268 232 Q308 218 356 230 Q384 238 396 260" stroke="white" stroke-width="12" stroke-linecap="round" fill="none"/>
+            <path class="smear3" d="M300 270 Q326 260 358 272 Q374 278 382 290" stroke="white" stroke-width="9" stroke-linecap="round" fill="none"/>
+
+            <!-- ── HAND ── -->
+            <g class="hand-g">
+              <!-- arm -->
+              <path d="M440 320 Q470 295 490 268 Q500 252 496 240" stroke="#FDDBC7" stroke-width="30" stroke-linecap="round" fill="none"/>
+              <!-- palm -->
+              <ellipse cx="476" cy="238" rx="27" ry="19" fill="#FDDBC7" transform="rotate(-28,476,238)"/>
+              <!-- index finger (applying cream) -->
+              <path d="M462 230 Q454 212 451 197 Q449 187 454 182 Q460 178 464 185 Q468 196 468 214Z" fill="#FDDBC7"/>
+              <!-- middle -->
+              <path d="M478 226 Q474 207 474 192 Q474 182 480 180 Q486 178 487 188 Q488 202 486 222Z" fill="#F4B896"/>
+              <!-- ring -->
+              <path d="M491 232 Q490 217 492 204 Q494 196 499 197 Q504 199 502 210 Q500 224 496 235Z" fill="#F4B896"/>
+              <!-- pinky -->
+              <path d="M500 242 Q502 232 505 224 Q507 218 511 219 Q514 221 512 230 Q509 240 504 246Z" fill="#EFA882"/>
+              <!-- thumb -->
+              <path d="M456 248 Q446 243 442 235 Q438 227 444 223 Q450 220 455 228 Q460 237 460 248Z" fill="#FDDBC7"/>
+              <!-- cream on fingertip -->
+              <ellipse cx="455" cy="185" rx="8" ry="5.5" fill="url(#creamGrad)" opacity="0.96"/>
+              <ellipse cx="455" cy="185" rx="4.5" ry="3" fill="white" opacity="0.72"/>
+              <!-- nail highlight -->
+              <ellipse cx="463" cy="184" rx="3.5" ry="5" fill="#F9D8C8" opacity="0.8"/>
+            </g>
+          </g>
+
+          <!-- ══════════════════════════════════ -->
+          <!-- STAGE 3 — CLEAR GLOWING SKIN      -->
+          <!-- ══════════════════════════════════ -->
+          <g id="s3" opacity="0">
+            <!-- glow aura -->
+            <circle class="glow-ring" cx="340" cy="228" r="145" fill="url(#glowAura)" filter="url(#softBlur)"/>
+
+            <!-- base -->
+            <rect x="306" y="342" width="68" height="58" rx="20" fill="#FDDBC7"/>
+            <ellipse cx="265" cy="415" rx="74" ry="32" fill="#FDDBC7" opacity="0.45"/>
+            <ellipse cx="415" cy="415" rx="74" ry="32" fill="#FDDBC7" opacity="0.45"/>
+            <ellipse cx="340" cy="140" rx="118" ry="124" fill="#2C1810"/>
+            <!-- GLOWING SKIN -->
+            <ellipse cx="340" cy="230" rx="112" ry="138" fill="url(#skinGlow)"/>
+            <!-- highlight sheen -->
+            <ellipse cx="328" cy="200" rx="50" ry="58" fill="#FFFBE6" opacity="0.3"/>
+            <!-- specular highlight -->
+            <ellipse cx="316" cy="188" rx="18" ry="12" fill="white" opacity="0.18"/>
+
+            <ellipse cx="226" cy="234" rx="16" ry="22" fill="#F4C4A4"/>
+            <ellipse cx="454" cy="234" rx="16" ry="22" fill="#F4C4A4"/>
+            <path d="M228 162 Q260 84 340 80 Q420 84 452 162" fill="#2C1810"/>
+            <path d="M294 180 Q313 173 328 177" stroke="#2C1810" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+            <path d="M352 177 Q367 173 386 180" stroke="#2C1810" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+            <ellipse cx="312" cy="203" rx="18" ry="12" fill="white"/>
+            <ellipse cx="368" cy="203" rx="18" ry="12" fill="white"/>
+            <circle cx="314" cy="204" r="9" fill="#2C1810"/>
+            <circle cx="370" cy="204" r="9" fill="#2C1810"/>
+            <circle cx="317" cy="201" r="3.5" fill="#6B3A1F"/>
+            <circle cx="373" cy="201" r="3.5" fill="#6B3A1F"/>
+            <circle cx="320" cy="199" r="1.8" fill="white"/>
+            <circle cx="376" cy="199" r="1.8" fill="white"/>
+            <!-- golden eye shine -->
+            <circle cx="325" cy="198" r="2.2" fill="#FFD700" opacity="0.55"/>
+            <circle cx="377" cy="198" r="2.2" fill="#FFD700" opacity="0.55"/>
+
+            <path d="M336 215 Q332 236 326 245 Q334 252 354 245 Q348 236 344 215" stroke="#D4956A" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+
+            <!-- SMILE -->
+            <path d="M314 278 Q326 272 340 275 Q354 272 366 278" stroke="#C56B58" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+            <path d="M314 278 Q328 292 340 290 Q352 292 366 278" fill="#E88C7A" opacity="0.9"/>
+            <!-- smile dimple hints -->
+            <circle cx="310" cy="280" r="2.5" fill="#E8A090" opacity="0.35"/>
+            <circle cx="370" cy="280" r="2.5" fill="#E8A090" opacity="0.35"/>
+
+            <!-- deeper healthy blush -->
+            <ellipse cx="285" cy="250" rx="40" ry="24" fill="#F4A0A0" opacity="0.32"/>
+            <ellipse cx="395" cy="250" rx="40" ry="24" fill="#F4A0A0" opacity="0.32"/>
+
+            <!-- NO SPOTS — clean skin! -->
+
+            <!-- ── SPARKLES ── -->
+            <g class="sk1" transform-origin="292 174">
+              <line x1="292" y1="167" x2="292" y2="181" stroke="#FFD700" stroke-width="2.2" stroke-linecap="round"/>
+              <line x1="285" y1="174" x2="299" y2="174" stroke="#FFD700" stroke-width="2.2" stroke-linecap="round"/>
+              <line x1="287.5" y1="169.5" x2="296.5" y2="178.5" stroke="#FFD700" stroke-width="1.3" stroke-linecap="round" opacity="0.55"/>
+              <line x1="296.5" y1="169.5" x2="287.5" y2="178.5" stroke="#FFD700" stroke-width="1.3" stroke-linecap="round" opacity="0.55"/>
+            </g>
+
+            <g class="sk2" transform-origin="390 168">
+              <line x1="390" y1="161" x2="390" y2="175" stroke="#FFD700" stroke-width="2.2" stroke-linecap="round"/>
+              <line x1="383" y1="168" x2="397" y2="168" stroke="#FFD700" stroke-width="2.2" stroke-linecap="round"/>
+              <line x1="385.5" y1="163.5" x2="394.5" y2="172.5" stroke="#FFD700" stroke-width="1.3" stroke-linecap="round" opacity="0.55"/>
+              <line x1="394.5" y1="163.5" x2="385.5" y2="172.5" stroke="#FFD700" stroke-width="1.3" stroke-linecap="round" opacity="0.55"/>
+            </g>
+
+            <g class="sk3" transform-origin="258 225">
+              <line x1="258" y1="218" x2="258" y2="232" stroke="#0D7377" stroke-width="2" stroke-linecap="round"/>
+              <line x1="251" y1="225" x2="265" y2="225" stroke="#0D7377" stroke-width="2" stroke-linecap="round"/>
+            </g>
+
+            <g class="sk4" transform-origin="422 215">
+              <line x1="422" y1="208" x2="422" y2="222" stroke="#0D7377" stroke-width="2" stroke-linecap="round"/>
+              <line x1="415" y1="215" x2="429" y2="215" stroke="#0D7377" stroke-width="2" stroke-linecap="round"/>
+            </g>
+
+            <g class="sk5" transform-origin="340 126">
+              <line x1="340" y1="119" x2="340" y2="133" stroke="#FFD700" stroke-width="2.2" stroke-linecap="round"/>
+              <line x1="333" y1="126" x2="347" y2="126" stroke="#FFD700" stroke-width="2.2" stroke-linecap="round"/>
+              <line x1="335.5" y1="121.5" x2="344.5" y2="130.5" stroke="#FFD700" stroke-width="1.3" stroke-linecap="round" opacity="0.55"/>
+              <line x1="344.5" y1="121.5" x2="335.5" y2="130.5" stroke="#FFD700" stroke-width="1.3" stroke-linecap="round" opacity="0.55"/>
+            </g>
+          </g>
+
+          <!-- ══════════════════ -->
+          <!-- UI: LABELS + DOTS -->
+          <!-- ══════════════════ -->
+          <!-- pill bg -->
+          <rect x="228" y="448" width="224" height="40" rx="20" fill="#1a1a1a" opacity="0.07"/>
+
+          <!-- stage labels -->
+          <text class="lb1" x="340" y="473" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="12" font-weight="600" letter-spacing="1.8" fill="#C0392B" opacity="1">ACNE &amp; BREAKOUTS</text>
+          <text class="lb2" x="340" y="473" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="12" font-weight="600" letter-spacing="1.8" fill="#0D7377" opacity="0">APPLYING TREATMENT</text>
+          <text class="lb3" x="340" y="473" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="12" font-weight="600" letter-spacing="1.8" fill="#27ae60" opacity="0">CLEAR GLOWING SKIN</text>
+
+          <!-- progress dots -->
+          <circle class="d1" cx="314" cy="497" r="6" fill="#C0392B"/>
+          <circle class="d2" cx="340" cy="497" r="4" fill="#C0392B" opacity="0.28"/>
+          <circle class="d3" cx="366" cy="497" r="4" fill="#C0392B" opacity="0.28"/>
+          <line x1="321" y1="497" x2="335" y2="497" stroke="#C0392B" stroke-width="1" opacity="0.2"/>
+          <line x1="345" y1="497" x2="359" y2="497" stroke="#C0392B" stroke-width="1" opacity="0.2"/>
+
+        </svg>
+
+        <!-- Ingredient Bubbles -->
+        <div class="bubble bubble-1">Hyaluronic</div>
+        <div class="bubble bubble-2">Niacinamide</div>
+        <div class="bubble bubble-3">Retinol</div>
+
       </div>
-    </div>
 
-    <!-- Floating: Next Slot -->
-    <div class="float-card card-next-slot">
-      <div class="label">Next Slot</div>
-      <div class="value">Today 5 PM <span class="check">✓</span></div>
-    </div>
+      <!-- Floating: Top Dermatologist -->
+      <div class="float-card card-top-derma">
+        <div class="trophy">🏆</div>
+        <div class="label">Top Dermatologist</div>
+        <div class="value">City's #1 Rated</div>
+      </div>
 
+      <!-- Floating: Treatments -->
+      <div class="float-card card-treatments">
+        <div class="label">Treatments</div>
+        <div class="tags">
+          <span>PRP</span>
+          <span>Laser</span>
+          <span>Peels</span>
+        </div>
+      </div>
+
+      <!-- Floating: Next Slot -->
+      <div class="float-card card-next-slot">
+        <div class="label">Next Slot</div>
+        <div class="value">Today 5 PM <span class="check">✓</span></div>
+      </div>
+
+    </div>
   </div>
-</div>
 </section>
 
 <!-- ── TREATMENT MARQUEE ── -->
@@ -618,110 +923,23 @@
 </div>
 
 <style>
-
-  /* FACE SYSTEM */
-.face-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.face-svg {
-  width: 100%;
-  height: 100%;
-}
-
-/* ACNE DOTS */
-.acne {
-  fill: #e84c6a;
-  opacity: 1;
-  animation: acne-fade 4s infinite ease-in-out;
-}
-
-@keyframes acne-fade {
-  0% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0; transform: scale(0.3); }
-  100% { opacity: 1; transform: scale(1); }
-}
-
-/* GLOW LINE */
-.face-glow-line {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 2px;
-  height: 100%;
-  background: linear-gradient(to bottom, transparent, #ffccd5, transparent);
-  animation: glow-move 3s infinite;
-}
-
-@keyframes glow-move {
-  0% { opacity: 0.2; }
-  50% { opacity: 1; }
-  100% { opacity: 0.2; }
-}
-
-/* BUBBLES */
-.bubble {
-  position: absolute;
-  padding: 10px 16px;
-  border-radius: 50px;
-  font-size: 12px;
-  font-weight: 600;
-  color: #fff;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 20px rgba(255,255,255,0.2);
-  animation: float 6s infinite ease-in-out;
-}
-
-/* INDIVIDUAL POSITIONS */
-.bubble-1 {
-  top: 20%;
-  right: 10%;
-  background: rgba(255,100,100,0.6);
-}
-
-.bubble-2 {
-  top: 50%;
-  right: 5%;
-  background: rgba(100,150,255,0.6);
-  animation-delay: 1s;
-}
-
-.bubble-3 {
-  bottom: 15%;
-  right: 20%;
-  background: rgba(180,100,255,0.6);
-  animation-delay: 2s;
-}
-
-/* FLOAT ANIMATION */
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-12px); }
-  100% { transform: translateY(0px); }
-}
-
   .marquee-strip {
     background: #1a1a1a;
     overflow: hidden;
     padding: 16px 0;
     width: 100%;
   }
-
   .marquee-track {
     display: flex;
     width: max-content;
     animation: marquee-scroll 30s linear infinite;
   }
-
   .marquee-content {
     display: flex;
     align-items: center;
     gap: 0;
     flex-shrink: 0;
   }
-
   .marquee-content span {
     font-family: 'DM Sans', sans-serif;
     font-size: 14px;
@@ -732,19 +950,16 @@
     white-space: nowrap;
     padding: 0 12px;
   }
-
   .marquee-content .dot {
     color: var(--red-accent);
     font-size: 10px;
     padding: 0 16px;
     letter-spacing: 0;
   }
-
   @keyframes marquee-scroll {
-    0% { transform: translateX(0); }
+    0%   { transform: translateX(0); }
     100% { transform: translateX(-50%); }
   }
-
   .marquee-strip:hover .marquee-track {
     animation-play-state: paused;
   }
@@ -753,13 +968,10 @@
 <!-- ── FIND YOUR CONDITION ── -->
 <section class="condition-section">
   <div class="condition-grid">
-
-    <!-- Left Side -->
     <div class="condition-left">
       <div class="condition-tag">● Interactive Tool</div>
       <h2 class="condition-headline">Find Your<br><span class="highlight">Condition</span></h2>
       <p class="condition-subtext">Select your skin concern and get instant causes, advice, and treatment info from Dr. Meera's clinic.</p>
-
       <div class="condition-list">
         <button class="condition-item active" data-index="0">
           <span class="item-icon" style="background:#ff6b6b;">🔴</span>
@@ -793,20 +1005,16 @@
         </button>
       </div>
     </div>
-
-    <!-- Right Side: Detail Panel -->
     <div class="condition-right">
       <div class="detail-panel" id="detailPanel">
         <div class="detail-tag" id="detailTag">● Acne</div>
         <h3 class="detail-title" id="detailTitle">Acne & Breakouts</h3>
-
         <div class="severity-bar-wrap">
           <div class="severity-bar">
             <div class="severity-fill" id="severityFill" style="width:70%"></div>
           </div>
           <span class="severity-label" id="severityLabel">Moderate–High</span>
         </div>
-
         <div class="detail-columns">
           <div class="detail-col">
             <h4 class="col-heading causes">Causes</h4>
@@ -829,1070 +1037,178 @@
             </ul>
           </div>
         </div>
-
         <a href="#" class="detail-cta">Book Consultation →</a>
       </div>
     </div>
-
   </div>
 </section>
 
 <style>
-  /* ── CONDITION SECTION ── */
-  .condition-section {
-    background: #f7f7f5;
-    padding: 80px 64px;
-  }
-
-  .condition-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    max-width: 1280px;
-    margin: 0 auto;
-    align-items: start;
-  }
-
-  .condition-tag {
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2.5px;
-    color: var(--red-accent);
-    margin-bottom: 16px;
-  }
-
-  .condition-headline {
-    font-family: 'Playfair Display', serif;
-    font-weight: 900;
-    font-size: clamp(36px, 4vw, 56px);
-    line-height: 1.1;
-    color: var(--dark);
-    margin-bottom: 16px;
-  }
-
-  .condition-headline .highlight {
-    position: relative;
-    display: inline-block;
-  }
-
-  .condition-headline .highlight::after {
-    content: '';
-    position: absolute;
-    bottom: 4px;
-    left: -4px;
-    right: -4px;
-    height: 14px;
-    background: #ffe066;
-    z-index: -1;
-    border-radius: 2px;
-  }
-
-  .condition-subtext {
-    font-size: 16px;
-    line-height: 1.7;
-    color: var(--gray-600);
-    max-width: 420px;
-    margin-bottom: 32px;
-  }
-
-  /* Condition List */
-  .condition-list {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .condition-item {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 16px 20px;
-    border: none;
-    border-radius: 14px;
-    background: var(--white);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--dark);
-    text-align: left;
-    width: 100%;
-  }
-
-  .condition-item:hover {
-    background: #fde8ec;
-  }
-
-  .condition-item.active {
-    background: var(--pink-cta);
-    color: var(--white);
-    box-shadow: 0 6px 24px rgba(232, 76, 106, 0.3);
-  }
-
-  .item-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    flex-shrink: 0;
-  }
-
-  .condition-item.active .item-icon {
-    background: rgba(255,255,255,0.25) !important;
-  }
-
-  .item-label {
-    flex: 1;
-  }
-
-  .item-arrow {
-    font-size: 18px;
-    opacity: 0;
-    transition: opacity 0.2s;
-  }
-
-  .condition-item.active .item-arrow,
-  .condition-item:hover .item-arrow {
-    opacity: 1;
-  }
-
-  /* ── Right Detail Panel ── */
-  .condition-right {
-    position: sticky;
-    top: 40px;
-  }
-
-  .detail-panel {
-    background: var(--white);
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.06);
-    transition: all 0.3s ease;
-  }
-
-  .detail-tag {
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--red-accent);
-    margin-bottom: 8px;
-  }
-
-  .detail-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 28px;
-    font-weight: 800;
-    color: var(--dark);
-    margin-bottom: 20px;
-  }
-
-  .severity-bar-wrap {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 32px;
-  }
-
-  .severity-bar {
-    flex: 1;
-    height: 8px;
-    background: #eee;
-    border-radius: 100px;
-    overflow: hidden;
-  }
-
-  .severity-fill {
-    height: 100%;
-    border-radius: 100px;
-    background: linear-gradient(90deg, #00b894, #fdcb6e, #e17055);
-    transition: width 0.5s ease;
-  }
-
-  .severity-label {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--gray-600);
-    white-space: nowrap;
-  }
-
-  .detail-columns {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-    margin-bottom: 32px;
-  }
-
-  .col-heading {
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 14px;
-  }
-
+  .condition-section { background: #f7f7f5; padding: 80px 64px; }
+  .condition-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 1280px; margin: 0 auto; align-items: start; }
+  .condition-tag { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--red-accent); margin-bottom: 16px; }
+  .condition-headline { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(36px, 4vw, 56px); line-height: 1.1; color: var(--dark); margin-bottom: 16px; }
+  .condition-headline .highlight { position: relative; display: inline-block; }
+  .condition-headline .highlight::after { content: ''; position: absolute; bottom: 4px; left: -4px; right: -4px; height: 14px; background: #ffe066; z-index: -1; border-radius: 2px; }
+  .condition-subtext { font-size: 16px; line-height: 1.7; color: var(--gray-600); max-width: 420px; margin-bottom: 32px; }
+  .condition-list { display: flex; flex-direction: column; gap: 8px; }
+  .condition-item { display: flex; align-items: center; gap: 16px; padding: 16px 20px; border: none; border-radius: 14px; background: var(--white); cursor: pointer; transition: all 0.3s ease; font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 600; color: var(--dark); text-align: left; width: 100%; }
+  .condition-item:hover { background: #fde8ec; }
+  .condition-item.active { background: var(--pink-cta); color: var(--white); box-shadow: 0 6px 24px rgba(232,76,106,0.3); }
+  .item-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+  .condition-item.active .item-icon { background: rgba(255,255,255,0.25) !important; }
+  .item-label { flex: 1; }
+  .item-arrow { font-size: 18px; opacity: 0; transition: opacity 0.2s; }
+  .condition-item.active .item-arrow, .condition-item:hover .item-arrow { opacity: 1; }
+  .condition-right { position: sticky; top: 40px; }
+  .detail-panel { background: var(--white); border-radius: 20px; padding: 40px; box-shadow: 0 8px 40px rgba(0,0,0,0.06); transition: all 0.3s ease; }
+  .detail-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--red-accent); margin-bottom: 8px; }
+  .detail-title { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 800; color: var(--dark); margin-bottom: 20px; }
+  .severity-bar-wrap { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; }
+  .severity-bar { flex: 1; height: 8px; background: #eee; border-radius: 100px; overflow: hidden; }
+  .severity-fill { height: 100%; border-radius: 100px; background: linear-gradient(90deg, #00b894, #fdcb6e, #e17055); transition: width 0.5s ease; }
+  .severity-label { font-size: 13px; font-weight: 600; color: var(--gray-600); white-space: nowrap; }
+  .detail-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 32px; }
+  .col-heading { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 14px; }
   .col-heading.causes { color: var(--teal-accent); }
   .col-heading.tips { color: var(--red-accent); }
-
-  .col-list {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .col-list li {
-    font-size: 14px;
-    color: var(--gray-600);
-    line-height: 1.5;
-    padding-left: 16px;
-    position: relative;
-  }
-
-  .col-list li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: var(--gray-400);
-    font-size: 12px;
-  }
-
-  .detail-cta {
-    display: block;
-    width: 100%;
-    text-align: center;
-    padding: 16px;
-    background: var(--pink-cta);
-    color: var(--white);
-    border-radius: 12px;
-    font-size: 16px;
-    font-weight: 700;
-    text-decoration: none;
-    transition: all 0.25s;
-    box-shadow: 0 4px 16px rgba(232, 76, 106, 0.3);
-  }
-
-  .detail-cta:hover {
-    background: var(--pink-cta-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 24px rgba(232, 76, 106, 0.4);
-  }
-
-  /* Responsive */
-  @media (max-width: 1024px) {
-    .condition-section { padding: 60px 32px; }
-    .condition-grid {
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
-    .condition-right { position: static; }
-  }
-
-  @media (max-width: 600px) {
-    .condition-section { padding: 40px 20px; }
-    .detail-panel { padding: 24px; }
-    .detail-columns { grid-template-columns: 1fr; gap: 24px; }
-  }
+  .col-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .col-list li { font-size: 14px; color: var(--gray-600); line-height: 1.5; padding-left: 16px; position: relative; }
+  .col-list li::before { content: '→'; position: absolute; left: 0; color: var(--gray-400); font-size: 12px; }
+  .detail-cta { display: block; width: 100%; text-align: center; padding: 16px; background: var(--pink-cta); color: var(--white); border-radius: 12px; font-size: 16px; font-weight: 700; text-decoration: none; transition: all 0.25s; box-shadow: 0 4px 16px rgba(232,76,106,0.3); }
+  .detail-cta:hover { background: var(--pink-cta-hover); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(232,76,106,0.4); }
+  @media (max-width: 1024px) { .condition-section { padding: 60px 32px; } .condition-grid { grid-template-columns: 1fr; gap: 40px; } .condition-right { position: static; } }
+  @media (max-width: 600px) { .condition-section { padding: 40px 20px; } .detail-panel { padding: 24px; } .detail-columns { grid-template-columns: 1fr; gap: 24px; } }
 </style>
 
 <script>
-  // Condition data
   const conditions = [
-    {
-      tag: "Acne",
-      title: "Acne & Breakouts",
-      severity: 70,
-      severityLabel: "Moderate–High",
-      causes: [
-        "Excess sebum production",
-        "Clogged pores (dead skin + oil)",
-        "Bacterial growth (C. acnes)",
-        "Hormonal fluctuations",
-        "Stress & cortisol spikes"
-      ],
-      tips: [
-        "Never pop — it causes scarring",
-        "Salicylic acid unblocks pores",
-        "Retinoids are gold standard Rx",
-        "Results need minimum 6–8 weeks",
-        "Diet has minor but real role"
-      ]
-    },
-    {
-      tag: "Hair Fall",
-      title: "Hair Fall & Thinning",
-      severity: 60,
-      severityLabel: "Moderate",
-      causes: [
-        "Androgenetic alopecia (genetic)",
-        "Iron & vitamin D deficiency",
-        "Thyroid imbalance",
-        "Post-COVID telogen effluvium",
-        "Excessive heat & chemical styling"
-      ],
-      tips: [
-        "PRP therapy boosts hair density",
-        "Minoxidil is first-line treatment",
-        "Blood tests rule out deficiencies",
-        "Visible results take 3–6 months",
-        "Early intervention = better results"
-      ]
-    },
-    {
-      tag: "Pigmentation",
-      title: "Pigmentation & Dark Spots",
-      severity: 50,
-      severityLabel: "Moderate",
-      causes: [
-        "UV exposure (sun damage)",
-        "Post-inflammatory marks (acne scars)",
-        "Melasma (hormonal pigmentation)",
-        "Friction or irritation",
-        "Certain medications"
-      ],
-      tips: [
-        "Sunscreen SPF 50 is non-negotiable",
-        "Vitamin C serum helps brighten",
-        "Chemical peels accelerate turnover",
-        "Avoid lemon/DIY remedies on skin",
-        "Consistent routine > quick fixes"
-      ]
-    },
-    {
-      tag: "Brightening",
-      title: "Skin Brightening & Glow",
-      severity: 30,
-      severityLabel: "Low–Moderate",
-      causes: [
-        "Dull skin from dead cell buildup",
-        "Dehydration & poor moisture barrier",
-        "Pollution & oxidative stress",
-        "Uneven melanin distribution",
-        "Lack of exfoliation routine"
-      ],
-      tips: [
-        "Hydrafacial gives instant glow",
-        "Niacinamide evens out tone",
-        "Glycolic acid is a great exfoliant",
-        "Internal hydration matters equally",
-        "Monthly peels maintain results"
-      ]
-    },
-    {
-      tag: "Fungal",
-      title: "Fungal Infections",
-      severity: 55,
-      severityLabel: "Moderate",
-      causes: [
-        "Warm & humid climate",
-        "Sweating & tight clothing",
-        "Weakened immune response",
-        "Shared personal items",
-        "Antibiotic overuse disrupting flora"
-      ],
-      tips: [
-        "Antifungal creams need full course",
-        "Keep affected areas dry & clean",
-        "Don't self-medicate with steroids",
-        "Cotton clothing reduces recurrence",
-        "Oral meds needed for stubborn cases"
-      ]
-    },
-    {
-      tag: "Eczema",
-      title: "Eczema & Chronic Dryness",
-      severity: 65,
-      severityLabel: "Moderate–High",
-      causes: [
-        "Genetic skin barrier defect",
-        "Immune system overreaction",
-        "Environmental triggers (dust, pollen)",
-        "Harsh soaps & detergents",
-        "Stress & weather changes"
-      ],
-      tips: [
-        "Moisturize within 3 min of bathing",
-        "Ceramide creams repair barrier",
-        "Avoid hot water — use lukewarm",
-        "Steroid creams only as prescribed",
-        "Identify & eliminate triggers"
-      ]
-    }
+    { tag:"Acne", title:"Acne & Breakouts", severity:70, severityLabel:"Moderate–High", causes:["Excess sebum production","Clogged pores (dead skin + oil)","Bacterial growth (C. acnes)","Hormonal fluctuations","Stress & cortisol spikes"], tips:["Never pop — it causes scarring","Salicylic acid unblocks pores","Retinoids are gold standard Rx","Results need minimum 6–8 weeks","Diet has minor but real role"] },
+    { tag:"Hair Fall", title:"Hair Fall & Thinning", severity:60, severityLabel:"Moderate", causes:["Androgenetic alopecia (genetic)","Iron & vitamin D deficiency","Thyroid imbalance","Post-COVID telogen effluvium","Excessive heat & chemical styling"], tips:["PRP therapy boosts hair density","Minoxidil is first-line treatment","Blood tests rule out deficiencies","Visible results take 3–6 months","Early intervention = better results"] },
+    { tag:"Pigmentation", title:"Pigmentation & Dark Spots", severity:50, severityLabel:"Moderate", causes:["UV exposure (sun damage)","Post-inflammatory marks (acne scars)","Melasma (hormonal pigmentation)","Friction or irritation","Certain medications"], tips:["Sunscreen SPF 50 is non-negotiable","Vitamin C serum helps brighten","Chemical peels accelerate turnover","Avoid lemon/DIY remedies on skin","Consistent routine > quick fixes"] },
+    { tag:"Brightening", title:"Skin Brightening & Glow", severity:30, severityLabel:"Low–Moderate", causes:["Dull skin from dead cell buildup","Dehydration & poor moisture barrier","Pollution & oxidative stress","Uneven melanin distribution","Lack of exfoliation routine"], tips:["Hydrafacial gives instant glow","Niacinamide evens out tone","Glycolic acid is a great exfoliant","Internal hydration matters equally","Monthly peels maintain results"] },
+    { tag:"Fungal", title:"Fungal Infections", severity:55, severityLabel:"Moderate", causes:["Warm & humid climate","Sweating & tight clothing","Weakened immune response","Shared personal items","Antibiotic overuse disrupting flora"], tips:["Antifungal creams need full course","Keep affected areas dry & clean","Don't self-medicate with steroids","Cotton clothing reduces recurrence","Oral meds needed for stubborn cases"] },
+    { tag:"Eczema", title:"Eczema & Chronic Dryness", severity:65, severityLabel:"Moderate–High", causes:["Genetic skin barrier defect","Immune system overreaction","Environmental triggers (dust, pollen)","Harsh soaps & detergents","Stress & weather changes"], tips:["Moisturize within 3 min of bathing","Ceramide creams repair barrier","Avoid hot water — use lukewarm","Steroid creams only as prescribed","Identify & eliminate triggers"] }
   ];
 
-  // Interactive switching
-  const items = document.querySelectorAll('.condition-item');
-
-  items.forEach(item => {
+  document.querySelectorAll('.condition-item').forEach(item => {
     item.addEventListener('click', () => {
       const idx = parseInt(item.dataset.index);
       const data = conditions[idx];
-
-      // Update active state
-      items.forEach(i => i.classList.remove('active'));
+      document.querySelectorAll('.condition-item').forEach(i => i.classList.remove('active'));
       item.classList.add('active');
-
-      // Update detail panel with animation
       const panel = document.getElementById('detailPanel');
       panel.style.opacity = '0';
       panel.style.transform = 'translateY(10px)';
-
       setTimeout(() => {
         document.getElementById('detailTag').textContent = '● ' + data.tag;
         document.getElementById('detailTitle').textContent = data.title;
         document.getElementById('severityFill').style.width = data.severity + '%';
         document.getElementById('severityLabel').textContent = data.severityLabel;
-
-        const causesList = document.getElementById('causesList');
-        causesList.innerHTML = data.causes.map(c => `<li>${c}</li>`).join('');
-
-        const tipsList = document.getElementById('tipsList');
-        tipsList.innerHTML = data.tips.map(t => `<li>${t}</li>`).join('');
-
+        document.getElementById('causesList').innerHTML = data.causes.map(c => `<li>${c}</li>`).join('');
+        document.getElementById('tipsList').innerHTML = data.tips.map(t => `<li>${t}</li>`).join('');
         panel.style.opacity = '1';
         panel.style.transform = 'translateY(0)';
       }, 200);
     });
   });
-
-  // Add transition to panel
   document.getElementById('detailPanel').style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-</script>
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
-<script>
-  gsap.registerPlugin(ScrollTrigger);
-
-  window.addEventListener("load", () => {
-    const hero = document.querySelector(".hero");
-    const heroLeft = document.querySelector(".hero-left");
-    const heroRight = document.querySelector(".hero-right");
-    const heroMotionLayer = document.querySelector(".hero-motion-layer");
-    const doctorVisual = document.querySelector(".doctor-photo, .photo-placeholder");
-    const floatCards = document.querySelectorAll(".float-card");
-
-    if (!hero || !heroLeft || !heroRight || !heroMotionLayer) return;
-
-    gsap.set([".trust-row", ".hero-headline", ".hero-subtext", ".cta-row"], {
-      opacity: 1,
-      y: 0
-    });
-
-    gsap.set(floatCards, {
-      opacity: 1,
-      x: 0,
-      y: 0,
-      scale: 1
-    });
-
-    const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
-
-    heroTl
-      .from(heroLeft, {
-        opacity: 0,
-        y: 40,
-        duration: 1
-      })
-      .from(heroRight, {
-        opacity: 0,
-        x: 50,
-        scale: 0.96,
-        duration: 1
-      }, "-=0.7")
-      .from(".trust-row", {
-        opacity: 0,
-        y: 18,
-        duration: 0.6
-      }, "-=0.8")
-      .from(".hero-headline", {
-        opacity: 0,
-        y: 24,
-        duration: 0.8
-      }, "-=0.6")
-      .from(".hero-subtext", {
-        opacity: 0,
-        y: 18,
-        duration: 0.7
-      }, "-=0.5")
-      .from(".cta-row", {
-        opacity: 0,
-        y: 18,
-        duration: 0.7
-      }, "-=0.5")
-      .from(".card-top-derma", {
-        opacity: 0,
-        y: 20,
-        scale: 0.92,
-        duration: 0.55
-      }, "-=0.45")
-      .from(".card-treatments", {
-        opacity: 0,
-        y: 20,
-        scale: 0.92,
-        duration: 0.55
-      }, "-=0.35")
-      .from(".card-next-slot", {
-        opacity: 0,
-        y: 20,
-        scale: 0.92,
-        duration: 0.55
-      }, "-=0.3");
-
-    gsap.to(heroLeft, {
-      y: -70,
-      ease: "none",
-      scrollTrigger: {
-        trigger: hero,
-        start: "top top",
-        end: "bottom top",
-        scrub: 1
-      }
-    });
-
-    if (doctorVisual) {
-      gsap.to(doctorVisual, {
-        scale: 1.08,
-        y: -20,
-        ease: "none",
-        scrollTrigger: {
-          trigger: hero,
-          start: "top top",
-          end: "bottom top",
-          scrub: 1.2
-        }
-      });
-    }
-
-    gsap.to(".card-top-derma", {
-      y: -35,
-      ease: "none",
-      scrollTrigger: {
-        trigger: hero,
-        start: "top top",
-        end: "bottom top",
-        scrub: 1
-      }
-    });
-
-    gsap.to(".card-treatments", {
-      y: -20,
-      ease: "none",
-      scrollTrigger: {
-        trigger: hero,
-        start: "top top",
-        end: "bottom top",
-        scrub: 1
-      }
-    });
-
-    gsap.to(".card-next-slot", {
-      y: -28,
-      ease: "none",
-      scrollTrigger: {
-        trigger: hero,
-        start: "top top",
-        end: "bottom top",
-        scrub: 1
-      }
-    });
-
-    if (window.innerWidth > 991) {
-      hero.addEventListener("mousemove", (e) => {
-        const rect = hero.getBoundingClientRect();
-        const relX = (e.clientX - rect.left) / rect.width - 0.5;
-        const relY = (e.clientY - rect.top) / rect.height - 0.5;
-
-        gsap.to(heroMotionLayer, {
-          rotateY: relX * 4,
-          rotateX: relY * -4,
-          transformPerspective: 1200,
-          transformOrigin: "center center",
-          duration: 0.8,
-          ease: "power2.out"
-        });
-
-        floatCards.forEach((card, index) => {
-          const depth = (index + 1) * 8;
-          gsap.to(card, {
-            x: relX * depth,
-            y: relY * depth,
-            duration: 0.8,
-            ease: "power2.out"
-          });
-        });
-      });
-
-      hero.addEventListener("mouseleave", () => {
-        gsap.to(heroMotionLayer, {
-          rotateX: 0,
-          rotateY: 0,
-          duration: 0.9,
-          ease: "power3.out"
-        });
-
-        floatCards.forEach((card) => {
-          gsap.to(card, {
-            x: 0,
-            y: 0,
-            duration: 0.9,
-            ease: "power3.out"
-          });
-        });
-      });
-    }
-  });
 </script>
 
 <!-- ── DAILY SKIN ROUTINE ── -->
 <section class="routine-section">
   <div class="routine-grid">
-
-    <!-- Left Side -->
     <div class="routine-left">
       <div class="routine-badge">☀ Daily Guide</div>
       <h2 class="routine-headline">Your Daily<br><span class="routine-highlight">Skin Routine</span></h2>
       <p class="routine-subtext">Dr. Meera-approved morning and night routines tailored to your skin type.</p>
-
       <div class="skin-type-list">
-        <button class="skin-type-item" data-skin="0">
-          <span class="skin-icon">💧</span>
-          <span class="skin-label">Oily Skin</span>
-          <span class="skin-arrow">→</span>
-        </button>
-        <button class="skin-type-item active" data-skin="1">
-          <span class="skin-icon">🏜</span>
-          <span class="skin-label">Dry Skin</span>
-          <span class="skin-arrow">→</span>
-        </button>
-        <button class="skin-type-item" data-skin="2">
-          <span class="skin-icon">⚖</span>
-          <span class="skin-label">Combination Skin</span>
-          <span class="skin-arrow">→</span>
-        </button>
-        <button class="skin-type-item" data-skin="3">
-          <span class="skin-icon">🌸</span>
-          <span class="skin-label">Sensitive Skin</span>
-          <span class="skin-arrow">→</span>
-        </button>
+        <button class="skin-type-item" data-skin="0"><span class="skin-icon">💧</span><span class="skin-label">Oily Skin</span><span class="skin-arrow">→</span></button>
+        <button class="skin-type-item active" data-skin="1"><span class="skin-icon">🏜</span><span class="skin-label">Dry Skin</span><span class="skin-arrow">→</span></button>
+        <button class="skin-type-item" data-skin="2"><span class="skin-icon">⚖</span><span class="skin-label">Combination Skin</span><span class="skin-arrow">→</span></button>
+        <button class="skin-type-item" data-skin="3"><span class="skin-icon">🌸</span><span class="skin-label">Sensitive Skin</span><span class="skin-arrow">→</span></button>
       </div>
     </div>
-
-    <!-- Right Side: Routine Steps -->
     <div class="routine-right" id="routineRight">
-
-      <!-- Morning Routine -->
       <div class="routine-block">
         <div class="routine-block-tag morning">☀ Morning Routine</div>
         <div class="routine-steps" id="morningSteps">
-          <div class="routine-step">
-            <div class="step-num">01</div>
-            <div class="step-info">
-              <h4>Cream Cleanser</h4>
-              <p>Gentle, hydrating. Absolutely no sulphates.</p>
-            </div>
-          </div>
-          <div class="routine-step">
-            <div class="step-num">02</div>
-            <div class="step-info">
-              <h4>Hydrating Toner</h4>
-              <p>Layer 2–3 times on damp skin for deep hydration.</p>
-            </div>
-          </div>
-          <div class="routine-step">
-            <div class="step-num">03</div>
-            <div class="step-info">
-              <h4>Hyaluronic Acid Serum</h4>
-              <p>Apply on damp skin — absorbs much better.</p>
-            </div>
-          </div>
-          <div class="routine-step">
-            <div class="step-num">04</div>
-            <div class="step-info">
-              <h4>Rich Moisturising Cream</h4>
-              <p>Ceramides + shea butter. Lock everything in.</p>
-            </div>
-          </div>
-          <div class="routine-step">
-            <div class="step-num">05</div>
-            <div class="step-info">
-              <h4>Moisturising SPF 50</h4>
-              <p>Cream-based. Adds another hydration layer on top.</p>
-            </div>
-          </div>
+          <div class="routine-step"><div class="step-num">01</div><div class="step-info"><h4>Cream Cleanser</h4><p>Gentle, hydrating. Absolutely no sulphates.</p></div></div>
+          <div class="routine-step"><div class="step-num">02</div><div class="step-info"><h4>Hydrating Toner</h4><p>Layer 2–3 times on damp skin for deep hydration.</p></div></div>
+          <div class="routine-step"><div class="step-num">03</div><div class="step-info"><h4>Hyaluronic Acid Serum</h4><p>Apply on damp skin — absorbs much better.</p></div></div>
+          <div class="routine-step"><div class="step-num">04</div><div class="step-info"><h4>Rich Moisturising Cream</h4><p>Ceramides + shea butter. Lock everything in.</p></div></div>
+          <div class="routine-step"><div class="step-num">05</div><div class="step-info"><h4>Moisturising SPF 50</h4><p>Cream-based. Adds another hydration layer on top.</p></div></div>
         </div>
       </div>
-
-      <!-- Night Routine -->
       <div class="routine-block">
         <div class="routine-block-tag night">🌙 Night Routine</div>
         <div class="routine-steps" id="nightSteps">
-          <div class="routine-step">
-            <div class="step-num">01</div>
-            <div class="step-info">
-              <h4>Oil Cleanser</h4>
-              <p>Removes sunscreen & makeup gently. Double cleanse.</p>
-            </div>
-          </div>
-          <div class="routine-step">
-            <div class="step-num">02</div>
-            <div class="step-info">
-              <h4>Cream Cleanser</h4>
-              <p>Second cleanse — same gentle, sulphate-free formula.</p>
-            </div>
-          </div>
-          <div class="routine-step">
-            <div class="step-num">03</div>
-            <div class="step-info">
-              <h4>Hydrating Toner</h4>
-              <p>Prep skin to absorb night treatments better.</p>
-            </div>
-          </div>
-          <div class="routine-step">
-            <div class="step-num">04</div>
-            <div class="step-info">
-              <h4>Retinol Serum</h4>
-              <p>Start low (0.25%). Build up slowly over weeks.</p>
-            </div>
-          </div>
-          <div class="routine-step">
-            <div class="step-num">05</div>
-            <div class="step-info">
-              <h4>Night Repair Cream</h4>
-              <p>Rich barrier repair. Peptides + ceramides ideal.</p>
-            </div>
-          </div>
+          <div class="routine-step"><div class="step-num">01</div><div class="step-info"><h4>Oil Cleanser</h4><p>Removes sunscreen & makeup gently. Double cleanse.</p></div></div>
+          <div class="routine-step"><div class="step-num">02</div><div class="step-info"><h4>Cream Cleanser</h4><p>Second cleanse — same gentle, sulphate-free formula.</p></div></div>
+          <div class="routine-step"><div class="step-num">03</div><div class="step-info"><h4>Hydrating Toner</h4><p>Prep skin to absorb night treatments better.</p></div></div>
+          <div class="routine-step"><div class="step-num">04</div><div class="step-info"><h4>Retinol Serum</h4><p>Start low (0.25%). Build up slowly over weeks.</p></div></div>
+          <div class="routine-step"><div class="step-num">05</div><div class="step-info"><h4>Night Repair Cream</h4><p>Rich barrier repair. Peptides + ceramides ideal.</p></div></div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
 <style>
-  /* ── ROUTINE SECTION ── */
-  .routine-section {
-    background: #0f1117;
-    padding: 80px 64px;
-    overflow: hidden;
-  }
-
-  .routine-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    max-width: 1280px;
-    margin: 0 auto;
-    align-items: start;
-  }
-
-  .routine-badge {
-    display: inline-block;
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2.5px;
-    color: #a8e6cf;
-    background: rgba(168, 230, 207, 0.1);
-    padding: 6px 16px;
-    border-radius: 100px;
-    margin-bottom: 20px;
-  }
-
-  .routine-headline {
-    font-family: 'Playfair Display', serif;
-    font-weight: 900;
-    font-size: clamp(36px, 4vw, 56px);
-    line-height: 1.1;
-    color: #ffffff;
-    margin-bottom: 16px;
-  }
-
-  .routine-highlight {
-    position: relative;
-    display: inline-block;
-    background: linear-gradient(135deg, #a8e6cf, #88d8a8);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .routine-subtext {
-    font-size: 16px;
-    line-height: 1.7;
-    color: #8a8d98;
-    max-width: 420px;
-    margin-bottom: 36px;
-  }
-
-  /* Skin Type List */
-  .skin-type-list {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .skin-type-item {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 16px 20px;
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 14px;
-    background: rgba(255,255,255,0.04);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    color: #c8c9cf;
-    text-align: left;
-    width: 100%;
-  }
-
-  .skin-type-item:hover {
-    background: rgba(255,255,255,0.08);
-    border-color: rgba(255,255,255,0.15);
-    color: #ffffff;
-  }
-
-  .skin-type-item.active {
-    background: var(--pink-cta);
-    border-color: var(--pink-cta);
-    color: var(--white);
-    box-shadow: 0 6px 24px rgba(232, 76, 106, 0.35);
-  }
-
-  .skin-icon {
-    font-size: 20px;
-    width: 36px;
-    text-align: center;
-    flex-shrink: 0;
-  }
-
+  .routine-section { background: #0f1117; padding: 80px 64px; overflow: hidden; }
+  .routine-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 1280px; margin: 0 auto; align-items: start; }
+  .routine-badge { display: inline-block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: #a8e6cf; background: rgba(168,230,207,0.1); padding: 6px 16px; border-radius: 100px; margin-bottom: 20px; }
+  .routine-headline { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(36px,4vw,56px); line-height: 1.1; color: #fff; margin-bottom: 16px; }
+  .routine-highlight { position: relative; display: inline-block; background: linear-gradient(135deg,#a8e6cf,#88d8a8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .routine-subtext { font-size: 16px; line-height: 1.7; color: #8a8d98; max-width: 420px; margin-bottom: 36px; }
+  .skin-type-list { display: flex; flex-direction: column; gap: 8px; }
+  .skin-type-item { display: flex; align-items: center; gap: 16px; padding: 16px 20px; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; background: rgba(255,255,255,0.04); cursor: pointer; transition: all 0.3s ease; font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 600; color: #c8c9cf; text-align: left; width: 100%; }
+  .skin-type-item:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15); color: #fff; }
+  .skin-type-item.active { background: var(--pink-cta); border-color: var(--pink-cta); color: var(--white); box-shadow: 0 6px 24px rgba(232,76,106,0.35); }
+  .skin-icon { font-size: 20px; width: 36px; text-align: center; flex-shrink: 0; }
   .skin-label { flex: 1; }
-
-  .skin-arrow {
-    font-size: 18px;
-    opacity: 0;
-    transition: opacity 0.2s;
-  }
-
-  .skin-type-item.active .skin-arrow,
-  .skin-type-item:hover .skin-arrow {
-    opacity: 1;
-  }
-
-  /* ── Routine Right ── */
-  .routine-right {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-  }
-
-  .routine-block {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .routine-block-tag {
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2.5px;
-    margin-bottom: 20px;
-    padding-left: 4px;
-  }
-
+  .skin-arrow { font-size: 18px; opacity: 0; transition: opacity 0.2s; }
+  .skin-type-item.active .skin-arrow, .skin-type-item:hover .skin-arrow { opacity: 1; }
+  .routine-right { display: flex; flex-direction: column; gap: 40px; }
+  .routine-block { display: flex; flex-direction: column; gap: 0; }
+  .routine-block-tag { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; margin-bottom: 20px; padding-left: 4px; }
   .routine-block-tag.morning { color: #f5a623; }
   .routine-block-tag.night { color: #74b9ff; }
-
-  .routine-steps {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-  }
-
-  .routine-step {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
-    padding: 18px 20px;
-    border-radius: 12px;
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.05);
-    transition: all 0.25s;
-  }
-
-  .routine-step:hover {
-    background: rgba(255,255,255,0.06);
-    border-color: rgba(255,255,255,0.1);
-  }
-
-  .step-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 28px;
-    font-weight: 800;
-    color: rgba(255,255,255,0.12);
-    line-height: 1;
-    min-width: 40px;
-    padding-top: 2px;
-  }
-
-  .step-info h4 {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    color: #e8e8ec;
-    margin-bottom: 4px;
-  }
-
-  .step-info p {
-    font-size: 14px;
-    color: #6b6e7a;
-    line-height: 1.5;
-  }
-
-  /* Responsive */
-  @media (max-width: 1024px) {
-    .routine-section { padding: 60px 32px; }
-    .routine-grid {
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
-  }
-
-  @media (max-width: 600px) {
-    .routine-section { padding: 40px 20px; }
-    .routine-step { gap: 14px; padding: 14px 16px; }
-    .step-num { font-size: 22px; min-width: 30px; }
-  }
+  .routine-steps { display: flex; flex-direction: column; gap: 2px; transition: opacity 0.3s ease, transform 0.3s ease; }
+  .routine-step { display: flex; align-items: flex-start; gap: 20px; padding: 18px 20px; border-radius: 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); transition: all 0.25s; }
+  .routine-step:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.1); }
+  .step-num { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 800; color: rgba(255,255,255,0.12); line-height: 1; min-width: 40px; padding-top: 2px; }
+  .step-info h4 { font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 700; color: #e8e8ec; margin-bottom: 4px; }
+  .step-info p { font-size: 14px; color: #6b6e7a; line-height: 1.5; }
+  @media (max-width: 1024px) { .routine-section { padding: 60px 32px; } .routine-grid { grid-template-columns: 1fr; gap: 40px; } }
+  @media (max-width: 600px) { .routine-section { padding: 40px 20px; } .routine-step { gap: 14px; padding: 14px 16px; } .step-num { font-size: 22px; min-width: 30px; } }
 </style>
 
 <script>
-  // Routine data per skin type
   const routineData = [
-    { // Oily Skin
-      morning: [
-        { name: "Gel Cleanser", desc: "Foaming, oil-free. Removes excess sebum." },
-        { name: "BHA Toner (Salicylic Acid)", desc: "Unclogs pores. Use 2% concentration." },
-        { name: "Niacinamide Serum", desc: "Controls oil + minimises pore appearance." },
-        { name: "Lightweight Gel Moisturiser", desc: "Oil-free, non-comedogenic. No heavy creams." },
-        { name: "Mattifying SPF 50", desc: "Gel or fluid formula. No white cast." }
-      ],
-      night: [
-        { name: "Micellar Water", desc: "First cleanse — removes sunscreen & grime." },
-        { name: "Gel Cleanser", desc: "Second cleanse — deep clean without stripping." },
-        { name: "BHA Exfoliant", desc: "2–3 nights/week. Don't overdo it." },
-        { name: "Retinol Serum", desc: "Alternate nights with BHA. Never combine." },
-        { name: "Oil-Free Night Gel", desc: "Hydrates without clogging. Hyaluronic acid base." }
-      ]
-    },
-    { // Dry Skin
-      morning: [
-        { name: "Cream Cleanser", desc: "Gentle, hydrating. Absolutely no sulphates." },
-        { name: "Hydrating Toner", desc: "Layer 2–3 times on damp skin for deep hydration." },
-        { name: "Hyaluronic Acid Serum", desc: "Apply on damp skin — absorbs much better." },
-        { name: "Rich Moisturising Cream", desc: "Ceramides + shea butter. Lock everything in." },
-        { name: "Moisturising SPF 50", desc: "Cream-based. Adds another hydration layer on top." }
-      ],
-      night: [
-        { name: "Oil Cleanser", desc: "Removes sunscreen & makeup gently. Double cleanse." },
-        { name: "Cream Cleanser", desc: "Second cleanse — same gentle, sulphate-free formula." },
-        { name: "Hydrating Toner", desc: "Prep skin to absorb night treatments better." },
-        { name: "Retinol Serum", desc: "Start low (0.25%). Build up slowly over weeks." },
-        { name: "Night Repair Cream", desc: "Rich barrier repair. Peptides + ceramides ideal." }
-      ]
-    },
-    { // Combination Skin
-      morning: [
-        { name: "Gentle Gel Cleanser", desc: "Mild foam — cleans T-zone without drying cheeks." },
-        { name: "Balancing Toner", desc: "Hydrating but not heavy. Green tea or centella." },
-        { name: "Vitamin C Serum", desc: "Brightens + protects. Use under SPF always." },
-        { name: "Light Lotion Moisturiser", desc: "Gel-cream hybrid. Balances both zones." },
-        { name: "Hybrid SPF 50", desc: "Lightweight, dewy finish. Not too matte or greasy." }
-      ],
-      night: [
-        { name: "Micellar Water", desc: "Gentle first cleanse for the full face." },
-        { name: "Gel Cleanser", desc: "Focus on T-zone. Be gentle on cheeks." },
-        { name: "AHA/BHA Toner", desc: "2 nights/week. Targets texture & pores." },
-        { name: "Niacinamide Serum", desc: "Balances sebum + strengthens barrier." },
-        { name: "Moisturising Night Cream", desc: "Medium weight. Apply extra on dry patches." }
-      ]
-    },
-    { // Sensitive Skin
-      morning: [
-        { name: "Micellar Water Rinse", desc: "No rubbing. Pat gently — minimal irritation." },
-        { name: "Centella Toner", desc: "Calming, anti-inflammatory. No fragrance ever." },
-        { name: "Azelaic Acid Serum", desc: "Gentle active. Reduces redness + evens tone." },
-        { name: "Barrier Repair Cream", desc: "Ceramides + squalane. Soothe & protect." },
-        { name: "Mineral SPF 50", desc: "Zinc oxide based. Physical blocker, less irritation." }
-      ],
-      night: [
-        { name: "Cream Cleanser", desc: "Fragrance-free, pH balanced. No foaming agents." },
-        { name: "Calming Toner", desc: "Aloe + chamomile. Skip actives on flare days." },
-        { name: "Bakuchiol Serum", desc: "Plant-based retinol alternative. Much gentler." },
-        { name: "Centella Night Balm", desc: "Thick, occlusive. Heals micro-damage overnight." },
-        { name: "Facial Oil (Optional)", desc: "Rosehip or jojoba. Seal everything in." }
-      ]
-    }
+    { morning:[{name:"Gel Cleanser",desc:"Foaming, oil-free. Removes excess sebum."},{name:"BHA Toner (Salicylic Acid)",desc:"Unclogs pores. Use 2% concentration."},{name:"Niacinamide Serum",desc:"Controls oil + minimises pore appearance."},{name:"Lightweight Gel Moisturiser",desc:"Oil-free, non-comedogenic. No heavy creams."},{name:"Mattifying SPF 50",desc:"Gel or fluid formula. No white cast."}], night:[{name:"Micellar Water",desc:"First cleanse — removes sunscreen & grime."},{name:"Gel Cleanser",desc:"Second cleanse — deep clean without stripping."},{name:"BHA Exfoliant",desc:"2–3 nights/week. Don't overdo it."},{name:"Retinol Serum",desc:"Alternate nights with BHA. Never combine."},{name:"Oil-Free Night Gel",desc:"Hydrates without clogging. Hyaluronic acid base."}] },
+    { morning:[{name:"Cream Cleanser",desc:"Gentle, hydrating. Absolutely no sulphates."},{name:"Hydrating Toner",desc:"Layer 2–3 times on damp skin for deep hydration."},{name:"Hyaluronic Acid Serum",desc:"Apply on damp skin — absorbs much better."},{name:"Rich Moisturising Cream",desc:"Ceramides + shea butter. Lock everything in."},{name:"Moisturising SPF 50",desc:"Cream-based. Adds another hydration layer on top."}], night:[{name:"Oil Cleanser",desc:"Removes sunscreen & makeup gently. Double cleanse."},{name:"Cream Cleanser",desc:"Second cleanse — same gentle, sulphate-free formula."},{name:"Hydrating Toner",desc:"Prep skin to absorb night treatments better."},{name:"Retinol Serum",desc:"Start low (0.25%). Build up slowly over weeks."},{name:"Night Repair Cream",desc:"Rich barrier repair. Peptides + ceramides ideal."}] },
+    { morning:[{name:"Gentle Gel Cleanser",desc:"Mild foam — cleans T-zone without drying cheeks."},{name:"Balancing Toner",desc:"Hydrating but not heavy. Green tea or centella."},{name:"Vitamin C Serum",desc:"Brightens + protects. Use under SPF always."},{name:"Light Lotion Moisturiser",desc:"Gel-cream hybrid. Balances both zones."},{name:"Hybrid SPF 50",desc:"Lightweight, dewy finish. Not too matte or greasy."}], night:[{name:"Micellar Water",desc:"Gentle first cleanse for the full face."},{name:"Gel Cleanser",desc:"Focus on T-zone. Be gentle on cheeks."},{name:"AHA/BHA Toner",desc:"2 nights/week. Targets texture & pores."},{name:"Niacinamide Serum",desc:"Balances sebum + strengthens barrier."},{name:"Moisturising Night Cream",desc:"Medium weight. Apply extra on dry patches."}] },
+    { morning:[{name:"Micellar Water Rinse",desc:"No rubbing. Pat gently — minimal irritation."},{name:"Centella Toner",desc:"Calming, anti-inflammatory. No fragrance ever."},{name:"Azelaic Acid Serum",desc:"Gentle active. Reduces redness + evens tone."},{name:"Barrier Repair Cream",desc:"Ceramides + squalane. Soothe & protect."},{name:"Mineral SPF 50",desc:"Zinc oxide based. Physical blocker, less irritation."}], night:[{name:"Cream Cleanser",desc:"Fragrance-free, pH balanced. No foaming agents."},{name:"Calming Toner",desc:"Aloe + chamomile. Skip actives on flare days."},{name:"Bakuchiol Serum",desc:"Plant-based retinol alternative. Much gentler."},{name:"Centella Night Balm",desc:"Thick, occlusive. Heals micro-damage overnight."},{name:"Facial Oil (Optional)",desc:"Rosehip or jojoba. Seal everything in."}] }
   ];
-
-  const skinItems = document.querySelectorAll('.skin-type-item');
 
   function renderRoutine(idx) {
     const data = routineData[idx];
     const morningEl = document.getElementById('morningSteps');
     const nightEl = document.getElementById('nightSteps');
-
-    // Fade out
-    morningEl.style.opacity = '0';
-    morningEl.style.transform = 'translateY(8px)';
-    nightEl.style.opacity = '0';
-    nightEl.style.transform = 'translateY(8px)';
-
+    morningEl.style.opacity = '0'; morningEl.style.transform = 'translateY(8px)';
+    nightEl.style.opacity = '0'; nightEl.style.transform = 'translateY(8px)';
     setTimeout(() => {
-      morningEl.innerHTML = data.morning.map((s, i) => `
-        <div class="routine-step">
-          <div class="step-num">${String(i + 1).padStart(2, '0')}</div>
-          <div class="step-info">
-            <h4>${s.name}</h4>
-            <p>${s.desc}</p>
-          </div>
-        </div>
-      `).join('');
-
-      nightEl.innerHTML = data.night.map((s, i) => `
-        <div class="routine-step">
-          <div class="step-num">${String(i + 1).padStart(2, '0')}</div>
-          <div class="step-info">
-            <h4>${s.name}</h4>
-            <p>${s.desc}</p>
-          </div>
-        </div>
-      `).join('');
-
-      // Fade in
-      morningEl.style.opacity = '1';
-      morningEl.style.transform = 'translateY(0)';
-      nightEl.style.opacity = '1';
-      nightEl.style.transform = 'translateY(0)';
+      morningEl.innerHTML = data.morning.map((s,i) => `<div class="routine-step"><div class="step-num">${String(i+1).padStart(2,'0')}</div><div class="step-info"><h4>${s.name}</h4><p>${s.desc}</p></div></div>`).join('');
+      nightEl.innerHTML = data.night.map((s,i) => `<div class="routine-step"><div class="step-num">${String(i+1).padStart(2,'0')}</div><div class="step-info"><h4>${s.name}</h4><p>${s.desc}</p></div></div>`).join('');
+      morningEl.style.opacity = '1'; morningEl.style.transform = 'translateY(0)';
+      nightEl.style.opacity = '1'; nightEl.style.transform = 'translateY(0)';
     }, 250);
   }
 
-  skinItems.forEach(item => {
+  document.querySelectorAll('.skin-type-item').forEach(item => {
     item.addEventListener('click', () => {
-      skinItems.forEach(i => i.classList.remove('active'));
+      document.querySelectorAll('.skin-type-item').forEach(i => i.classList.remove('active'));
       item.classList.add('active');
       renderRoutine(parseInt(item.dataset.skin));
     });
@@ -1902,12 +1218,9 @@
 <!-- ── WHAT SHOULD YOU USE ── -->
 <section class="recommend-section">
   <div class="recommend-grid">
-
-    <!-- Left Side -->
     <div class="recommend-left">
       <h2 class="recommend-headline">What Should<br>You <span class="rec-highlight">Use?</span></h2>
       <p class="recommend-subtext">Select your skin type and problem to get Dr. Meera's recommended product types for your daily routine.</p>
-
       <div class="filter-group">
         <div class="filter-label">Skin Type</div>
         <div class="pill-row" id="skinPills">
@@ -1917,7 +1230,6 @@
           <button class="pill" data-value="sensitive">Sensitive</button>
         </div>
       </div>
-
       <div class="filter-group">
         <div class="filter-label">Main Concern</div>
         <div class="pill-row" id="concernPills">
@@ -1927,1032 +1239,208 @@
           <button class="pill" data-value="antiaging">Anti-Aging</button>
         </div>
       </div>
-
       <button class="rec-cta" id="getRecBtn">Get Recommendations →</button>
     </div>
-
-    <!-- Right Side: Product Cards -->
     <div class="recommend-right" id="recResults">
-      <div class="rec-product">
-        <div class="rec-icon">🧴</div>
-        <div class="rec-info">
-          <h4>Foaming Salicylic Cleanser</h4>
-          <p>2% BHA. Unclogs pores, controls oil, reduces acne-causing bacteria.</p>
-        </div>
-      </div>
-      <div class="rec-product">
-        <div class="rec-icon">💧</div>
-        <div class="rec-info">
-          <h4>Niacinamide 10% Toner</h4>
-          <p>Reduces pores and sebum. Calms inflammation and redness.</p>
-        </div>
-      </div>
-      <div class="rec-product">
-        <div class="rec-icon">☀️</div>
-        <div class="rec-info">
-          <h4>Matte Zinc SPF 50</h4>
-          <p>Zinc oxide sunscreen — also has mild anti-acne properties.</p>
-        </div>
-      </div>
+      <div class="rec-product"><div class="rec-icon">🧴</div><div class="rec-info"><h4>Foaming Salicylic Cleanser</h4><p>2% BHA. Unclogs pores, controls oil, reduces acne-causing bacteria.</p></div></div>
+      <div class="rec-product"><div class="rec-icon">💧</div><div class="rec-info"><h4>Niacinamide 10% Toner</h4><p>Reduces pores and sebum. Calms inflammation and redness.</p></div></div>
+      <div class="rec-product"><div class="rec-icon">☀️</div><div class="rec-info"><h4>Matte Zinc SPF 50</h4><p>Zinc oxide sunscreen — also has mild anti-acne properties.</p></div></div>
       <a href="#" class="rec-prescription-cta">Get a Personalised Prescription →</a>
     </div>
-
   </div>
 </section>
 
 <style>
-  /* ── RECOMMEND SECTION ── */
-  .recommend-section {
-    background: #fafaf8;
-    padding: 80px 64px;
-  }
-
-  .recommend-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    max-width: 1280px;
-    margin: 0 auto;
-    align-items: start;
-  }
-
-  .recommend-headline {
-    font-family: 'Playfair Display', serif;
-    font-weight: 900;
-    font-size: clamp(36px, 4vw, 56px);
-    line-height: 1.1;
-    color: var(--dark);
-    margin-bottom: 16px;
-  }
-
-  .rec-highlight {
-    position: relative;
-    display: inline-block;
-  }
-
-  .rec-highlight::after {
-    content: '';
-    position: absolute;
-    bottom: 4px;
-    left: -4px;
-    right: -4px;
-    height: 14px;
-    background: #ffe066;
-    z-index: -1;
-    border-radius: 2px;
-  }
-
-  .recommend-subtext {
-    font-size: 16px;
-    line-height: 1.7;
-    color: var(--gray-600);
-    max-width: 440px;
-    margin-bottom: 32px;
-  }
-
-  /* Filter Groups */
-  .filter-group {
-    margin-bottom: 24px;
-  }
-
-  .filter-label {
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2.5px;
-    color: var(--gray-400);
-    margin-bottom: 12px;
-  }
-
-  .pill-row {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-
-  .pill {
-    padding: 10px 22px;
-    border-radius: 100px;
-    border: 1.5px solid #ddd;
-    background: var(--white);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--gray-600);
-    cursor: pointer;
-    transition: all 0.25s;
-  }
-
-  .pill:hover {
-    border-color: #0d7377;
-    color: #0d7377;
-  }
-
-  .pill.active {
-    background: #0d7377;
-    border-color: #0d7377;
-    color: var(--white);
-    box-shadow: 0 3px 12px rgba(13, 115, 119, 0.25);
-  }
-
-  .rec-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 8px;
-    padding: 14px 32px;
-    border-radius: 12px;
-    border: none;
-    background: var(--pink-cta);
-    color: var(--white);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.25s;
-    box-shadow: 0 4px 16px rgba(232, 76, 106, 0.3);
-  }
-
-  .rec-cta:hover {
-    background: var(--pink-cta-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 24px rgba(232, 76, 106, 0.4);
-  }
-
-  /* ── Right: Product Results ── */
-  .recommend-right {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-  }
-
-  .rec-product {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
-    padding: 24px;
-    background: var(--white);
-    border-radius: 16px;
-    border: 1px solid rgba(0,0,0,0.06);
-    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-    transition: all 0.25s;
-  }
-
-  .rec-product:hover {
-    box-shadow: 0 6px 24px rgba(0,0,0,0.08);
-    transform: translateY(-2px);
-  }
-
-  .rec-icon {
-    font-size: 28px;
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #f5f5f2;
-    border-radius: 12px;
-    flex-shrink: 0;
-  }
-
-  .rec-info h4 {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 17px;
-    font-weight: 700;
-    color: var(--dark);
-    margin-bottom: 4px;
-  }
-
-  .rec-info p {
-    font-size: 14px;
-    color: var(--gray-600);
-    line-height: 1.5;
-  }
-
-  .rec-prescription-cta {
-    display: block;
-    width: 100%;
-    text-align: center;
-    padding: 18px;
-    background: linear-gradient(135deg, #0d7377, #0fa3a8);
-    color: var(--white);
-    border-radius: 14px;
-    font-size: 16px;
-    font-weight: 700;
-    text-decoration: none;
-    transition: all 0.25s;
-    box-shadow: 0 4px 16px rgba(13, 115, 119, 0.3);
-    margin-top: 8px;
-  }
-
-  .rec-prescription-cta:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 24px rgba(13, 115, 119, 0.4);
-  }
-
-  /* Responsive */
-  @media (max-width: 1024px) {
-    .recommend-section { padding: 60px 32px; }
-    .recommend-grid {
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
-  }
-
-  @media (max-width: 600px) {
-    .recommend-section { padding: 40px 20px; }
-    .rec-product { padding: 18px; gap: 14px; }
-  }
+  .recommend-section { background: #fafaf8; padding: 80px 64px; }
+  .recommend-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 1280px; margin: 0 auto; align-items: start; }
+  .recommend-headline { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(36px,4vw,56px); line-height: 1.1; color: var(--dark); margin-bottom: 16px; }
+  .rec-highlight { position: relative; display: inline-block; }
+  .rec-highlight::after { content: ''; position: absolute; bottom: 4px; left: -4px; right: -4px; height: 14px; background: #ffe066; z-index: -1; border-radius: 2px; }
+  .recommend-subtext { font-size: 16px; line-height: 1.7; color: var(--gray-600); max-width: 440px; margin-bottom: 32px; }
+  .filter-group { margin-bottom: 24px; }
+  .filter-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--gray-400); margin-bottom: 12px; }
+  .pill-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .pill { padding: 10px 22px; border-radius: 100px; border: 1.5px solid #ddd; background: var(--white); font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; color: var(--gray-600); cursor: pointer; transition: all 0.25s; }
+  .pill:hover { border-color: #0d7377; color: #0d7377; }
+  .pill.active { background: #0d7377; border-color: #0d7377; color: var(--white); box-shadow: 0 3px 12px rgba(13,115,119,0.25); }
+  .rec-cta { display: inline-flex; align-items: center; gap: 8px; margin-top: 8px; padding: 14px 32px; border-radius: 12px; border: none; background: var(--pink-cta); color: var(--white); font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.25s; box-shadow: 0 4px 16px rgba(232,76,106,0.3); }
+  .rec-cta:hover { background: var(--pink-cta-hover); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(232,76,106,0.4); }
+  .recommend-right { display: flex; flex-direction: column; gap: 16px; transition: opacity 0.3s ease, transform 0.3s ease; }
+  .rec-product { display: flex; align-items: flex-start; gap: 20px; padding: 24px; background: var(--white); border-radius: 16px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 2px 12px rgba(0,0,0,0.04); transition: all 0.25s; }
+  .rec-product:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.08); transform: translateY(-2px); }
+  .rec-icon { font-size: 28px; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; background: #f5f5f2; border-radius: 12px; flex-shrink: 0; }
+  .rec-info h4 { font-family: 'DM Sans', sans-serif; font-size: 17px; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+  .rec-info p { font-size: 14px; color: var(--gray-600); line-height: 1.5; }
+  .rec-prescription-cta { display: block; width: 100%; text-align: center; padding: 18px; background: linear-gradient(135deg,#0d7377,#0fa3a8); color: var(--white); border-radius: 14px; font-size: 16px; font-weight: 700; text-decoration: none; transition: all 0.25s; box-shadow: 0 4px 16px rgba(13,115,119,0.3); margin-top: 8px; }
+  .rec-prescription-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(13,115,119,0.4); }
+  @media (max-width: 1024px) { .recommend-section { padding: 60px 32px; } .recommend-grid { grid-template-columns: 1fr; gap: 40px; } }
+  @media (max-width: 600px) { .recommend-section { padding: 40px 20px; } .rec-product { padding: 18px; gap: 14px; } }
 </style>
 
 <script>
-  // Recommendation data: [skinType][concern]
-  const recData = {
-    oily: {
-      acne: [
-        { icon: "🧴", name: "Foaming Salicylic Cleanser", desc: "2% BHA. Unclogs pores, controls oil, reduces acne-causing bacteria." },
-        { icon: "💧", name: "Niacinamide 10% Toner", desc: "Reduces pores and sebum. Calms inflammation and redness." },
-        { icon: "☀️", name: "Matte Zinc SPF 50", desc: "Zinc oxide sunscreen — also has mild anti-acne properties." }
-      ],
-      darkspots: [
-        { icon: "🍊", name: "Vitamin C 15% Serum", desc: "L-ascorbic acid. Fades post-acne marks & brightens skin." },
-        { icon: "🧪", name: "Alpha Arbutin Essence", desc: "Targets melanin production. Gentle, no irritation." },
-        { icon: "☀️", name: "Broad Spectrum SPF 50", desc: "Non-negotiable. UV exposure worsens dark spots." }
-      ],
-      dryness: [
-        { icon: "💦", name: "Hyaluronic Acid Serum", desc: "Draws moisture into oily-dehydrated skin. Lightweight." },
-        { icon: "🧴", name: "Oil-Free Gel Moisturiser", desc: "Hydrates without adding shine. Water-based formula." },
-        { icon: "🌊", name: "Hydrating Mist", desc: "Quick refresh through the day. No clogging." }
-      ],
-      antiaging: [
-        { icon: "✨", name: "Retinol 0.5% Serum", desc: "Boosts collagen. Start slow — every other night." },
-        { icon: "🧬", name: "Peptide Gel Cream", desc: "Firms skin without heavy textures. Lightweight." },
-        { icon: "☀️", name: "SPF 50 with Antioxidants", desc: "UV protection + free radical defence. Daily must." }
-      ]
-    },
-    dry: {
-      acne: [
-        { icon: "🥛", name: "Gentle Cream Cleanser", desc: "Sulphate-free. Won't strip moisture while treating acne." },
-        { icon: "🧪", name: "Azelaic Acid 15%", desc: "Anti-acne + anti-redness. Won't dry out skin." },
-        { icon: "🧈", name: "Ceramide Moisturiser", desc: "Repairs barrier while keeping breakouts under control." }
-      ],
-      darkspots: [
-        { icon: "🍊", name: "Vitamin C + E Serum", desc: "Antioxidant combo. Brightens and protects dry skin." },
-        { icon: "🌿", name: "Liquorice Extract Cream", desc: "Natural melanin inhibitor. Hydrating base formula." },
-        { icon: "☀️", name: "Moisturising SPF 50", desc: "Cream-based. Double duty: hydration + protection." }
-      ],
-      dryness: [
-        { icon: "💧", name: "Hyaluronic Acid + B5 Serum", desc: "Multi-weight HA. Hydrates at every layer of skin." },
-        { icon: "🧈", name: "Rich Barrier Repair Cream", desc: "Ceramides + cholesterol + fatty acids. Gold standard." },
-        { icon: "🫧", name: "Facial Oil (Squalane)", desc: "Seals in everything. Non-comedogenic, skin-identical." }
-      ],
-      antiaging: [
-        { icon: "✨", name: "Retinol in Squalane", desc: "Retinol buffered in oil. Anti-aging without dryness." },
-        { icon: "🧬", name: "Peptide Rich Night Cream", desc: "Collagen-boosting. Deeply nourishing overnight repair." },
-        { icon: "🧴", name: "Eye Cream with Retinol", desc: "Fine lines around eyes. Gentle, fragrance-free." }
-      ]
-    },
-    combination: {
-      acne: [
-        { icon: "🧴", name: "Gentle Gel Cleanser", desc: "Mild foam for T-zone. Won't over-dry cheeks." },
-        { icon: "💧", name: "BHA + Niacinamide Serum", desc: "Targets oily-zone breakouts. Pore-refining." },
-        { icon: "🌿", name: "Gel-Cream Moisturiser", desc: "Lightweight hybrid. Balances both skin zones." }
-      ],
-      darkspots: [
-        { icon: "🍊", name: "Vitamin C 20% Serum", desc: "High potency brightener. Apply morning only." },
-        { icon: "🧪", name: "Tranexamic Acid Serum", desc: "Newer, effective for stubborn melasma patches." },
-        { icon: "☀️", name: "Hybrid SPF 50", desc: "Chemical + physical filter blend. Lightweight finish." }
-      ],
-      dryness: [
-        { icon: "💦", name: "Hydrating Essence Toner", desc: "Multi-layer application. Plumps dry patches." },
-        { icon: "🧈", name: "Balanced Day Cream", desc: "Nourishes cheeks, doesn't overload T-zone." },
-        { icon: "🌊", name: "Overnight Hydra Mask", desc: "Weekly treatment. Deep moisture while you sleep." }
-      ],
-      antiaging: [
-        { icon: "✨", name: "Retinol 0.3% Serum", desc: "Good starting point. Build tolerance gradually." },
-        { icon: "🧬", name: "Vitamin C + Peptide AM", desc: "Morning combo — brightens + firms simultaneously." },
-        { icon: "☀️", name: "Anti-Aging SPF 50", desc: "Prevents photodamage, the #1 cause of aging." }
-      ]
-    },
-    sensitive: {
-      acne: [
-        { icon: "🌸", name: "Micellar Cleansing Water", desc: "No-rinse gentle option. Zero irritation." },
-        { icon: "🧪", name: "Azelaic Acid 10%", desc: "Lower concentration. Anti-acne without sensitising." },
-        { icon: "☀️", name: "Mineral SPF 50", desc: "Physical sunscreen only. No chemical filters." }
-      ],
-      darkspots: [
-        { icon: "🌿", name: "Bakuchiol + Vitamin C", desc: "Gentle brightening. Plant-based retinol alternative." },
-        { icon: "🧴", name: "Centella Recovery Cream", desc: "Calms while treating. No fragrance, no dyes." },
-        { icon: "☀️", name: "Tinted Mineral SPF", desc: "Protection + coverage. Covers spots while healing." }
-      ],
-      dryness: [
-        { icon: "💧", name: "Ceramide Hydrating Toner", desc: "Barrier repair at the toner step. Fragrance-free." },
-        { icon: "🧈", name: "Squalane + Centella Balm", desc: "Ultra-calming occlusive. Heals dry, irritated patches." },
-        { icon: "🫧", name: "Rosehip Facial Oil", desc: "Natural, anti-inflammatory. Seals moisture gently." }
-      ],
-      antiaging: [
-        { icon: "🌸", name: "Bakuchiol Serum", desc: "Retinol alternative. Zero irritation, proven results." },
-        { icon: "🧬", name: "Peptide Calming Cream", desc: "Firms skin with peptides. No actives that sting." },
-        { icon: "☀️", name: "Mineral SPF with Niacinamide", desc: "Gentle protection + barrier support daily." }
-      ]
-    }
-  };
+  const recData = { oily:{ acne:[{icon:"🧴",name:"Foaming Salicylic Cleanser",desc:"2% BHA. Unclogs pores, controls oil, reduces acne-causing bacteria."},{icon:"💧",name:"Niacinamide 10% Toner",desc:"Reduces pores and sebum. Calms inflammation and redness."},{icon:"☀️",name:"Matte Zinc SPF 50",desc:"Zinc oxide sunscreen — also has mild anti-acne properties."}], darkspots:[{icon:"🍊",name:"Vitamin C 15% Serum",desc:"L-ascorbic acid. Fades post-acne marks & brightens skin."},{icon:"🧪",name:"Alpha Arbutin Essence",desc:"Targets melanin production. Gentle, no irritation."},{icon:"☀️",name:"Broad Spectrum SPF 50",desc:"Non-negotiable. UV exposure worsens dark spots."}], dryness:[{icon:"💦",name:"Hyaluronic Acid Serum",desc:"Draws moisture into oily-dehydrated skin. Lightweight."},{icon:"🧴",name:"Oil-Free Gel Moisturiser",desc:"Hydrates without adding shine. Water-based formula."},{icon:"🌊",name:"Hydrating Mist",desc:"Quick refresh through the day. No clogging."}], antiaging:[{icon:"✨",name:"Retinol 0.5% Serum",desc:"Boosts collagen. Start slow — every other night."},{icon:"🧬",name:"Peptide Gel Cream",desc:"Firms skin without heavy textures. Lightweight."},{icon:"☀️",name:"SPF 50 with Antioxidants",desc:"UV protection + free radical defence. Daily must."}] }, dry:{ acne:[{icon:"🥛",name:"Gentle Cream Cleanser",desc:"Sulphate-free. Won't strip moisture while treating acne."},{icon:"🧪",name:"Azelaic Acid 15%",desc:"Anti-acne + anti-redness. Won't dry out skin."},{icon:"🧈",name:"Ceramide Moisturiser",desc:"Repairs barrier while keeping breakouts under control."}], darkspots:[{icon:"🍊",name:"Vitamin C + E Serum",desc:"Antioxidant combo. Brightens and protects dry skin."},{icon:"🌿",name:"Liquorice Extract Cream",desc:"Natural melanin inhibitor. Hydrating base formula."},{icon:"☀️",name:"Moisturising SPF 50",desc:"Cream-based. Double duty: hydration + protection."}], dryness:[{icon:"💧",name:"Hyaluronic Acid + B5 Serum",desc:"Multi-weight HA. Hydrates at every layer of skin."},{icon:"🧈",name:"Rich Barrier Repair Cream",desc:"Ceramides + cholesterol + fatty acids. Gold standard."},{icon:"🫧",name:"Facial Oil (Squalane)",desc:"Seals in everything. Non-comedogenic, skin-identical."}], antiaging:[{icon:"✨",name:"Retinol in Squalane",desc:"Retinol buffered in oil. Anti-aging without dryness."},{icon:"🧬",name:"Peptide Rich Night Cream",desc:"Collagen-boosting. Deeply nourishing overnight repair."},{icon:"🧴",name:"Eye Cream with Retinol",desc:"Fine lines around eyes. Gentle, fragrance-free."}] }, combination:{ acne:[{icon:"🧴",name:"Gentle Gel Cleanser",desc:"Mild foam for T-zone. Won't over-dry cheeks."},{icon:"💧",name:"BHA + Niacinamide Serum",desc:"Targets oily-zone breakouts. Pore-refining."},{icon:"🌿",name:"Gel-Cream Moisturiser",desc:"Lightweight hybrid. Balances both skin zones."}], darkspots:[{icon:"🍊",name:"Vitamin C 20% Serum",desc:"High potency brightener. Apply morning only."},{icon:"🧪",name:"Tranexamic Acid Serum",desc:"Newer, effective for stubborn melasma patches."},{icon:"☀️",name:"Hybrid SPF 50",desc:"Chemical + physical filter blend. Lightweight finish."}], dryness:[{icon:"💦",name:"Hydrating Essence Toner",desc:"Multi-layer application. Plumps dry patches."},{icon:"🧈",name:"Balanced Day Cream",desc:"Nourishes cheeks, doesn't overload T-zone."},{icon:"🌊",name:"Overnight Hydra Mask",desc:"Weekly treatment. Deep moisture while you sleep."}], antiaging:[{icon:"✨",name:"Retinol 0.3% Serum",desc:"Good starting point. Build tolerance gradually."},{icon:"🧬",name:"Vitamin C + Peptide AM",desc:"Morning combo — brightens + firms simultaneously."},{icon:"☀️",name:"Anti-Aging SPF 50",desc:"Prevents photodamage, the #1 cause of aging."}] }, sensitive:{ acne:[{icon:"🌸",name:"Micellar Cleansing Water",desc:"No-rinse gentle option. Zero irritation."},{icon:"🧪",name:"Azelaic Acid 10%",desc:"Lower concentration. Anti-acne without sensitising."},{icon:"☀️",name:"Mineral SPF 50",desc:"Physical sunscreen only. No chemical filters."}], darkspots:[{icon:"🌿",name:"Bakuchiol + Vitamin C",desc:"Gentle brightening. Plant-based retinol alternative."},{icon:"🧴",name:"Centella Recovery Cream",desc:"Calms while treating. No fragrance, no dyes."},{icon:"☀️",name:"Tinted Mineral SPF",desc:"Protection + coverage. Covers spots while healing."}], dryness:[{icon:"💧",name:"Ceramide Hydrating Toner",desc:"Barrier repair at the toner step. Fragrance-free."},{icon:"🧈",name:"Squalane + Centella Balm",desc:"Ultra-calming occlusive. Heals dry, irritated patches."},{icon:"🫧",name:"Rosehip Facial Oil",desc:"Natural, anti-inflammatory. Seals moisture gently."}], antiaging:[{icon:"🌸",name:"Bakuchiol Serum",desc:"Retinol alternative. Zero irritation, proven results."},{icon:"🧬",name:"Peptide Calming Cream",desc:"Firms skin with peptides. No actives that sting."},{icon:"☀️",name:"Mineral SPF with Niacinamide",desc:"Gentle protection + barrier support daily."}] } };
 
-  // Pill click logic
-  function setupPills(containerId) {
-    const pills = document.querySelectorAll(`#${containerId} .pill`);
-    pills.forEach(pill => {
-      pill.addEventListener('click', () => {
-        pills.forEach(p => p.classList.remove('active'));
-        pill.classList.add('active');
-      });
-    });
+  function setupPills(id) {
+    document.querySelectorAll(`#${id} .pill`).forEach(p => p.addEventListener('click', () => { document.querySelectorAll(`#${id} .pill`).forEach(x => x.classList.remove('active')); p.classList.add('active'); }));
   }
-  setupPills('skinPills');
-  setupPills('concernPills');
+  setupPills('skinPills'); setupPills('concernPills');
 
-  // Get Recommendations button
   document.getElementById('getRecBtn').addEventListener('click', () => {
     const skin = document.querySelector('#skinPills .pill.active').dataset.value;
     const concern = document.querySelector('#concernPills .pill.active').dataset.value;
     const products = recData[skin][concern];
-
-    const resultsEl = document.getElementById('recResults');
-    resultsEl.style.opacity = '0';
-    resultsEl.style.transform = 'translateY(10px)';
-
+    const el = document.getElementById('recResults');
+    el.style.opacity = '0'; el.style.transform = 'translateY(10px)';
     setTimeout(() => {
-      resultsEl.innerHTML = products.map(p => `
-        <div class="rec-product">
-          <div class="rec-icon">${p.icon}</div>
-          <div class="rec-info">
-            <h4>${p.name}</h4>
-            <p>${p.desc}</p>
-          </div>
-        </div>
-      `).join('') + `<a href="#" class="rec-prescription-cta">Get a Personalised Prescription →</a>`;
-
-      resultsEl.style.opacity = '1';
-      resultsEl.style.transform = 'translateY(0)';
+      el.innerHTML = products.map(p => `<div class="rec-product"><div class="rec-icon">${p.icon}</div><div class="rec-info"><h4>${p.name}</h4><p>${p.desc}</p></div></div>`).join('') + `<a href="#" class="rec-prescription-cta">Get a Personalised Prescription →</a>`;
+      el.style.opacity = '1'; el.style.transform = 'translateY(0)';
     }, 250);
   });
 </script>
 
-<!-- ══════════════════════════════════════════ -->
-<!-- ── SECTION: MYTH VS FACT ── -->
-<!-- ══════════════════════════════════════════ -->
+<!-- ── MYTH VS FACT ── -->
 <section class="myth-section">
   <div class="myth-header">
     <div class="myth-tag">● Education</div>
     <h2 class="myth-headline">Myth vs Fact</h2>
     <p class="myth-subtext">Common skincare misconceptions — debunked by Dr. Meera.</p>
   </div>
-
   <div class="myth-grid">
-    <div class="myth-card">
-      <div class="myth-badge myth"><span>✕</span> Myth</div>
-      <h3>"Oily food directly causes acne breakouts."</h3>
-      <p>Acne is primarily hormonal and bacterial. Diet plays a minor role — high-glycemic foods may worsen it slightly, but greasy food alone won't cause a breakout.</p>
-    </div>
-    <div class="myth-card">
-      <div class="myth-badge myth"><span>✕</span> Myth</div>
-      <h3>"Washing face 4–5x a day clears acne faster."</h3>
-      <p>Over-cleansing strips your skin barrier, triggering excess oil production. Twice daily is optimal — any more worsens breakouts and causes irritation.</p>
-    </div>
-    <div class="myth-card">
-      <div class="myth-badge myth"><span>✕</span> Myth</div>
-      <h3>"Hair loss is always permanent and irreversible."</h3>
-      <p>Most hair fall — from stress, nutrition, hormones — is fully reversible with early treatment. PRP and targeted therapy show excellent results in 80%+ of cases.</p>
-    </div>
-    <div class="myth-card">
-      <div class="myth-badge fact"><span>✓</span> Fact</div>
-      <h3>"Sunscreen is necessary on cloudy days too."</h3>
-      <p>UV rays penetrate clouds and cause pigmentation and ageing year-round. SPF 50 daily is non-negotiable — rain or shine.</p>
-    </div>
-    <div class="myth-card">
-      <div class="myth-badge myth"><span>✕</span> Myth</div>
-      <h3>"Natural / herbal remedies are always skin-safe."</h3>
-      <p>Lemon juice, raw turmeric, and honey can cause chemical burns and allergic reactions. Natural doesn't mean safe — always patch test.</p>
-    </div>
-    <div class="myth-card">
-      <div class="myth-badge fact"><span>✓</span> Fact</div>
-      <h3>"Dark skin tones still need sun protection daily."</h3>
-      <p>Melanin offers some protection but doesn't prevent pigmentation or UV damage. All skin tones benefit from daily sunscreen use.</p>
-    </div>
+    <div class="myth-card"><div class="myth-badge myth"><span>✕</span> Myth</div><h3>"Oily food directly causes acne breakouts."</h3><p>Acne is primarily hormonal and bacterial. Diet plays a minor role — high-glycemic foods may worsen it slightly, but greasy food alone won't cause a breakout.</p></div>
+    <div class="myth-card"><div class="myth-badge myth"><span>✕</span> Myth</div><h3>"Washing face 4–5x a day clears acne faster."</h3><p>Over-cleansing strips your skin barrier, triggering excess oil production. Twice daily is optimal — any more worsens breakouts and causes irritation.</p></div>
+    <div class="myth-card"><div class="myth-badge myth"><span>✕</span> Myth</div><h3>"Hair loss is always permanent and irreversible."</h3><p>Most hair fall — from stress, nutrition, hormones — is fully reversible with early treatment. PRP and targeted therapy show excellent results in 80%+ of cases.</p></div>
+    <div class="myth-card"><div class="myth-badge fact"><span>✓</span> Fact</div><h3>"Sunscreen is necessary on cloudy days too."</h3><p>UV rays penetrate clouds and cause pigmentation and ageing year-round. SPF 50 daily is non-negotiable — rain or shine.</p></div>
+    <div class="myth-card"><div class="myth-badge myth"><span>✕</span> Myth</div><h3>"Natural / herbal remedies are always skin-safe."</h3><p>Lemon juice, raw turmeric, and honey can cause chemical burns and allergic reactions. Natural doesn't mean safe — always patch test.</p></div>
+    <div class="myth-card"><div class="myth-badge fact"><span>✓</span> Fact</div><h3>"Dark skin tones still need sun protection daily."</h3><p>Melanin offers some protection but doesn't prevent pigmentation or UV damage. All skin tones benefit from daily sunscreen use.</p></div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════ -->
-<!-- ── SECTION: WATCH & LEARN ── -->
-<!-- ══════════════════════════════════════════ -->
+<!-- ── WATCH & LEARN ── -->
 <section class="watch-section">
   <div class="watch-grid">
-    <!-- Left -->
     <div class="watch-left">
       <div class="watch-tag">● Expert Tips</div>
       <h2 class="watch-headline">Watch &<br><span class="watch-highlight">Learn</span></h2>
       <p class="watch-subtext">Dr. Meera shares treatment explainers, skincare tips, and patient education — straight from the clinic floor.</p>
-
       <div class="watch-follow">
         <div class="follow-label">Follow for Daily Tips</div>
         <div class="follow-handle">
           <div class="follow-avatar">📸</div>
-          <div>
-            <strong>@drMeeraSkin</strong>
-            <span>10K+ followers · Daily skincare content</span>
-          </div>
+          <div><strong>@drMeeraSkin</strong><span>10K+ followers · Daily skincare content</span></div>
         </div>
       </div>
-
       <div class="watch-platforms">
         <a href="#" class="platform-link">📷 Instagram</a>
         <a href="#" class="platform-link">▶ YouTube</a>
       </div>
     </div>
-
-    <!-- Right: Video Cards -->
     <div class="watch-right">
-      <div class="video-card video-large">
-        <div class="video-play">▶</div>
-        <span class="video-label">Instagram Reel</span>
-      </div>
+      <div class="video-card video-large"><div class="video-play">▶</div><span class="video-label">Instagram Reel</span></div>
       <div class="video-stack">
-        <div class="video-card video-small">
-          <div class="video-play">▶</div>
-          <span class="video-caption">PRP for hair fall — what to expect</span>
-        </div>
-        <div class="video-card video-small">
-          <div class="video-play">▶</div>
-          <span class="video-caption">Chemical peels — are they safe?</span>
-        </div>
+        <div class="video-card video-small"><div class="video-play">▶</div><span class="video-caption">PRP for hair fall — what to expect</span></div>
+        <div class="video-card video-small"><div class="video-play">▶</div><span class="video-caption">Chemical peels — are they safe?</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════ -->
-<!-- ── SECTION: FAQ ── -->
-<!-- ══════════════════════════════════════════ -->
+<!-- ── FAQ ── -->
 <section class="faq-section">
   <div class="faq-grid">
-    <!-- Left -->
     <div class="faq-left">
       <h2 class="faq-headline"><span class="faq-highlight">Frequently</span><br><span class="faq-highlight">Asked</span></h2>
       <p class="faq-subtext">Everything you want to know before your first visit with Dr. Meera.</p>
       <a href="#" class="faq-cta">Book Your Visit →</a>
     </div>
-
-    <!-- Right: Accordion -->
     <div class="faq-right">
-      <div class="faq-item" data-faq="0">
-        <button class="faq-question">
-          <span>How long does acne treatment take?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <p>Most acne treatments show visible improvement in 6–8 weeks. Complete clearance may take 3–6 months depending on severity. Consistency with prescribed products is key.</p>
-        </div>
-      </div>
-      <div class="faq-item" data-faq="1">
-        <button class="faq-question">
-          <span>Is PRP treatment painful?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <p>PRP involves micro-needling with your own platelet-rich plasma. A numbing cream is applied beforehand, so discomfort is minimal — most patients describe it as a light tingling sensation.</p>
-        </div>
-      </div>
-      <div class="faq-item" data-faq="2">
-        <button class="faq-question">
-          <span>Do I need to stop my current skincare?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <p>Not necessarily. Dr. Meera will review your current routine during consultation and advise which products to continue, adjust, or replace based on your specific skin needs.</p>
-        </div>
-      </div>
-      <div class="faq-item" data-faq="3">
-        <button class="faq-question">
-          <span>Are laser treatments safe for Indian skin?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <p>Yes — when performed by a trained dermatologist using the right laser type and settings for Indian skin tones (Fitzpatrick IV–V). Dr. Meera uses protocols specifically calibrated for South Asian skin.</p>
-        </div>
-      </div>
-      <div class="faq-item" data-faq="4">
-        <button class="faq-question">
-          <span>What happens in the first consultation?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <p>The first visit includes a detailed skin analysis, medical history review, and a customised treatment plan. Expect 20–30 minutes. Bring any current products you're using for review.</p>
-        </div>
-      </div>
+      <div class="faq-item"><button class="faq-question"><span>How long does acne treatment take?</span><span class="faq-icon">+</span></button><div class="faq-answer"><p>Most acne treatments show visible improvement in 6–8 weeks. Complete clearance may take 3–6 months depending on severity. Consistency with prescribed products is key.</p></div></div>
+      <div class="faq-item"><button class="faq-question"><span>Is PRP treatment painful?</span><span class="faq-icon">+</span></button><div class="faq-answer"><p>PRP involves micro-needling with your own platelet-rich plasma. A numbing cream is applied beforehand, so discomfort is minimal — most patients describe it as a light tingling sensation.</p></div></div>
+      <div class="faq-item"><button class="faq-question"><span>Do I need to stop my current skincare?</span><span class="faq-icon">+</span></button><div class="faq-answer"><p>Not necessarily. Dr. Meera will review your current routine during consultation and advise which products to continue, adjust, or replace based on your specific skin needs.</p></div></div>
+      <div class="faq-item"><button class="faq-question"><span>Are laser treatments safe for Indian skin?</span><span class="faq-icon">+</span></button><div class="faq-answer"><p>Yes — when performed by a trained dermatologist using the right laser type and settings for Indian skin tones (Fitzpatrick IV–V). Dr. Meera uses protocols specifically calibrated for South Asian skin.</p></div></div>
+      <div class="faq-item"><button class="faq-question"><span>What happens in the first consultation?</span><span class="faq-icon">+</span></button><div class="faq-answer"><p>The first visit includes a detailed skin analysis, medical history review, and a customised treatment plan. Expect 20–30 minutes. Bring any current products you're using for review.</p></div></div>
     </div>
   </div>
 </section>
 
 <style>
-  /* ══════════════════════════════════════ */
-  /* ── MYTH VS FACT ── */
-  /* ══════════════════════════════════════ */
-  .myth-section {
-    background: #f7f7f5;
-    padding: 80px 64px;
-  }
+  .myth-section { background: #f7f7f5; padding: 80px 64px; }
+  .myth-header { text-align: center; margin-bottom: 48px; }
+  .myth-tag { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--red-accent); margin-bottom: 12px; }
+  .myth-headline { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(36px,4.5vw,60px); color: var(--dark); margin-bottom: 12px; }
+  .myth-subtext { font-size: 16px; color: var(--gray-600); }
+  .myth-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; max-width: 1280px; margin: 0 auto; }
+  .myth-card { background: var(--white); border-radius: 16px; padding: 32px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 2px 12px rgba(0,0,0,0.04); transition: all 0.25s; }
+  .myth-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); transform: translateY(-3px); }
+  .myth-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 14px; padding: 4px 12px; border-radius: 100px; }
+  .myth-badge.myth { color: #c0392b; background: #fde8e8; }
+  .myth-badge.fact { color: #0d7377; background: #e6f7f3; }
+  .myth-card h3 { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--dark); line-height: 1.4; margin-bottom: 14px; }
+  .myth-card p { font-size: 14px; color: var(--gray-600); line-height: 1.65; }
+  @media (max-width: 1024px) { .myth-section { padding: 60px 32px; } .myth-grid { grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 600px) { .myth-section { padding: 40px 20px; } .myth-grid { grid-template-columns: 1fr; } .myth-card { padding: 24px; } }
 
-  .myth-header {
-    text-align: center;
-    margin-bottom: 48px;
-  }
-
-  .myth-tag {
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2.5px;
-    color: var(--red-accent);
-    margin-bottom: 12px;
-  }
-
-  .myth-headline {
-    font-family: 'Playfair Display', serif;
-    font-weight: 900;
-    font-size: clamp(36px, 4.5vw, 60px);
-    color: var(--dark);
-    margin-bottom: 12px;
-  }
-
-  .myth-subtext {
-    font-size: 16px;
-    color: var(--gray-600);
-  }
-
-  .myth-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    max-width: 1280px;
-    margin: 0 auto;
-  }
-
-  .myth-card {
-    background: var(--white);
-    border-radius: 16px;
-    padding: 32px;
-    border: 1px solid rgba(0,0,0,0.06);
-    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-    transition: all 0.25s;
-  }
-
-  .myth-card:hover {
-    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-    transform: translateY(-3px);
-  }
-
-  .myth-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 14px;
-    padding: 4px 12px;
-    border-radius: 100px;
-  }
-
-  .myth-badge.myth {
-    color: #c0392b;
-    background: #fde8e8;
-  }
-
-  .myth-badge.myth span {
-    font-weight: 900;
-  }
-
-  .myth-badge.fact {
-    color: #0d7377;
-    background: #e6f7f3;
-  }
-
-  .myth-badge.fact span {
-    font-weight: 900;
-  }
-
-  .myth-card h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--dark);
-    line-height: 1.4;
-    margin-bottom: 14px;
-  }
-
-  .myth-card p {
-    font-size: 14px;
-    color: var(--gray-600);
-    line-height: 1.65;
-  }
-
-  @media (max-width: 1024px) {
-    .myth-section { padding: 60px 32px; }
-    .myth-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-
-  @media (max-width: 600px) {
-    .myth-section { padding: 40px 20px; }
-    .myth-grid { grid-template-columns: 1fr; }
-    .myth-card { padding: 24px; }
-  }
-
-  /* ══════════════════════════════════════ */
-  /* ── WATCH & LEARN ── */
-  /* ══════════════════════════════════════ */
-  .watch-section {
-    background: #f0efed;
-    padding: 80px 64px;
-  }
-
-  .watch-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 60px;
-    max-width: 1280px;
-    margin: 0 auto;
-    align-items: center;
-  }
-
-  .watch-tag {
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2.5px;
-    color: var(--red-accent);
-    margin-bottom: 12px;
-  }
-
-  .watch-headline {
-    font-family: 'Playfair Display', serif;
-    font-weight: 900;
-    font-size: clamp(36px, 4vw, 56px);
-    line-height: 1.1;
-    color: var(--dark);
-    margin-bottom: 16px;
-  }
-
-  .watch-highlight {
-    position: relative;
-    display: inline-block;
-  }
-
-  .watch-highlight::after {
-    content: '';
-    position: absolute;
-    bottom: 4px;
-    left: -4px;
-    right: -4px;
-    height: 14px;
-    background: #ffe066;
-    z-index: -1;
-    border-radius: 2px;
-  }
-
-  .watch-subtext {
-    font-size: 16px;
-    line-height: 1.7;
-    color: var(--gray-600);
-    max-width: 420px;
-    margin-bottom: 28px;
-  }
-
-  .watch-follow {
-    margin-bottom: 24px;
-  }
-
-  .follow-label {
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--red-accent);
-    margin-bottom: 10px;
-  }
-
-  .follow-handle {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .follow-avatar {
-    width: 40px;
-    height: 40px;
-    background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-  }
-
-  .follow-handle strong {
-    font-size: 16px;
-    color: var(--dark);
-    display: block;
-  }
-
-  .follow-handle span {
-    font-size: 13px;
-    color: var(--gray-400);
-  }
-
-  .watch-platforms {
-    display: flex;
-    gap: 16px;
-  }
-
-  .platform-link {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--gray-600);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
+  .watch-section { background: #f0efed; padding: 80px 64px; }
+  .watch-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; max-width: 1280px; margin: 0 auto; align-items: center; }
+  .watch-tag { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--red-accent); margin-bottom: 12px; }
+  .watch-headline { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(36px,4vw,56px); line-height: 1.1; color: var(--dark); margin-bottom: 16px; }
+  .watch-highlight { position: relative; display: inline-block; }
+  .watch-highlight::after { content: ''; position: absolute; bottom: 4px; left: -4px; right: -4px; height: 14px; background: #ffe066; z-index: -1; border-radius: 2px; }
+  .watch-subtext { font-size: 16px; line-height: 1.7; color: var(--gray-600); max-width: 420px; margin-bottom: 28px; }
+  .watch-follow { margin-bottom: 24px; }
+  .follow-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--red-accent); margin-bottom: 10px; }
+  .follow-handle { display: flex; align-items: center; gap: 12px; }
+  .follow-avatar { width: 40px; height: 40px; background: linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+  .follow-handle strong { font-size: 16px; color: var(--dark); display: block; }
+  .follow-handle span { font-size: 13px; color: var(--gray-400); }
+  .watch-platforms { display: flex; gap: 16px; }
+  .platform-link { font-size: 14px; font-weight: 600; color: var(--gray-600); text-decoration: none; transition: color 0.2s; }
   .platform-link:hover { color: var(--dark); }
+  .watch-right { display: grid; grid-template-columns: 1.2fr 1fr; gap: 16px; min-height: 400px; }
+  .video-card { background: #2d2b3d; border-radius: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; overflow: hidden; cursor: pointer; transition: all 0.25s; }
+  .video-card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
+  .video-large { min-height: 400px; }
+  .video-play { width: 56px; height: 56px; background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; color: rgba(255,255,255,0.7); transition: all 0.25s; }
+  .video-card:hover .video-play { background: rgba(255,255,255,0.25); border-color: rgba(255,255,255,0.5); }
+  .video-label { position: absolute; bottom: 20px; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: rgba(255,255,255,0.5); }
+  .video-stack { display: flex; flex-direction: column; gap: 16px; }
+  .video-small { flex: 1; min-height: 190px; background: #1e1d2d; }
+  .video-caption { position: absolute; bottom: 16px; left: 16px; right: 16px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.7); line-height: 1.4; }
+  @media (max-width: 1024px) { .watch-section { padding: 60px 32px; } .watch-grid { grid-template-columns: 1fr; gap: 40px; } .watch-right { min-height: 300px; } .video-large { min-height: 300px; } }
+  @media (max-width: 600px) { .watch-section { padding: 40px 20px; } .watch-right { grid-template-columns: 1fr; } .video-large { min-height: 250px; } .video-small { min-height: 160px; } }
 
-  /* Video Cards */
-  .watch-right {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 16px;
-    min-height: 400px;
-  }
-
-  .video-card {
-    background: #2d2b3d;
-    border-radius: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    transition: all 0.25s;
-  }
-
-  .video-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-  }
-
-  .video-large {
-    min-height: 400px;
-  }
-
-  .video-play {
-    width: 56px;
-    height: 56px;
-    background: rgba(255,255,255,0.15);
-    border: 2px solid rgba(255,255,255,0.3);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    color: rgba(255,255,255,0.7);
-    transition: all 0.25s;
-  }
-
-  .video-card:hover .video-play {
-    background: rgba(255,255,255,0.25);
-    border-color: rgba(255,255,255,0.5);
-  }
-
-  .video-label {
-    position: absolute;
-    bottom: 20px;
-    font-size: 13px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: rgba(255,255,255,0.5);
-  }
-
-  .video-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .video-small {
-    flex: 1;
-    min-height: 190px;
-    background: #1e1d2d;
-  }
-
-  .video-caption {
-    position: absolute;
-    bottom: 16px;
-    left: 16px;
-    right: 16px;
-    font-size: 13px;
-    font-weight: 600;
-    color: rgba(255,255,255,0.7);
-    line-height: 1.4;
-  }
-
-  @media (max-width: 1024px) {
-    .watch-section { padding: 60px 32px; }
-    .watch-grid { grid-template-columns: 1fr; gap: 40px; }
-    .watch-right { min-height: 300px; }
-    .video-large { min-height: 300px; }
-  }
-
-  @media (max-width: 600px) {
-    .watch-section { padding: 40px 20px; }
-    .watch-right { grid-template-columns: 1fr; }
-    .video-large { min-height: 250px; }
-    .video-small { min-height: 160px; }
-  }
-
-  /* ══════════════════════════════════════ */
-  /* ── FAQ ── */
-  /* ══════════════════════════════════════ */
-  .faq-section {
-    background: var(--white);
-    padding: 80px 64px;
-  }
-
-  .faq-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.3fr;
-    gap: 60px;
-    max-width: 1280px;
-    margin: 0 auto;
-    align-items: start;
-  }
-
-  .faq-headline {
-    font-family: 'Playfair Display', serif;
-    font-weight: 900;
-    font-size: clamp(36px, 4vw, 56px);
-    line-height: 1.1;
-    color: var(--dark);
-    margin-bottom: 16px;
-  }
-
-  .faq-highlight {
-    position: relative;
-    display: inline-block;
-  }
-
-  .faq-highlight::after {
-    content: '';
-    position: absolute;
-    bottom: 4px;
-    left: -4px;
-    right: -4px;
-    height: 14px;
-    background: #ffe066;
-    z-index: -1;
-    border-radius: 2px;
-  }
-
-  .faq-subtext {
-    font-size: 16px;
-    line-height: 1.7;
-    color: var(--gray-600);
-    max-width: 380px;
-    margin-bottom: 28px;
-  }
-
-  .faq-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 14px 32px;
-    border-radius: 12px;
-    background: var(--pink-cta);
-    color: var(--white);
-    font-size: 16px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.25s;
-    box-shadow: 0 4px 16px rgba(232, 76, 106, 0.3);
-  }
-
-  .faq-cta:hover {
-    background: var(--pink-cta-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 24px rgba(232, 76, 106, 0.4);
-  }
-
-  /* Accordion */
-  .faq-right {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .faq-item {
-    border-bottom: 1px solid rgba(0,0,0,0.08);
-  }
-
-  .faq-question {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 22px 0;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 17px;
-    font-weight: 700;
-    color: var(--dark);
-    text-align: left;
-    gap: 20px;
-    transition: color 0.2s;
-  }
-
+  .faq-section { background: var(--white); padding: 80px 64px; }
+  .faq-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 60px; max-width: 1280px; margin: 0 auto; align-items: start; }
+  .faq-headline { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(36px,4vw,56px); line-height: 1.1; color: var(--dark); margin-bottom: 16px; }
+  .faq-highlight { position: relative; display: inline-block; }
+  .faq-highlight::after { content: ''; position: absolute; bottom: 4px; left: -4px; right: -4px; height: 14px; background: #ffe066; z-index: -1; border-radius: 2px; }
+  .faq-subtext { font-size: 16px; line-height: 1.7; color: var(--gray-600); max-width: 380px; margin-bottom: 28px; }
+  .faq-cta { display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; border-radius: 12px; background: var(--pink-cta); color: var(--white); font-size: 16px; font-weight: 600; text-decoration: none; transition: all 0.25s; box-shadow: 0 4px 16px rgba(232,76,106,0.3); }
+  .faq-cta:hover { background: var(--pink-cta-hover); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(232,76,106,0.4); }
+  .faq-right { display: flex; flex-direction: column; gap: 0; }
+  .faq-item { border-bottom: 1px solid rgba(0,0,0,0.08); }
+  .faq-question { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 22px 0; background: none; border: none; cursor: pointer; font-family: 'DM Sans', sans-serif; font-size: 17px; font-weight: 700; color: var(--dark); text-align: left; gap: 20px; transition: color 0.2s; }
   .faq-question:hover { color: var(--red-accent); }
-
-  .faq-icon {
-    font-size: 24px;
-    font-weight: 300;
-    color: var(--gray-400);
-    flex-shrink: 0;
-    transition: transform 0.3s;
-    width: 28px;
-    text-align: center;
-  }
-
-  .faq-item.open .faq-icon {
-    transform: rotate(45deg);
-  }
-
-  .faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.35s ease, padding 0.35s ease;
-    padding: 0 0;
-  }
-
-  .faq-item.open .faq-answer {
-    max-height: 200px;
-    padding: 0 0 20px 0;
-  }
-
-  .faq-answer p {
-    font-size: 15px;
-    color: var(--gray-600);
-    line-height: 1.7;
-    padding-right: 48px;
-  }
-
-  @media (max-width: 1024px) {
-    .faq-section { padding: 60px 32px; }
-    .faq-grid {
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
-  }
-
-  @media (max-width: 600px) {
-    .faq-section { padding: 40px 20px; }
-    .faq-question { font-size: 15px; padding: 18px 0; }
-    .faq-answer p { padding-right: 0; }
-  }
+  .faq-icon { font-size: 24px; font-weight: 300; color: var(--gray-400); flex-shrink: 0; transition: transform 0.3s; width: 28px; text-align: center; }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+  .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease; padding: 0; }
+  .faq-item.open .faq-answer { max-height: 200px; padding: 0 0 20px 0; }
+  .faq-answer p { font-size: 15px; color: var(--gray-600); line-height: 1.7; padding-right: 48px; }
+  @media (max-width: 1024px) { .faq-section { padding: 60px 32px; } .faq-grid { grid-template-columns: 1fr; gap: 40px; } }
+  @media (max-width: 600px) { .faq-section { padding: 40px 20px; } .faq-question { font-size: 15px; padding: 18px 0; } .faq-answer p { padding-right: 0; } }
 </style>
 
 <script>
-  // FAQ Accordion
   document.querySelectorAll('.faq-question').forEach(btn => {
     btn.addEventListener('click', () => {
       const item = btn.parentElement;
       const isOpen = item.classList.contains('open');
-
-      // Close all
       document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-
-      // Toggle current
-      if (!isOpen) {
-        item.classList.add('open');
-      }
+      if (!isOpen) item.classList.add('open');
     });
   });
 </script>
 
-<!-- ══════════════════════════════════════════ -->
-<!-- ── SECTION: CTA BANNER ── -->
-<!-- ══════════════════════════════════════════ -->
+<!-- ── CTA BANNER ── -->
 <section class="cta-banner">
   <div class="cta-banner-inner">
     <div class="cta-banner-left">
@@ -2966,50 +1454,20 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════ -->
-<!-- ── SECTION: VISIT THE CLINIC ── -->
-<!-- ══════════════════════════════════════════ -->
+<!-- ── VISIT THE CLINIC ── -->
 <section class="clinic-section">
   <div class="clinic-grid">
-    <!-- Left: Info -->
     <div class="clinic-left">
       <h2 class="clinic-headline">Visit the <span class="clinic-highlight">Clinic</span></h2>
-
-      <div class="clinic-info-block">
-        <div class="clinic-icon">📍</div>
-        <div>
-          <div class="clinic-label">Address</div>
-          <p>Dr. Meera's Skin & Hair Clinic<br>Centre for Complete Skin Care<br>Fortis Hospital, Sector 62, Chandigarh</p>
-        </div>
-      </div>
-
-      <div class="clinic-info-block">
-        <div class="clinic-icon">🕐</div>
-        <div>
-          <div class="clinic-label">OPD Timings</div>
-          <p>Mon–Sat: 10:00 AM – 2:00 PM<br>Mon–Sat: 5:00 PM – 8:00 PM<br>Sunday: By Appointment Only</p>
-        </div>
-      </div>
-
-      <div class="clinic-info-block">
-        <div class="clinic-icon">📞</div>
-        <div>
-          <div class="clinic-label">Phone</div>
-          <p>+91 XXXXX XXXXX</p>
-        </div>
-      </div>
-
+      <div class="clinic-info-block"><div class="clinic-icon">📍</div><div><div class="clinic-label">Address</div><p>Dr. Meera's Skin & Hair Clinic<br>Centre for Complete Skin Care<br>Fortis Hospital, Sector 62, Chandigarh</p></div></div>
+      <div class="clinic-info-block"><div class="clinic-icon">🕐</div><div><div class="clinic-label">OPD Timings</div><p>Mon–Sat: 10:00 AM – 2:00 PM<br>Mon–Sat: 5:00 PM – 8:00 PM<br>Sunday: By Appointment Only</p></div></div>
+      <div class="clinic-info-block"><div class="clinic-icon">📞</div><div><div class="clinic-label">Phone</div><p>+91 XXXXX XXXXX</p></div></div>
       <a href="#" class="clinic-whatsapp-btn">💬 Book via WhatsApp</a>
     </div>
-
-    <!-- Right: Map Placeholder -->
     <div class="clinic-right">
       <div class="map-placeholder">
         <div class="map-bg">
-          <div class="map-pin">
-            <div class="map-pin-dot"></div>
-            <div class="map-pin-shadow"></div>
-          </div>
+          <div class="map-pin"><div class="map-pin-dot"></div><div class="map-pin-shadow"></div></div>
           <div class="map-label">Dr. Meera's Skin & Hair Clinic</div>
         </div>
       </div>
@@ -3017,55 +1475,15 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════ -->
 <!-- ── FOOTER ── -->
-<!-- ══════════════════════════════════════════ -->
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-grid">
-
-      <!-- Brand -->
-      <div class="footer-brand">
-        <h3 class="footer-logo">Dr. Meera's</h3>
-        <span class="footer-tagline">Skin & Hair Clinic</span>
-        <p class="footer-desc">Centre for Complete Skin Care. Treating root causes, not just symptoms — with evidence-based dermatology since 2014.</p>
-      </div>
-
-      <!-- Treatments -->
-      <div class="footer-col">
-        <h4 class="footer-col-title">Treatments</h4>
-        <ul>
-          <li><a href="#">Acne Treatment</a></li>
-          <li><a href="#">Hair Fall (PRP)</a></li>
-          <li><a href="#">Pigmentation</a></li>
-          <li><a href="#">Fungal Infection</a></li>
-        </ul>
-      </div>
-
-      <!-- Clinic -->
-      <div class="footer-col">
-        <h4 class="footer-col-title">Clinic</h4>
-        <ul>
-          <li><a href="#">About Dr. Meera</a></li>
-          <li><a href="#">Before & After</a></li>
-          <li><a href="#">Patient Education</a></li>
-          <li><a href="#">Book Appointment</a></li>
-        </ul>
-      </div>
-
-      <!-- Contact -->
-      <div class="footer-col">
-        <h4 class="footer-col-title">Contact</h4>
-        <ul>
-          <li><a href="#">+91 XXXXX XXXXX</a></li>
-          <li><a href="#">WhatsApp Us</a></li>
-          <li><a href="#">Instagram</a></li>
-          <li><a href="#">Google Maps</a></li>
-        </ul>
-      </div>
-
+      <div class="footer-brand"><h3 class="footer-logo">Dr. Meera's</h3><span class="footer-tagline">Skin & Hair Clinic</span><p class="footer-desc">Centre for Complete Skin Care. Treating root causes, not just symptoms — with evidence-based dermatology since 2014.</p></div>
+      <div class="footer-col"><h4 class="footer-col-title">Treatments</h4><ul><li><a href="#">Acne Treatment</a></li><li><a href="#">Hair Fall (PRP)</a></li><li><a href="#">Pigmentation</a></li><li><a href="#">Fungal Infection</a></li></ul></div>
+      <div class="footer-col"><h4 class="footer-col-title">Clinic</h4><ul><li><a href="#">About Dr. Meera</a></li><li><a href="#">Before & After</a></li><li><a href="#">Patient Education</a></li><li><a href="#">Book Appointment</a></li></ul></div>
+      <div class="footer-col"><h4 class="footer-col-title">Contact</h4><ul><li><a href="#">+91 XXXXX XXXXX</a></li><li><a href="#">WhatsApp Us</a></li><li><a href="#">Instagram</a></li><li><a href="#">Google Maps</a></li></ul></div>
     </div>
-
     <div class="footer-bottom">
       <p>© 2026 Dr. Meera's Skin & Hair Clinic. All rights reserved.</p>
       <p class="footer-disclaimer">Medical disclaimer: Content is for informational purposes only and does not constitute medical advice or diagnosis.</p>
@@ -3074,407 +1492,117 @@
 </footer>
 
 <style>
-  /* ══════════════════════════════════════ */
-  /* ── CTA BANNER ── */
-  /* ══════════════════════════════════════ */
-  .cta-banner {
-    background: linear-gradient(135deg, #e84c6a 0%, #c0392b 100%);
-    padding: 80px 64px;
-    overflow: hidden;
-    position: relative;
-  }
+  .cta-banner { background: linear-gradient(135deg,#e84c6a 0%,#c0392b 100%); padding: 80px 64px; overflow: hidden; position: relative; }
+  .cta-banner::before { content: ''; position: absolute; top: -50%; right: -10%; width: 500px; height: 500px; background: rgba(255,255,255,0.06); border-radius: 50%; }
+  .cta-banner::after { content: ''; position: absolute; bottom: -30%; left: 20%; width: 300px; height: 300px; background: rgba(255,255,255,0.04); border-radius: 50%; }
+  .cta-banner-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 48px; position: relative; z-index: 1; }
+  .cta-banner-tag { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: rgba(255,255,255,0.7); margin-bottom: 12px; }
+  .cta-banner-headline { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(28px,3.5vw,48px); line-height: 1.15; color: var(--white); max-width: 550px; }
+  .cta-banner-right { display: flex; flex-direction: column; gap: 12px; flex-shrink: 0; }
+  .cta-banner-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 16px 36px; border-radius: 12px; font-size: 16px; font-weight: 600; text-decoration: none; transition: all 0.25s; white-space: nowrap; }
+  .cta-banner-btn.primary { background: var(--white); color: var(--dark); box-shadow: 0 4px 16px rgba(0,0,0,0.15); }
+  .cta-banner-btn.primary:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(0,0,0,0.2); }
+  .cta-banner-btn.secondary { background: rgba(255,255,255,0.15); color: var(--white); border: 1.5px solid rgba(255,255,255,0.3); }
+  .cta-banner-btn.secondary:hover { background: rgba(255,255,255,0.25); transform: translateY(-2px); }
+  @media (max-width: 1024px) { .cta-banner { padding: 60px 32px; } .cta-banner-inner { flex-direction: column; text-align: center; } .cta-banner-right { width: 100%; max-width: 320px; } }
+  @media (max-width: 600px) { .cta-banner { padding: 48px 20px; } }
 
-  .cta-banner::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -10%;
-    width: 500px;
-    height: 500px;
-    background: rgba(255,255,255,0.06);
-    border-radius: 50%;
-  }
+  .clinic-section { background: var(--white); padding: 80px 64px; }
+  .clinic-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; max-width: 1280px; margin: 0 auto; align-items: start; }
+  .clinic-headline { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(36px,4vw,56px); line-height: 1.1; color: var(--dark); margin-bottom: 36px; }
+  .clinic-highlight { position: relative; display: inline-block; }
+  .clinic-highlight::after { content: ''; position: absolute; bottom: 4px; left: -4px; right: -4px; height: 14px; background: #ffe066; z-index: -1; border-radius: 2px; }
+  .clinic-info-block { display: flex; gap: 16px; margin-bottom: 28px; }
+  .clinic-icon { font-size: 20px; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .clinic-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--red-accent); margin-bottom: 6px; }
+  .clinic-info-block p { font-size: 15px; color: var(--gray-600); line-height: 1.7; }
+  .clinic-whatsapp-btn { display: inline-flex; align-items: center; gap: 8px; padding: 16px 32px; background: #c0392b; color: var(--white); border-radius: 12px; font-size: 16px; font-weight: 600; text-decoration: none; transition: all 0.25s; box-shadow: 0 4px 16px rgba(192,57,43,0.3); margin-top: 8px; }
+  .clinic-whatsapp-btn:hover { background: #a93226; transform: translateY(-2px); box-shadow: 0 6px 24px rgba(192,57,43,0.4); }
+  .clinic-right { position: sticky; top: 40px; }
+  .map-placeholder { width: 100%; border-radius: 20px; overflow: hidden; box-shadow: 0 8px 40px rgba(0,0,0,0.08); }
+  .map-bg { width: 100%; height: 420px; background: linear-gradient(145deg,#e8f4e8 0%,#d4edda 30%,#c8e6c9 60%,#dcedc8 100%); position: relative; display: flex; align-items: center; justify-content: center; }
+  .map-pin { position: absolute; top: 45%; left: 55%; display: flex; flex-direction: column; align-items: center; }
+  .map-pin-dot { width: 20px; height: 20px; background: #e84c6a; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); box-shadow: 0 2px 8px rgba(232,76,106,0.4); animation: pin-bounce 2s ease-in-out infinite; }
+  @keyframes pin-bounce { 0%,100%{ transform: rotate(-45deg) translateY(0); } 50%{ transform: rotate(-45deg) translateY(-6px); } }
+  .map-pin-shadow { width: 14px; height: 4px; background: rgba(0,0,0,0.15); border-radius: 50%; margin-top: 4px; animation: shadow-pulse 2s ease-in-out infinite; }
+  @keyframes shadow-pulse { 0%,100%{ transform: scale(1); opacity: 0.3; } 50%{ transform: scale(0.7); opacity: 0.15; } }
+  .map-label { position: absolute; top: 55%; left: 50%; transform: translateX(-30%); background: var(--dark); color: var(--white); padding: 10px 20px; border-radius: 10px; font-size: 13px; font-weight: 600; white-space: nowrap; box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
+  @media (max-width: 1024px) { .clinic-section { padding: 60px 32px; } .clinic-grid { grid-template-columns: 1fr; gap: 40px; } .clinic-right { position: static; } .map-bg { height: 300px; } }
+  @media (max-width: 600px) { .clinic-section { padding: 40px 20px; } .map-bg { height: 250px; } }
 
-  .cta-banner::after {
-    content: '';
-    position: absolute;
-    bottom: -30%;
-    left: 20%;
-    width: 300px;
-    height: 300px;
-    background: rgba(255,255,255,0.04);
-    border-radius: 50%;
-  }
-
-  .cta-banner-inner {
-    max-width: 1280px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 48px;
-    position: relative;
-    z-index: 1;
-  }
-
-  .cta-banner-tag {
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2.5px;
-    color: rgba(255,255,255,0.7);
-    margin-bottom: 12px;
-  }
-
-  .cta-banner-headline {
-    font-family: 'Playfair Display', serif;
-    font-weight: 900;
-    font-size: clamp(28px, 3.5vw, 48px);
-    line-height: 1.15;
-    color: var(--white);
-    max-width: 550px;
-  }
-
-  .cta-banner-right {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    flex-shrink: 0;
-  }
-
-  .cta-banner-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 16px 36px;
-    border-radius: 12px;
-    font-size: 16px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.25s;
-    white-space: nowrap;
-  }
-
-  .cta-banner-btn.primary {
-    background: var(--white);
-    color: var(--dark);
-    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-  }
-
-  .cta-banner-btn.primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 24px rgba(0,0,0,0.2);
-  }
-
-  .cta-banner-btn.secondary {
-    background: rgba(255,255,255,0.15);
-    color: var(--white);
-    border: 1.5px solid rgba(255,255,255,0.3);
-  }
-
-  .cta-banner-btn.secondary:hover {
-    background: rgba(255,255,255,0.25);
-    transform: translateY(-2px);
-  }
-
-  @media (max-width: 1024px) {
-    .cta-banner { padding: 60px 32px; }
-    .cta-banner-inner { flex-direction: column; text-align: center; }
-    .cta-banner-right { width: 100%; max-width: 320px; }
-  }
-
-  @media (max-width: 600px) {
-    .cta-banner { padding: 48px 20px; }
-  }
-
-  /* ══════════════════════════════════════ */
-  /* ── VISIT THE CLINIC ── */
-  /* ══════════════════════════════════════ */
-  .clinic-section {
-    background: var(--white);
-    padding: 80px 64px;
-  }
-
-  .clinic-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 60px;
-    max-width: 1280px;
-    margin: 0 auto;
-    align-items: start;
-  }
-
-  .clinic-headline {
-    font-family: 'Playfair Display', serif;
-    font-weight: 900;
-    font-size: clamp(36px, 4vw, 56px);
-    line-height: 1.1;
-    color: var(--dark);
-    margin-bottom: 36px;
-  }
-
-  .clinic-highlight {
-    position: relative;
-    display: inline-block;
-  }
-
-  .clinic-highlight::after {
-    content: '';
-    position: absolute;
-    bottom: 4px;
-    left: -4px;
-    right: -4px;
-    height: 14px;
-    background: #ffe066;
-    z-index: -1;
-    border-radius: 2px;
-  }
-
-  .clinic-info-block {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 28px;
-  }
-
-  .clinic-icon {
-    font-size: 20px;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  .clinic-label {
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--red-accent);
-    margin-bottom: 6px;
-  }
-
-  .clinic-info-block p {
-    font-size: 15px;
-    color: var(--gray-600);
-    line-height: 1.7;
-  }
-
-  .clinic-whatsapp-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 16px 32px;
-    background: #c0392b;
-    color: var(--white);
-    border-radius: 12px;
-    font-size: 16px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.25s;
-    box-shadow: 0 4px 16px rgba(192, 57, 43, 0.3);
-    margin-top: 8px;
-  }
-
-  .clinic-whatsapp-btn:hover {
-    background: #a93226;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 24px rgba(192, 57, 43, 0.4);
-  }
-
-  /* Map Placeholder */
-  .clinic-right {
-    position: sticky;
-    top: 40px;
-  }
-
-  .map-placeholder {
-    width: 100%;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.08);
-  }
-
-  .map-bg {
-    width: 100%;
-    height: 420px;
-    background: linear-gradient(145deg, #e8f4e8 0%, #d4edda 30%, #c8e6c9 60%, #dcedc8 100%);
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .map-pin {
-    position: absolute;
-    top: 45%;
-    left: 55%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .map-pin-dot {
-    width: 20px;
-    height: 20px;
-    background: #e84c6a;
-    border-radius: 50% 50% 50% 0;
-    transform: rotate(-45deg);
-    box-shadow: 0 2px 8px rgba(232, 76, 106, 0.4);
-    animation: pin-bounce 2s ease-in-out infinite;
-  }
-
-  @keyframes pin-bounce {
-    0%, 100% { transform: rotate(-45deg) translateY(0); }
-    50% { transform: rotate(-45deg) translateY(-6px); }
-  }
-
-  .map-pin-shadow {
-    width: 14px;
-    height: 4px;
-    background: rgba(0,0,0,0.15);
-    border-radius: 50%;
-    margin-top: 4px;
-    animation: shadow-pulse 2s ease-in-out infinite;
-  }
-
-  @keyframes shadow-pulse {
-    0%, 100% { transform: scale(1); opacity: 0.3; }
-    50% { transform: scale(0.7); opacity: 0.15; }
-  }
-
-  .map-label {
-    position: absolute;
-    top: 55%;
-    left: 50%;
-    transform: translateX(-30%);
-    background: var(--dark);
-    color: var(--white);
-    padding: 10px 20px;
-    border-radius: 10px;
-    font-size: 13px;
-    font-weight: 600;
-    white-space: nowrap;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
-  }
-
-  @media (max-width: 1024px) {
-    .clinic-section { padding: 60px 32px; }
-    .clinic-grid { grid-template-columns: 1fr; gap: 40px; }
-    .clinic-right { position: static; }
-    .map-bg { height: 300px; }
-  }
-
-  @media (max-width: 600px) {
-    .clinic-section { padding: 40px 20px; }
-    .map-bg { height: 250px; }
-  }
-
-  /* ══════════════════════════════════════ */
-  /* ── FOOTER ── */
-  /* ══════════════════════════════════════ */
-  .site-footer {
-    background: #0f1117;
-    padding: 64px 64px 32px;
-  }
-
-  .footer-inner {
-    max-width: 1280px;
-    margin: 0 auto;
-  }
-
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr 1fr;
-    gap: 48px;
-    margin-bottom: 48px;
-  }
-
-  .footer-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 24px;
-    font-weight: 800;
-    color: var(--white);
-    margin-bottom: 2px;
-  }
-
-  .footer-tagline {
-    font-size: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: rgba(255,255,255,0.4);
-    display: block;
-    margin-bottom: 16px;
-  }
-
-  .footer-desc {
-    font-size: 14px;
-    color: rgba(255,255,255,0.45);
-    line-height: 1.7;
-    max-width: 300px;
-  }
-
-  .footer-col-title {
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2.5px;
-    color: var(--red-accent);
-    margin-bottom: 18px;
-  }
-
-  .footer-col ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .footer-col a {
-    font-size: 14px;
-    color: rgba(255,255,255,0.55);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .footer-col a:hover {
-    color: var(--white);
-  }
-
-  .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.08);
-    padding-top: 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-
-  .footer-bottom p {
-    font-size: 13px;
-    color: rgba(255,255,255,0.35);
-  }
-
-  .footer-disclaimer {
-    font-size: 12px !important;
-    max-width: 500px;
-    text-align: right;
-  }
-
-  @media (max-width: 1024px) {
-    .site-footer { padding: 48px 32px 24px; }
-    .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
-  }
-
-  @media (max-width: 600px) {
-    .site-footer { padding: 40px 20px 20px; }
-    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-    .footer-bottom { flex-direction: column; text-align: center; }
-    .footer-disclaimer { text-align: center; }
-  }
+  .site-footer { background: #0f1117; padding: 64px 64px 32px; }
+  .footer-inner { max-width: 1280px; margin: 0 auto; }
+  .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+  .footer-logo { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 800; color: var(--white); margin-bottom: 2px; }
+  .footer-tagline { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: rgba(255,255,255,0.4); display: block; margin-bottom: 16px; }
+  .footer-desc { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.7; max-width: 300px; }
+  .footer-col-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--red-accent); margin-bottom: 18px; }
+  .footer-col ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+  .footer-col a { font-size: 14px; color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s; }
+  .footer-col a:hover { color: var(--white); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  .footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.35); }
+  .footer-disclaimer { font-size: 12px !important; max-width: 500px; text-align: right; }
+  @media (max-width: 1024px) { .site-footer { padding: 48px 32px 24px; } .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; } }
+  @media (max-width: 600px) { .site-footer { padding: 40px 20px 20px; } .footer-grid { grid-template-columns: 1fr; gap: 32px; } .footer-bottom { flex-direction: column; text-align: center; } .footer-disclaimer { text-align: center; } }
 </style>
+
+<!-- ── GSAP ANIMATIONS ── -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  window.addEventListener("load", () => {
+    const hero = document.querySelector(".hero");
+    const heroLeft = document.querySelector(".hero-left");
+    const heroRight = document.querySelector(".hero-right");
+    const heroMotionLayer = document.querySelector(".hero-motion-layer");
+    const floatCards = document.querySelectorAll(".float-card");
+
+    if (!hero || !heroLeft || !heroRight || !heroMotionLayer) return;
+
+    gsap.set([".trust-row", ".hero-headline", ".hero-subtext", ".cta-row"], { opacity: 1, y: 0 });
+    gsap.set(floatCards, { opacity: 1, x: 0, y: 0, scale: 1 });
+
+    const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
+    heroTl
+      .from(heroLeft, { opacity: 0, y: 40, duration: 1 })
+      .from(heroRight, { opacity: 0, x: 50, scale: 0.96, duration: 1 }, "-=0.7")
+      .from(".trust-row", { opacity: 0, y: 18, duration: 0.6 }, "-=0.8")
+      .from(".hero-headline", { opacity: 0, y: 24, duration: 0.8 }, "-=0.6")
+      .from(".hero-subtext", { opacity: 0, y: 18, duration: 0.7 }, "-=0.5")
+      .from(".cta-row", { opacity: 0, y: 18, duration: 0.7 }, "-=0.5")
+      .from(".card-top-derma", { opacity: 0, y: 20, scale: 0.92, duration: 0.55 }, "-=0.45")
+      .from(".card-treatments", { opacity: 0, y: 20, scale: 0.92, duration: 0.55 }, "-=0.35")
+      .from(".card-next-slot", { opacity: 0, y: 20, scale: 0.92, duration: 0.55 }, "-=0.3")
+      .from(".face-anim-wrap", { opacity: 0, scale: 0.94, duration: 0.9 }, "-=0.9");
+
+    gsap.to(heroLeft, { y: -70, ease: "none", scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: 1 } });
+    gsap.to(".face-anim-wrap", { scale: 1.05, y: -18, ease: "none", scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: 1.2 } });
+    gsap.to(".card-top-derma", { y: -35, ease: "none", scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: 1 } });
+    gsap.to(".card-treatments", { y: -20, ease: "none", scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: 1 } });
+    gsap.to(".card-next-slot", { y: -28, ease: "none", scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: 1 } });
+
+    if (window.innerWidth > 991) {
+      hero.addEventListener("mousemove", (e) => {
+        const rect = hero.getBoundingClientRect();
+        const relX = (e.clientX - rect.left) / rect.width - 0.5;
+        const relY = (e.clientY - rect.top) / rect.height - 0.5;
+        gsap.to(heroMotionLayer, { rotateY: relX * 4, rotateX: relY * -4, transformPerspective: 1200, transformOrigin: "center center", duration: 0.8, ease: "power2.out" });
+        floatCards.forEach((card, index) => {
+          const depth = (index + 1) * 8;
+          gsap.to(card, { x: relX * depth, y: relY * depth, duration: 0.8, ease: "power2.out" });
+        });
+      });
+      hero.addEventListener("mouseleave", () => {
+        gsap.to(heroMotionLayer, { rotateX: 0, rotateY: 0, duration: 0.9, ease: "power3.out" });
+        floatCards.forEach((card) => { gsap.to(card, { x: 0, y: 0, duration: 0.9, ease: "power3.out" }); });
+      });
+    }
+  });
+</script>
+
+</body>
+</html>

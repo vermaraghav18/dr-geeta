@@ -267,15 +267,15 @@
     fill: #25D366;
   }
 
-  /* ── Right / Photo Side ── */
+  /* ── Right / Doctor Photo Side ── */
   .hero-right {
     position: relative;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
     overflow: hidden;
     will-change: transform, opacity;
-    padding: 40px 20px;
+    padding: 0 20px 0 20px;
   }
 
   .hero-motion-layer {
@@ -283,25 +283,59 @@
     height: 100%;
     position: relative;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
   }
 
-  /* ── FACE ANIMATION CONTAINER ── */
-  .face-anim-wrap {
+  /* ── DOCTOR IMAGE CONTAINER ── */
+  .doctor-img-wrap {
     position: relative;
     width: 100%;
-    max-width: 480px;
+    max-width: 500px;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
+    z-index: 2;
   }
 
-  .face-anim-svg {
+  /* Decorative background shape behind doctor */
+  .doctor-img-wrap::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 88%;
+    height: 90%;
+    background: linear-gradient(160deg, var(--blush) 0%, var(--blush-deep) 100%);
+    border-radius: 50% 50% 0 0 / 40% 40% 0 0;
+    z-index: 0;
+  }
+
+  /* Subtle outer glow ring */
+  .doctor-img-wrap::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 96%;
+    height: 94%;
+    border-radius: 50% 50% 0 0 / 40% 40% 0 0;
+    background: transparent;
+    border: 2px solid rgba(192, 57, 43, 0.12);
+    z-index: 0;
+  }
+
+  .doctor-photo {
+    position: relative;
+    z-index: 1;
     width: 100%;
-    height: auto;
+    max-height: calc(100vh - 80px);
+    object-fit: contain;
+    object-position: bottom center;
     display: block;
-    filter: drop-shadow(0 20px 60px rgba(192,57,43,0.15));
+    filter: drop-shadow(0 24px 48px rgba(192, 57, 43, 0.18));
   }
 
   /* Ingredient Bubbles */
@@ -316,6 +350,7 @@
     box-shadow: 0 0 20px rgba(255,255,255,0.2);
     animation: float 6s infinite ease-in-out;
     pointer-events: none;
+    z-index: 10;
   }
 
   .bubble-1 { top: 18%; right: 4%; background: rgba(192,57,43,0.75); animation-delay: 0s; }
@@ -437,429 +472,23 @@
     </div>
   </div>
 
-  <!-- Right / Animated Face -->
+  <!-- Right / Doctor Photo -->
   <div class="hero-right">
     <div class="hero-motion-layer">
 
-      <!-- ══════════════════════════════════════════ -->
-      <!-- ANIMATED FACE SVG — 3-Stage Animation     -->
-      <!-- Stage 1 (0–4s):  Acne & breakouts visible -->
-      <!-- Stage 2 (4–8s):  Hand applies cream       -->
-      <!-- Stage 3 (8–12s): Clear, glowing skin      -->
-      <!-- ══════════════════════════════════════════ -->
-      <div class="face-anim-wrap">
-
-        <svg class="face-anim-svg" viewBox="0 0 680 540" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <radialGradient id="skinGrad" cx="50%" cy="40%" r="55%">
-              <stop offset="0%" stop-color="#FDDBC7"/>
-              <stop offset="100%" stop-color="#F4B896"/>
-            </radialGradient>
-            <radialGradient id="skinGlow" cx="50%" cy="40%" r="55%">
-              <stop offset="0%" stop-color="#FFF0E8"/>
-              <stop offset="100%" stop-color="#F9D4B6"/>
-            </radialGradient>
-            <radialGradient id="cheekBlush" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#F4A0A0" stop-opacity="0.45"/>
-              <stop offset="100%" stop-color="#F4A0A0" stop-opacity="0"/>
-            </radialGradient>
-            <radialGradient id="spotRed" cx="40%" cy="35%" r="55%">
-              <stop offset="0%" stop-color="#FF6B6B"/>
-              <stop offset="100%" stop-color="#C0392B"/>
-            </radialGradient>
-            <radialGradient id="spotPink" cx="40%" cy="35%" r="55%">
-              <stop offset="0%" stop-color="#FF9FAA"/>
-              <stop offset="100%" stop-color="#E84C6A"/>
-            </radialGradient>
-            <radialGradient id="creamGrad" cx="30%" cy="30%" r="65%">
-              <stop offset="0%" stop-color="#FFFFFF"/>
-              <stop offset="100%" stop-color="#E8F4F3"/>
-            </radialGradient>
-            <radialGradient id="glowAura" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#FFF9C4" stop-opacity="0.7"/>
-              <stop offset="100%" stop-color="#FFF9C4" stop-opacity="0"/>
-            </radialGradient>
-            <filter id="softBlur">
-              <feGaussianBlur stdDeviation="3"/>
-            </filter>
-            <filter id="spotBlur">
-              <feGaussianBlur stdDeviation="0.9"/>
-            </filter>
-          </defs>
-
-          <style>
-            /* ── STAGE VISIBILITY ── */
-            #s1 { animation: vis1 12s ease-in-out infinite; }
-            #s2 { animation: vis2 12s ease-in-out infinite; }
-            #s3 { animation: vis3 12s ease-in-out infinite; }
-
-            @keyframes vis1 {
-              0%,28%  { opacity:1; }
-              36%,100%{ opacity:0; }
-            }
-            @keyframes vis2 {
-              0%,30%  { opacity:0; }
-              38%,62% { opacity:1; }
-              70%,100%{ opacity:0; }
-            }
-            @keyframes vis3 {
-              0%,65%  { opacity:0; }
-              73%,93% { opacity:1; }
-              100%    { opacity:0; }
-            }
-
-            /* ── ACNE SPOT PULSES ── */
-            .sp1 { animation: spP 2s ease-in-out infinite; }
-            .sp2 { animation: spP 2s ease-in-out 0.35s infinite; }
-            .sp3 { animation: spP 2s ease-in-out 0.7s infinite; }
-            .sp4 { animation: spP 2s ease-in-out 1.05s infinite; }
-            .sp5 { animation: spP 2s ease-in-out 0.5s infinite; }
-            .sp6 { animation: spP 2s ease-in-out 1.3s infinite; }
-            .sp7 { animation: spP 2s ease-in-out 0.15s infinite; }
-            .sp8 { animation: spP 2s ease-in-out 0.85s infinite; }
-
-            @keyframes spP {
-              0%,100%{ opacity:0.88; }
-              50%    { opacity:1; }
-            }
-
-            /* ── CREAM SMEARS ── */
-            .smear1 {
-              stroke-dasharray: 280;
-              stroke-dashoffset: 280;
-              animation: smr1 2s ease-out infinite;
-            }
-            .smear2 {
-              stroke-dasharray: 200;
-              stroke-dashoffset: 200;
-              animation: smr2 2s ease-out 0.45s infinite;
-            }
-            .smear3 {
-              stroke-dasharray: 140;
-              stroke-dashoffset: 140;
-              animation: smr3 2s ease-out 0.8s infinite;
-            }
-            @keyframes smr1 {
-              0%  { stroke-dashoffset:280; opacity:0; }
-              12% { opacity:0.9; }
-              75% { stroke-dashoffset:0; opacity:0.85; }
-              100%{ stroke-dashoffset:0; opacity:0.85; }
-            }
-            @keyframes smr2 {
-              0%  { stroke-dashoffset:200; opacity:0; }
-              12% { opacity:0.8; }
-              75% { stroke-dashoffset:0; opacity:0.75; }
-              100%{ stroke-dashoffset:0; opacity:0.75; }
-            }
-            @keyframes smr3 {
-              0%  { stroke-dashoffset:140; opacity:0; }
-              12% { opacity:0.7; }
-              75% { stroke-dashoffset:0; opacity:0.6; }
-              100%{ stroke-dashoffset:0; opacity:0.6; }
-            }
-
-            /* ── HAND ENTER / EXIT ── */
-            .hand-g { animation: handMv 12s ease-in-out infinite; }
-            @keyframes handMv {
-              0%,30%  { transform:translate(90px,35px); opacity:0; }
-              40%,62% { transform:translate(0px,0px); opacity:1; }
-              70%,100%{ transform:translate(-90px,-40px); opacity:0; }
-            }
-
-            /* ── GLOW PULSE (stage3) ── */
-            .glow-ring { animation: glR 2.2s ease-in-out infinite; }
-            @keyframes glR {
-              0%,100%{ opacity:0.35; }
-              50%    { opacity:0.75; }
-            }
-
-            /* ── SPARKLES ── */
-            .sk1 { animation: spk 1.9s ease-in-out 0.1s infinite; }
-            .sk2 { animation: spk 1.9s ease-in-out 0.55s infinite; }
-            .sk3 { animation: spk 1.9s ease-in-out 1.0s infinite; }
-            .sk4 { animation: spk 1.9s ease-in-out 1.45s infinite; }
-            .sk5 { animation: spk 1.9s ease-in-out 0.75s infinite; }
-            @keyframes spk {
-              0%,100%{ opacity:0; transform:scale(0.3); }
-              50%    { opacity:1; transform:scale(1); }
-            }
-
-            /* ── LABEL + DOT CYCLE ── */
-            .lb1 { animation: lb1c 12s infinite; }
-            .lb2 { animation: lb2c 12s infinite; }
-            .lb3 { animation: lb3c 12s infinite; }
-            @keyframes lb1c { 0%,28%{opacity:1;} 36%,100%{opacity:0;} }
-            @keyframes lb2c { 0%,32%{opacity:0;} 38%,62%{opacity:1;} 70%,100%{opacity:0;} }
-            @keyframes lb3c { 0%,68%{opacity:0;} 74%,93%{opacity:1;} 100%{opacity:0;} }
-
-            .d1 { animation: da1 12s infinite; }
-            .d2 { animation: da2 12s infinite; }
-            .d3 { animation: da3 12s infinite; }
-            @keyframes da1 { 0%,30%{opacity:1;r:6;} 36%,100%{opacity:0.28;r:4;} }
-            @keyframes da2 { 0%,34%{opacity:0.28;r:4;} 38%,65%{opacity:1;r:6;} 70%,100%{opacity:0.28;r:4;} }
-            @keyframes da3 { 0%,69%{opacity:0.28;r:4;} 74%,94%{opacity:1;r:6;} 100%{opacity:0.28;r:4;} }
-          </style>
-
-          <!-- ── Soft bg glow ── -->
-          <ellipse cx="340" cy="245" rx="195" ry="225" fill="#FDF0EA" opacity="0.55"/>
-
-          <!-- ══════════════════════════ -->
-          <!-- STAGE 1 — ACNE VISIBLE   -->
-          <!-- ══════════════════════════ -->
-          <g id="s1">
-            <!-- neck + shoulders -->
-            <rect x="306" y="342" width="68" height="58" rx="20" fill="#F4B896"/>
-            <ellipse cx="265" cy="415" rx="74" ry="32" fill="#FDDBC7" opacity="0.45"/>
-            <ellipse cx="415" cy="415" rx="74" ry="32" fill="#FDDBC7" opacity="0.45"/>
-            <!-- hair back -->
-            <ellipse cx="340" cy="140" rx="118" ry="124" fill="#2C1810"/>
-            <!-- face -->
-            <ellipse cx="340" cy="230" rx="112" ry="138" fill="url(#skinGrad)"/>
-            <!-- ears -->
-            <ellipse cx="226" cy="234" rx="16" ry="22" fill="#EFA882"/>
-            <ellipse cx="454" cy="234" rx="16" ry="22" fill="#EFA882"/>
-            <!-- hair front -->
-            <path d="M228 162 Q260 84 340 80 Q420 84 452 162" fill="#2C1810"/>
-            <path d="M228 162 Q222 188 226 218 Q223 178 228 162Z" fill="#2C1810"/>
-            <path d="M452 162 Q458 188 454 218 Q457 178 452 162Z" fill="#2C1810"/>
-            <!-- eyebrows -->
-            <path d="M294 180 Q313 173 328 177" stroke="#2C1810" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-            <path d="M352 177 Q367 173 386 180" stroke="#2C1810" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-            <!-- eyes -->
-            <ellipse cx="312" cy="203" rx="18" ry="12" fill="white"/>
-            <ellipse cx="368" cy="203" rx="18" ry="12" fill="white"/>
-            <circle cx="314" cy="204" r="9" fill="#2C1810"/>
-            <circle cx="370" cy="204" r="9" fill="#2C1810"/>
-            <circle cx="317" cy="201" r="3.5" fill="#6B3A1F"/>
-            <circle cx="373" cy="201" r="3.5" fill="#6B3A1F"/>
-            <circle cx="320" cy="199" r="1.8" fill="white"/>
-            <circle cx="376" cy="199" r="1.8" fill="white"/>
-            <!-- nose -->
-            <path d="M336 215 Q332 236 326 245 Q334 252 354 245 Q348 236 344 215" stroke="#D4956A" stroke-width="1.6" fill="none" stroke-linecap="round"/>
-            <!-- mouth (neutral) -->
-            <path d="M315 278 Q326 272 340 275 Q354 272 365 278" stroke="#C56B58" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-            <path d="M315 278 Q327 288 340 286 Q353 288 365 278" fill="#E88C7A" opacity="0.85"/>
-            <!-- cheek blush -->
-            <ellipse cx="286" cy="248" rx="36" ry="22" fill="url(#cheekBlush)"/>
-            <ellipse cx="394" cy="248" rx="36" ry="22" fill="url(#cheekBlush)"/>
-
-            <!-- ── ACNE SPOTS ── -->
-            <!-- forehead cluster -->
-            <circle class="sp1" cx="316" cy="156" r="7" fill="url(#spotRed)" filter="url(#spotBlur)"/>
-            <circle cx="316" cy="156" r="4.2" fill="#FF8888" opacity="0.85"/>
-            <circle cx="317" cy="155" r="1.5" fill="white" opacity="0.65"/>
-
-            <circle class="sp2" cx="356" cy="162" r="5.5" fill="url(#spotRed)" filter="url(#spotBlur)"/>
-            <circle cx="356" cy="162" r="3.2" fill="#FF8888" opacity="0.85"/>
-            <circle cx="357" cy="161" r="1.1" fill="white" opacity="0.6"/>
-
-            <circle class="sp3" cx="336" cy="148" r="5" fill="url(#spotPink)" filter="url(#spotBlur)"/>
-            <circle cx="336" cy="148" r="2.8" fill="#FFB0BA" opacity="0.8"/>
-
-            <!-- left cheek -->
-            <circle class="sp4" cx="288" cy="238" r="7.5" fill="url(#spotRed)" filter="url(#spotBlur)"/>
-            <circle cx="288" cy="238" r="4.5" fill="#FF8888" opacity="0.85"/>
-            <circle cx="289" cy="237" r="1.8" fill="white" opacity="0.65"/>
-
-            <circle class="sp5" cx="300" cy="262" r="5.5" fill="url(#spotPink)" filter="url(#spotBlur)"/>
-            <circle cx="300" cy="262" r="3.2" fill="#FFB0BA" opacity="0.8"/>
-
-            <circle class="sp7" cx="276" cy="258" r="4.2" fill="url(#spotRed)" filter="url(#spotBlur)"/>
-            <circle cx="276" cy="258" r="2.5" fill="#FF9090" opacity="0.8"/>
-
-            <!-- right cheek -->
-            <circle class="sp6" cx="382" cy="232" r="6" fill="url(#spotRed)" filter="url(#spotBlur)"/>
-            <circle cx="382" cy="232" r="3.6" fill="#FF8888" opacity="0.85"/>
-            <circle cx="383" cy="231" r="1.3" fill="white" opacity="0.6"/>
-
-            <circle class="sp8" cx="372" cy="256" r="4.5" fill="url(#spotPink)" filter="url(#spotBlur)"/>
-            <circle cx="372" cy="256" r="2.6" fill="#FFB0BA" opacity="0.8"/>
-
-            <!-- chin spot -->
-            <circle class="sp2" cx="346" cy="308" r="5.5" fill="url(#spotRed)" filter="url(#spotBlur)"/>
-            <circle cx="346" cy="308" r="3.2" fill="#FF8888" opacity="0.8"/>
-            <circle cx="347" cy="307" r="1.2" fill="white" opacity="0.55"/>
-
-            <!-- texture lines -->
-            <line x1="305" y1="225" x2="314" y2="234" stroke="#D4956A" stroke-width="0.7" opacity="0.38"/>
-            <line x1="364" y1="223" x2="373" y2="232" stroke="#D4956A" stroke-width="0.7" opacity="0.38"/>
-            <line x1="336" y1="262" x2="344" y2="270" stroke="#D4956A" stroke-width="0.7" opacity="0.38"/>
-          </g>
-
-          <!-- ══════════════════════════════ -->
-          <!-- STAGE 2 — APPLYING CREAM      -->
-          <!-- ══════════════════════════════ -->
-          <g id="s2" opacity="0">
-            <!-- base face (same as s1) -->
-            <rect x="306" y="342" width="68" height="58" rx="20" fill="#F4B896"/>
-            <ellipse cx="265" cy="415" rx="74" ry="32" fill="#FDDBC7" opacity="0.45"/>
-            <ellipse cx="415" cy="415" rx="74" ry="32" fill="#FDDBC7" opacity="0.45"/>
-            <ellipse cx="340" cy="140" rx="118" ry="124" fill="#2C1810"/>
-            <ellipse cx="340" cy="230" rx="112" ry="138" fill="url(#skinGrad)"/>
-            <ellipse cx="226" cy="234" rx="16" ry="22" fill="#EFA882"/>
-            <ellipse cx="454" cy="234" rx="16" ry="22" fill="#EFA882"/>
-            <path d="M228 162 Q260 84 340 80 Q420 84 452 162" fill="#2C1810"/>
-            <path d="M294 180 Q313 173 328 177" stroke="#2C1810" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-            <path d="M352 177 Q367 173 386 180" stroke="#2C1810" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-            <ellipse cx="312" cy="203" rx="18" ry="12" fill="white"/>
-            <ellipse cx="368" cy="203" rx="18" ry="12" fill="white"/>
-            <circle cx="314" cy="204" r="9" fill="#2C1810"/>
-            <circle cx="370" cy="204" r="9" fill="#2C1810"/>
-            <circle cx="317" cy="201" r="3.5" fill="#6B3A1F"/>
-            <circle cx="373" cy="201" r="3.5" fill="#6B3A1F"/>
-            <circle cx="320" cy="199" r="1.8" fill="white"/>
-            <circle cx="376" cy="199" r="1.8" fill="white"/>
-            <path d="M336 215 Q332 236 326 245 Q334 252 354 245 Q348 236 344 215" stroke="#D4956A" stroke-width="1.6" fill="none" stroke-linecap="round"/>
-            <path d="M315 278 Q326 272 340 275 Q354 272 365 278" stroke="#C56B58" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-            <path d="M315 278 Q327 288 340 286 Q353 288 365 278" fill="#E88C7A" opacity="0.85"/>
-            <ellipse cx="286" cy="248" rx="36" ry="22" fill="url(#cheekBlush)"/>
-            <ellipse cx="394" cy="248" rx="36" ry="22" fill="url(#cheekBlush)"/>
-
-            <!-- fading spots (half opacity = mid-treatment) -->
-            <circle cx="316" cy="156" r="6.5" fill="#E89090" opacity="0.45"/>
-            <circle cx="288" cy="238" r="7" fill="#E89090" opacity="0.45"/>
-            <circle cx="382" cy="232" r="5.5" fill="#E89090" opacity="0.45"/>
-            <circle cx="346" cy="308" r="5" fill="#E89090" opacity="0.45"/>
-
-            <!-- cream smears animating across face -->
-            <path class="smear1" d="M262 182 Q304 165 360 172 Q394 178 408 205" stroke="white" stroke-width="16" stroke-linecap="round" fill="none"/>
-            <path class="smear2" d="M268 232 Q308 218 356 230 Q384 238 396 260" stroke="white" stroke-width="12" stroke-linecap="round" fill="none"/>
-            <path class="smear3" d="M300 270 Q326 260 358 272 Q374 278 382 290" stroke="white" stroke-width="9" stroke-linecap="round" fill="none"/>
-
-            <!-- ── HAND ── -->
-            <g class="hand-g">
-              <!-- arm -->
-              <path d="M440 320 Q470 295 490 268 Q500 252 496 240" stroke="#FDDBC7" stroke-width="30" stroke-linecap="round" fill="none"/>
-              <!-- palm -->
-              <ellipse cx="476" cy="238" rx="27" ry="19" fill="#FDDBC7" transform="rotate(-28,476,238)"/>
-              <!-- index finger (applying cream) -->
-              <path d="M462 230 Q454 212 451 197 Q449 187 454 182 Q460 178 464 185 Q468 196 468 214Z" fill="#FDDBC7"/>
-              <!-- middle -->
-              <path d="M478 226 Q474 207 474 192 Q474 182 480 180 Q486 178 487 188 Q488 202 486 222Z" fill="#F4B896"/>
-              <!-- ring -->
-              <path d="M491 232 Q490 217 492 204 Q494 196 499 197 Q504 199 502 210 Q500 224 496 235Z" fill="#F4B896"/>
-              <!-- pinky -->
-              <path d="M500 242 Q502 232 505 224 Q507 218 511 219 Q514 221 512 230 Q509 240 504 246Z" fill="#EFA882"/>
-              <!-- thumb -->
-              <path d="M456 248 Q446 243 442 235 Q438 227 444 223 Q450 220 455 228 Q460 237 460 248Z" fill="#FDDBC7"/>
-              <!-- cream on fingertip -->
-              <ellipse cx="455" cy="185" rx="8" ry="5.5" fill="url(#creamGrad)" opacity="0.96"/>
-              <ellipse cx="455" cy="185" rx="4.5" ry="3" fill="white" opacity="0.72"/>
-              <!-- nail highlight -->
-              <ellipse cx="463" cy="184" rx="3.5" ry="5" fill="#F9D8C8" opacity="0.8"/>
-            </g>
-          </g>
-
-          <!-- ══════════════════════════════════ -->
-          <!-- STAGE 3 — CLEAR GLOWING SKIN      -->
-          <!-- ══════════════════════════════════ -->
-          <g id="s3" opacity="0">
-            <!-- glow aura -->
-            <circle class="glow-ring" cx="340" cy="228" r="145" fill="url(#glowAura)" filter="url(#softBlur)"/>
-
-            <!-- base -->
-            <rect x="306" y="342" width="68" height="58" rx="20" fill="#FDDBC7"/>
-            <ellipse cx="265" cy="415" rx="74" ry="32" fill="#FDDBC7" opacity="0.45"/>
-            <ellipse cx="415" cy="415" rx="74" ry="32" fill="#FDDBC7" opacity="0.45"/>
-            <ellipse cx="340" cy="140" rx="118" ry="124" fill="#2C1810"/>
-            <!-- GLOWING SKIN -->
-            <ellipse cx="340" cy="230" rx="112" ry="138" fill="url(#skinGlow)"/>
-            <!-- highlight sheen -->
-            <ellipse cx="328" cy="200" rx="50" ry="58" fill="#FFFBE6" opacity="0.3"/>
-            <!-- specular highlight -->
-            <ellipse cx="316" cy="188" rx="18" ry="12" fill="white" opacity="0.18"/>
-
-            <ellipse cx="226" cy="234" rx="16" ry="22" fill="#F4C4A4"/>
-            <ellipse cx="454" cy="234" rx="16" ry="22" fill="#F4C4A4"/>
-            <path d="M228 162 Q260 84 340 80 Q420 84 452 162" fill="#2C1810"/>
-            <path d="M294 180 Q313 173 328 177" stroke="#2C1810" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-            <path d="M352 177 Q367 173 386 180" stroke="#2C1810" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-            <ellipse cx="312" cy="203" rx="18" ry="12" fill="white"/>
-            <ellipse cx="368" cy="203" rx="18" ry="12" fill="white"/>
-            <circle cx="314" cy="204" r="9" fill="#2C1810"/>
-            <circle cx="370" cy="204" r="9" fill="#2C1810"/>
-            <circle cx="317" cy="201" r="3.5" fill="#6B3A1F"/>
-            <circle cx="373" cy="201" r="3.5" fill="#6B3A1F"/>
-            <circle cx="320" cy="199" r="1.8" fill="white"/>
-            <circle cx="376" cy="199" r="1.8" fill="white"/>
-            <!-- golden eye shine -->
-            <circle cx="325" cy="198" r="2.2" fill="#FFD700" opacity="0.55"/>
-            <circle cx="377" cy="198" r="2.2" fill="#FFD700" opacity="0.55"/>
-
-            <path d="M336 215 Q332 236 326 245 Q334 252 354 245 Q348 236 344 215" stroke="#D4956A" stroke-width="1.6" fill="none" stroke-linecap="round"/>
-
-            <!-- SMILE -->
-            <path d="M314 278 Q326 272 340 275 Q354 272 366 278" stroke="#C56B58" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-            <path d="M314 278 Q328 292 340 290 Q352 292 366 278" fill="#E88C7A" opacity="0.9"/>
-            <!-- smile dimple hints -->
-            <circle cx="310" cy="280" r="2.5" fill="#E8A090" opacity="0.35"/>
-            <circle cx="370" cy="280" r="2.5" fill="#E8A090" opacity="0.35"/>
-
-            <!-- deeper healthy blush -->
-            <ellipse cx="285" cy="250" rx="40" ry="24" fill="#F4A0A0" opacity="0.32"/>
-            <ellipse cx="395" cy="250" rx="40" ry="24" fill="#F4A0A0" opacity="0.32"/>
-
-            <!-- NO SPOTS — clean skin! -->
-
-            <!-- ── SPARKLES ── -->
-            <g class="sk1" transform-origin="292 174">
-              <line x1="292" y1="167" x2="292" y2="181" stroke="#FFD700" stroke-width="2.2" stroke-linecap="round"/>
-              <line x1="285" y1="174" x2="299" y2="174" stroke="#FFD700" stroke-width="2.2" stroke-linecap="round"/>
-              <line x1="287.5" y1="169.5" x2="296.5" y2="178.5" stroke="#FFD700" stroke-width="1.3" stroke-linecap="round" opacity="0.55"/>
-              <line x1="296.5" y1="169.5" x2="287.5" y2="178.5" stroke="#FFD700" stroke-width="1.3" stroke-linecap="round" opacity="0.55"/>
-            </g>
-
-            <g class="sk2" transform-origin="390 168">
-              <line x1="390" y1="161" x2="390" y2="175" stroke="#FFD700" stroke-width="2.2" stroke-linecap="round"/>
-              <line x1="383" y1="168" x2="397" y2="168" stroke="#FFD700" stroke-width="2.2" stroke-linecap="round"/>
-              <line x1="385.5" y1="163.5" x2="394.5" y2="172.5" stroke="#FFD700" stroke-width="1.3" stroke-linecap="round" opacity="0.55"/>
-              <line x1="394.5" y1="163.5" x2="385.5" y2="172.5" stroke="#FFD700" stroke-width="1.3" stroke-linecap="round" opacity="0.55"/>
-            </g>
-
-            <g class="sk3" transform-origin="258 225">
-              <line x1="258" y1="218" x2="258" y2="232" stroke="#0D7377" stroke-width="2" stroke-linecap="round"/>
-              <line x1="251" y1="225" x2="265" y2="225" stroke="#0D7377" stroke-width="2" stroke-linecap="round"/>
-            </g>
-
-            <g class="sk4" transform-origin="422 215">
-              <line x1="422" y1="208" x2="422" y2="222" stroke="#0D7377" stroke-width="2" stroke-linecap="round"/>
-              <line x1="415" y1="215" x2="429" y2="215" stroke="#0D7377" stroke-width="2" stroke-linecap="round"/>
-            </g>
-
-            <g class="sk5" transform-origin="340 126">
-              <line x1="340" y1="119" x2="340" y2="133" stroke="#FFD700" stroke-width="2.2" stroke-linecap="round"/>
-              <line x1="333" y1="126" x2="347" y2="126" stroke="#FFD700" stroke-width="2.2" stroke-linecap="round"/>
-              <line x1="335.5" y1="121.5" x2="344.5" y2="130.5" stroke="#FFD700" stroke-width="1.3" stroke-linecap="round" opacity="0.55"/>
-              <line x1="344.5" y1="121.5" x2="335.5" y2="130.5" stroke="#FFD700" stroke-width="1.3" stroke-linecap="round" opacity="0.55"/>
-            </g>
-          </g>
-
-          <!-- ══════════════════ -->
-          <!-- UI: LABELS + DOTS -->
-          <!-- ══════════════════ -->
-          <!-- pill bg -->
-          <rect x="228" y="448" width="224" height="40" rx="20" fill="#1a1a1a" opacity="0.07"/>
-
-          <!-- stage labels -->
-          <text class="lb1" x="340" y="473" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="12" font-weight="600" letter-spacing="1.8" fill="#C0392B" opacity="1">ACNE &amp; BREAKOUTS</text>
-          <text class="lb2" x="340" y="473" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="12" font-weight="600" letter-spacing="1.8" fill="#0D7377" opacity="0">APPLYING TREATMENT</text>
-          <text class="lb3" x="340" y="473" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="12" font-weight="600" letter-spacing="1.8" fill="#27ae60" opacity="0">CLEAR GLOWING SKIN</text>
-
-          <!-- progress dots -->
-          <circle class="d1" cx="314" cy="497" r="6" fill="#C0392B"/>
-          <circle class="d2" cx="340" cy="497" r="4" fill="#C0392B" opacity="0.28"/>
-          <circle class="d3" cx="366" cy="497" r="4" fill="#C0392B" opacity="0.28"/>
-          <line x1="321" y1="497" x2="335" y2="497" stroke="#C0392B" stroke-width="1" opacity="0.2"/>
-          <line x1="345" y1="497" x2="359" y2="497" stroke="#C0392B" stroke-width="1" opacity="0.2"/>
-
-        </svg>
-
-        <!-- Ingredient Bubbles -->
-        <div class="bubble bubble-1">Hyaluronic</div>
-        <div class="bubble bubble-2">Niacinamide</div>
-        <div class="bubble bubble-3">Retinol</div>
-
+      <div class="doctor-img-wrap">
+        <!-- Replace doctor.png with your actual image file in the same folder -->
+        <img
+          src="doctor.png"
+          alt="Dr. Meera Sharma — Dermatologist"
+          class="doctor-photo"
+        />
       </div>
+
+      <!-- Ingredient Bubbles -->
+      <div class="bubble bubble-1">Hyaluronic</div>
+      <div class="bubble bubble-2">Niacinamide</div>
+      <div class="bubble bubble-3">Retinol</div>
 
       <!-- Floating: Top Dermatologist -->
       <div class="float-card card-top-derma">
@@ -1577,10 +1206,10 @@
       .from(".card-top-derma", { opacity: 0, y: 20, scale: 0.92, duration: 0.55 }, "-=0.45")
       .from(".card-treatments", { opacity: 0, y: 20, scale: 0.92, duration: 0.55 }, "-=0.35")
       .from(".card-next-slot", { opacity: 0, y: 20, scale: 0.92, duration: 0.55 }, "-=0.3")
-      .from(".face-anim-wrap", { opacity: 0, scale: 0.94, duration: 0.9 }, "-=0.9");
+      .from(".doctor-img-wrap", { opacity: 0, scale: 0.94, duration: 0.9 }, "-=0.9");
 
     gsap.to(heroLeft, { y: -70, ease: "none", scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: 1 } });
-    gsap.to(".face-anim-wrap", { scale: 1.05, y: -18, ease: "none", scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: 1.2 } });
+    gsap.to(".doctor-img-wrap", { scale: 1.03, y: -18, ease: "none", scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: 1.2 } });
     gsap.to(".card-top-derma", { y: -35, ease: "none", scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: 1 } });
     gsap.to(".card-treatments", { y: -20, ease: "none", scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: 1 } });
     gsap.to(".card-next-slot", { y: -28, ease: "none", scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: 1 } });

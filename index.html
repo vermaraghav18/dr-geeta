@@ -529,12 +529,34 @@
   <div class="hero-motion-layer">
 
     <div class="doctor-photo-wrapper">
-      <!-- Replace this placeholder with actual doctor photo -->
-      <div class="photo-placeholder">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg>
-        <span>Doctor photo goes here</span>
-      </div>
-    </div>
+
+  <!-- FACE SVG -->
+  <div class="face-container">
+
+    <svg viewBox="0 0 300 400" class="face-svg">
+      <!-- Face outline -->
+      <path d="M150 40 C100 40 60 100 60 180 C60 260 110 320 150 340 C190 320 240 260 240 180 C240 100 200 40 150 40"
+        stroke="#c97b7b" stroke-width="2" fill="none"/>
+
+      <!-- Acne dots -->
+      <circle class="acne" cx="140" cy="140" r="4"/>
+      <circle class="acne" cx="160" cy="160" r="3"/>
+      <circle class="acne" cx="130" cy="180" r="4"/>
+      <circle class="acne" cx="170" cy="190" r="3"/>
+      <circle class="acne" cx="150" cy="210" r="5"/>
+    </svg>
+
+    <!-- GLOW LINE (before/after split) -->
+    <div class="face-glow-line"></div>
+
+    <!-- INGREDIENT BUBBLES -->
+    <div class="bubble bubble-1">Hyaluronic</div>
+    <div class="bubble bubble-2">Niacinamide</div>
+    <div class="bubble bubble-3">Retinol</div>
+
+  </div>
+
+</div>
 
     <!-- Floating: Top Dermatologist -->
     <div class="float-card card-top-derma">
@@ -598,6 +620,90 @@
 </div>
 
 <style>
+
+  /* FACE SYSTEM */
+.face-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.face-svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ACNE DOTS */
+.acne {
+  fill: #e84c6a;
+  opacity: 1;
+  animation: acne-fade 4s infinite ease-in-out;
+}
+
+@keyframes acne-fade {
+  0% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0; transform: scale(0.3); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* GLOW LINE */
+.face-glow-line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, #ffccd5, transparent);
+  animation: glow-move 3s infinite;
+}
+
+@keyframes glow-move {
+  0% { opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { opacity: 0.2; }
+}
+
+/* BUBBLES */
+.bubble {
+  position: absolute;
+  padding: 10px 16px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(255,255,255,0.2);
+  animation: float 6s infinite ease-in-out;
+}
+
+/* INDIVIDUAL POSITIONS */
+.bubble-1 {
+  top: 20%;
+  right: 10%;
+  background: rgba(255,100,100,0.6);
+}
+
+.bubble-2 {
+  top: 50%;
+  right: 5%;
+  background: rgba(100,150,255,0.6);
+  animation-delay: 1s;
+}
+
+.bubble-3 {
+  bottom: 15%;
+  right: 20%;
+  background: rgba(180,100,255,0.6);
+  animation-delay: 2s;
+}
+
+/* FLOAT ANIMATION */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
+}
+
   .marquee-strip {
     background: #1a1a1a;
     overflow: hidden;

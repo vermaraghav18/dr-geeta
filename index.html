@@ -36,7 +36,7 @@
   .navbar {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+   justify-content: flex-end;
     padding: 16px 48px;
     background: var(--white);
     position: sticky;
@@ -128,7 +128,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 60px 48px 60px 80px;
+   padding: 20px 48px 60px 80px;
     position: relative;
     z-index: 2;
     max-width: 600px;
@@ -271,21 +271,21 @@
   .hero-right {
     position: relative;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
     overflow: hidden;
     will-change: transform, opacity;
     padding: 0 20px 0 20px;
   }
 
-  .hero-motion-layer {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-  }
+.hero-motion-layer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
   /* ── DOCTOR IMAGE CONTAINER ── */
   .doctor-img-wrap {
@@ -328,6 +328,7 @@
   }
 
   .doctor-photo {
+    transform: translateY(-40px);
     position: relative;
     z-index: 1;
     width: 100%;
@@ -423,13 +424,7 @@
 
 <!-- ── NAVBAR ── -->
 <nav class="navbar">
-  <div class="nav-brand">
-    <div class="nav-logo">M</div>
-    <div class="nav-brand-text">
-      <h1>Dr. Meera Sharma</h1>
-      <span>Dermatologist & Hair Specialist</span>
-    </div>
-  </div>
+
   <ul class="nav-links">
     <li><a href="#">Treatments</a></li>
     <li><a href="#">Conditions</a></li>

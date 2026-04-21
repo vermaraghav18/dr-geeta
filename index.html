@@ -273,14 +273,16 @@
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    overflow: hidden;
+    overflow: visible;
     will-change: transform, opacity;
-    padding: 0 20px 0 20px;
+    padding: 0;
+    min-height: 600px;
   }
 
   .hero-motion-layer {
     width: 100%;
     height: 100%;
+    min-height: 600px;
     position: relative;
     display: flex;
     align-items: flex-end;
@@ -291,15 +293,30 @@
   .doctor-img-wrap {
     position: relative;
     width: 100%;
-    max-width: 500px;
+    height: 100%;
+    min-height: 600px;
     display: flex;
     align-items: flex-end;
     justify-content: center;
     z-index: 2;
   }
 
-  /* Decorative background shape behind doctor */
+  /* Decorative blush arch behind doctor */
   .doctor-img-wrap::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 85%;
+    background: linear-gradient(160deg, var(--blush) 0%, var(--blush-deep) 100%);
+    border-radius: 50% 50% 0 0 / 38% 38% 0 0;
+    z-index: 0;
+  }
+
+  /* Subtle outer ring */
+  .doctor-img-wrap::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -307,35 +324,24 @@
     transform: translateX(-50%);
     width: 88%;
     height: 90%;
-    background: linear-gradient(160deg, var(--blush) 0%, var(--blush-deep) 100%);
-    border-radius: 50% 50% 0 0 / 40% 40% 0 0;
-    z-index: 0;
-  }
-
-  /* Subtle outer glow ring */
-  .doctor-img-wrap::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 96%;
-    height: 94%;
-    border-radius: 50% 50% 0 0 / 40% 40% 0 0;
+    border-radius: 50% 50% 0 0 / 38% 38% 0 0;
     background: transparent;
-    border: 2px solid rgba(192, 57, 43, 0.12);
+    border: 2px solid rgba(192, 57, 43, 0.10);
     z-index: 0;
   }
 
   .doctor-photo {
     position: relative;
     z-index: 1;
-    width: 100%;
+    width: auto;
+    height: 100%;
+    min-height: 600px;
     max-height: calc(100vh - 80px);
+    max-width: 100%;
     object-fit: contain;
     object-position: bottom center;
     display: block;
-    filter: drop-shadow(0 24px 48px rgba(192, 57, 43, 0.18));
+    filter: drop-shadow(0 20px 40px rgba(192, 57, 43, 0.15));
   }
 
   /* Ingredient Bubbles */
@@ -399,7 +405,7 @@
   @media (max-width: 1024px) {
     .hero { grid-template-columns: 1fr; min-height: auto; }
     .hero-left { padding: 48px 32px; order: 1; max-width: 100%; }
-    .hero-right { order: 2; min-height: 520px; }
+    .hero-right, .hero-motion-layer, .doctor-img-wrap, .doctor-photo { min-height: 520px; }
     .navbar { padding: 14px 24px; }
     .nav-links { display: none; }
   }
@@ -410,7 +416,7 @@
     .hero-subtext { font-size: 15px; }
     .cta-row { flex-direction: column; align-items: stretch; }
     .cta-book, .cta-whatsapp { justify-content: center; }
-    .hero-right { min-height: 420px; }
+    .hero-right, .hero-motion-layer, .doctor-img-wrap, .doctor-photo { min-height: 400px; }
     .card-top-derma { top: 8%; right: 8px; }
     .card-treatments { top: 38%; right: 4px; }
     .bubble-1 { right: 1%; }
